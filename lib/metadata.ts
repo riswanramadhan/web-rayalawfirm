@@ -55,7 +55,7 @@ export function generatePageMetadata({
     description,
     metadataBase: new URL(siteConfig.url),
     alternates: { canonical: pageUrl },
-    keywords: siteConfig.keywords,
+    keywords: [...siteConfig.keywords],
     openGraph: {
       type: 'website',
       locale: 'id_ID',

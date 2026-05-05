@@ -1,7 +1,7 @@
 import Link from 'next/link';
 import { services } from '../../lib/data/services';
 
-const serviceIcons: Record<string, JSX.Element> = {
+const serviceIcons: Record<string, React.ReactNode> = {
   pidana: (
     <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
       <path
