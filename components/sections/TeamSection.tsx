@@ -43,7 +43,7 @@ export default function TeamSection() {
                 <p className="mb-3 text-sm font-medium text-primary">
                   {lawyer.position}
                 </p>
-                <span className="mb-4 inline-block w-fit rounded-full bg-primary/8 px-3 py-1 text-xs font-semibold text-primary">
+                <span className="mb-4 inline-block w-fit rounded-full bg-primary/8 py-1 text-xs font-semibold text-primary">
                   {lawyer.specialization}
                 </span>
                 <p className="mb-4 text-xs text-dark/50">{lawyer.experience} pengalaman</p>
