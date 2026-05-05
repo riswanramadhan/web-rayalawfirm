@@ -91,10 +91,10 @@ Terakhir diperbarui: Januari 2025`,
 export default function KebijakanPrivasiPage() {
   return (
     <main className="flex flex-col">
-      <section className="relative overflow-hidden bg-navy py-16 lg:py-20">
+      <section className="relative overflow-hidden bg-navy py-16 lg:pt-28 lg:pb-20">
         <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/85 to-primary/30" />
-        <div className="relative mx-auto w-full max-w-7xl px-6 text-center lg:px-16">
-          <div className="mx-auto max-w-2xl" data-aos="fade-up">
+        <div className="relative mx-auto w-full max-w-7xl px-6 lg:px-16">
+          <div className="max-w-2xl" data-aos="fade-up">
             <Breadcrumb
               items={[{ label: 'Beranda', href: '/' }, { label: 'Kebijakan Privasi' }]}
             />
@@ -110,7 +110,7 @@ export default function KebijakanPrivasiPage() {
       </section>
 
       <section className="bg-offwhite py-16 lg:py-20">
-        <div className="mx-auto w-full max-w-4xl px-6 lg:px-16">
+        <div className="mx-auto w-full max-w-7xl px-6 lg:px-16">
           <div className="rounded-2xl bg-white p-8 shadow-sm lg:p-12">
             <div className="space-y-8">
               {sections.map((section) => (
