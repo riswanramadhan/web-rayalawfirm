@@ -62,7 +62,7 @@ export default function TestimoniClient() {
               <p className="mt-4 font-sans text-6xl text-primary/20">“</p>
               <p className="-mt-6 flex-grow text-sm text-dark/70">{testimonial.text}</p>
               <div className="mt-6 space-y-3 justify-between gap-3">
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 pb-3">
                   <Image
                     src={testimonial.photo}
                     alt={testimonial.name}
