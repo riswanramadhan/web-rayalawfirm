@@ -88,10 +88,10 @@ export default function ServicesSection() {
               <h3 className="mb-3 font-sans text-xl font-semibold text-dark">
                 {service.title}
               </h3>
-              <p className="mb-5 flex-grow font-body text-sm leading-relaxed text-dark/60">
+              <p className="mb-5 font-body text-sm leading-relaxed text-dark/60">
                 {service.shortDesc}
               </p>
-              <ul className="mb-6 space-y-2">
+              <ul className="mb-6 flex-grow space-y-2">
                 {service.highlights.slice(0, 3).map((item) => (
                   <li key={item} className="flex items-center gap-2 text-sm text-dark/70">
                     <svg
