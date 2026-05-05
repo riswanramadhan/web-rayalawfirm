@@ -27,7 +27,6 @@ export default function HeroSection() {
 
       <div className="absolute right-20 top-20 hidden h-96 w-96 rounded-full border border-primary/20 opacity-30 lg:block" />
       <div className="absolute right-32 top-32 hidden h-64 w-64 rounded-full border border-accent/20 opacity-40 lg:block" />
-      <div className="absolute bottom-20 left-1/2 h-32 w-px bg-gradient-to-b from-transparent to-primary/60" />
 
       <div className="relative z-10 mx-auto flex h-full w-full max-w-7xl flex-col justify-center px-6 pt-24 lg:px-16">
         <div className="max-w-4xl">
@@ -109,8 +108,6 @@ export default function HeroSection() {
           </motion.div>
         </div>
       </div>
-
-      <div className="absolute bottom-8 left-1/2 h-10 w-px -translate-x-1/2 bg-gradient-to-b from-primary/60 to-transparent" />
     </section>
   );
 }
