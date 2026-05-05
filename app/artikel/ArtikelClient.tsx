@@ -155,7 +155,7 @@ export default function ArtikelClient() {
                       className="object-cover"
                       sizes="(max-width: 1024px) 100vw, 320px"
                     />
-                    <span className="absolute left-4 top-4 rounded-full bg-primary/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white">
+                    <span className="absolute left-4 top-4 rounded-full bg-primary/80 px-3 py-1 text-[0.625rem] font-semibold uppercase tracking-[0.2em] text-white">
                       {article.category}
                     </span>
                   </div>
