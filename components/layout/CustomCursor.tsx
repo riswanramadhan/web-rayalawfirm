@@ -63,16 +63,20 @@ export default function CustomCursor() {
           x: dotX,
           y: dotY,
           scale: dotScale,
+          translateX: '-50%',
+          translateY: '-50%',
         }}
-        className="fixed h-3 w-3 -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary"
+        className="fixed h-3 w-3 rounded-full bg-primary"
       />
       <motion.div
         style={{
           x: ringX,
           y: ringY,
           scale: ringScale,
+          translateX: '-50%',
+          translateY: '-50%',
         }}
-        className="fixed h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-primary/60"
+        className="fixed h-8 w-8 rounded-full border-2 border-primary/60"
       />
     </div>
   );
