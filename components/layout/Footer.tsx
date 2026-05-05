@@ -10,45 +10,6 @@ const companyLinks = [
   { label: 'Kontak', href: '/kontak' },
 ];
 
-const socialLinks = [
-  {
-    label: 'LinkedIn',
-    href: 'https://linkedin.com',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
-        <path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 8.98h4v12H3v-12zM9.5 8.98h3.8v1.64h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.09v6.33h-4v-5.61c0-1.34-.02-3.07-1.87-3.07-1.88 0-2.17 1.46-2.17 2.97v5.71h-4v-12z" />
-      </svg>
-    ),
-  },
-  {
-    label: 'Instagram',
-    href: 'https://instagram.com',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
-        <path d="M7 3h10a4 4 0 014 4v10a4 4 0 01-4 4H7a4 4 0 01-4-4V7a4 4 0 014-4zm10 2H7a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2zm-5 3.5A4.5 4.5 0 1112 17a4.5 4.5 0 010-9zm0 2A2.5 2.5 0 1014.5 13 2.5 2.5 0 0012 10.5zm4.75-3.25a1 1 0 11-1 1 1 1 0 011-1z" />
-      </svg>
-    ),
-  },
-  {
-    label: 'Facebook',
-    href: 'https://facebook.com',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
-        <path d="M13.5 9.5V7.8c0-.7.45-1.05 1.1-1.05H16V4h-2.1c-2.2 0-3.4 1.4-3.4 3.5v2H8.5V12h2v8h3v-8h2.2l.3-2.5h-2.5z" />
-      </svg>
-    ),
-  },
-  {
-    label: 'Twitter',
-    href: 'https://twitter.com',
-    icon: (
-      <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
-        <path d="M19.9 7.37c.01.17.01.34.01.51 0 5.2-3.96 11.2-11.2 11.2-2.22 0-4.28-.65-6.02-1.77.31.04.61.05.93.05 1.84 0 3.53-.62 4.87-1.67a3.95 3.95 0 01-3.69-2.73c.25.04.5.06.76.06.36 0 .71-.05 1.04-.14a3.95 3.95 0 01-3.16-3.87v-.05c.54.3 1.16.48 1.82.5a3.95 3.95 0 01-1.22-5.27 11.2 11.2 0 008.12 4.12 4.46 4.46 0 01-.1-.9 3.95 3.95 0 016.83-2.7 7.78 7.78 0 002.5-.95 3.94 3.94 0 01-1.73 2.18 7.89 7.89 0 002.27-.62 8.54 8.54 0 01-1.97 2.05z" />
-      </svg>
-    ),
-  },
-];
-
 const contactItems = [
   {
     label: 'Alamat',
@@ -107,18 +68,21 @@ export default function Footer() {
               korporasi di Indonesia.
             </p>
             <div className="flex items-center gap-3">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.label}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-white/70 transition-colors hover:border-white/50 hover:text-white"
-                  aria-label={social.label}
-                >
-                  {social.icon}
-                </a>
-              ))}
+              <a
+                href="https://www.instagram.com/rayalawfirm.id"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-2 text-white/70 transition-colors hover:text-white"
+                aria-label="Instagram"
+              >
+                <div className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 transition-colors group-hover:border-white/50">
+                  <svg viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
+                    <path d="M7 3h10a4 4 0 014 4v10a4 4 0 01-4 4H7a4 4 0 01-4-4V7a4 4 0 014-4zm10 2H7a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2zm-5 3.5A4.5 4.5 0 1112 17a4.5 4.5 0 010-9zm0 2A2.5 2.5 0 1014.5 13 2.5 2.5 0 0012 10.5zm4.75-3.25a1 1 0 11-1 1 1 1 0 011-1z" />
+                  </svg>
+                </div>
+                
+                <span className="text-sm font-medium">@rayalawfirm.id</span>
+              </a>
             </div>
           </div>
 
