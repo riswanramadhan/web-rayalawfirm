@@ -44,8 +44,8 @@ const steps = [
 
 export default function KonsultasiPage() {
   return (
-    <main className="bg-offwhite">
-      <section className="pt-24 pb-16 lg:pt-28 lg:pb-20">
+    <main className="bg-navy">
+      <section className="pt-24 pb-16 lg:pt-20 lg:pb-20">
         <div className="grid lg:grid-cols-[1fr_1.25fr]">
           <div className="relative overflow-hidden bg-navy px-6 py-16 lg:px-16">
             <div className="absolute -right-20 top-10 h-48 w-48 rounded-full border border-primary/10" />
