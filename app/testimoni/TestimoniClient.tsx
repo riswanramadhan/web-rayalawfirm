@@ -44,7 +44,7 @@ export default function TestimoniClient() {
               key={testimonial.id}
               data-aos="fade-up"
               data-aos-delay={index * 100}
-              className="rounded-2xl border border-primary/10 bg-white p-8 shadow-sm"
+              className="flex flex-col rounded-2xl border border-primary/10 bg-white p-8 shadow-sm"
             >
               <div className="flex items-center gap-1 text-gold">
                 {Array.from({ length: testimonial.rating }, (_, idx) => (
@@ -60,8 +60,8 @@ export default function TestimoniClient() {
                 ))}
               </div>
               <p className="mt-4 font-sans text-6xl text-primary/20">“</p>
-              <p className="-mt-6 text-sm text-dark/70">{testimonial.text}</p>
-              <div className="mt-6 flex items-center justify-between gap-3">
+              <p className="-mt-6 flex-grow text-sm text-dark/70">{testimonial.text}</p>
+              <div className="mt-6 space-y-3 justify-between gap-3">
                 <div className="flex items-center gap-3">
                   <Image
                     src={testimonial.photo}
