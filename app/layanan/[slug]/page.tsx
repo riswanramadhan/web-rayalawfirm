@@ -173,7 +173,7 @@ export default function LayananDetailPage({ params }: PageProps) {
               <h3 className="text-lg font-semibold text-dark">
                 Mengapa Memilih Kami
               </h3>
-              <ul className="mt-4 space-y-3 text-sm text-dark/70">
+              <ul className="mt-4 space-y-3 pl-5 list-disc text-sm text-dark/70">
                 <li>Analisis kasus mendalam dan strategi terukur.</li>
                 <li>Tim advokat berpengalaman lintas bidang.</li>
                 <li>Komunikasi transparan dan respons cepat.</li>
