@@ -17,7 +17,7 @@ export function generateMetadata(): Metadata {
 export default function TimPage() {
   return (
     <main className="flex flex-col">
-      <section className="relative overflow-hidden bg-navy lg:pt-28 lg:pb-20">
+      <section className="relative overflow-hidden bg-navy py-16 lg:pt-28 lg:pb-20">
         <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/85 to-primary/30" />
         <div className="relative mx-auto w-full max-w-7xl px-6 lg:px-16">
           <div className="max-w-2xl" data-aos="fade-up">
@@ -70,7 +70,7 @@ export default function TimPage() {
                   <p className="mb-3 text-sm font-medium text-primary">
                     {lawyer.position}
                   </p>
-                  <span className="mb-4 inline-block w-fit rounded-full bg-primary/8 px-3 py-1 text-xs font-semibold text-primary">
+                  <span className="mb-4 inline-block w-fit rounded-full bg-primary/8 py-1 text-xs font-semibold text-primary">
                     {lawyer.specialization}
                   </span>
                   <p className="mb-4 text-xs text-dark/50">{lawyer.experience} pengalaman</p>
