@@ -14,17 +14,16 @@ export default function ProfileSection() {
       <div className="absolute -left-20 -top-20 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
 
       <div className="relative mx-auto grid w-full max-w-7xl items-center gap-12 px-6 sm:gap-16 lg:grid-cols-2 lg:px-16">
-        <div data-aos="fade-right" data-aos-delay="100" className="relative max-w-md mx-auto">
+        <div data-aos="fade-right" data-aos-delay="100" className="relative max-w-md mx-auto w-full">
             <div className="absolute max-w-lg mx-auto -inset-4 rounded-3xl border border-primary/30" />
             <div className="relative overflow-hidden rounded-3xl border border-primary/20 shadow-2xl shadow-primary/20">
               <Image
-                // src="/images/coba.png"
-                src="/images/office.jpg"
+                src="/images/tentang-kami.jpg"
                 alt="Raya Law Firm Office"
-                width={520}
-                height={640}
-                className="h-full w-full object-cover"
-                sizes="(max-width: 1024px) 100vw, 520px"
+                width={600}
+                height={800} // Disarankan menyesuaikan rasio height dengan aspect ratio 3/4
+                className="aspect-[3/4] w-full h-full object-cover" // Ditambahkan h-full dan object-cover
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 520px" // Diperbaiki agar lebih adaptif di tablet/desktop
               />
             </div>
           <div className="absolute -bottom-6 -right-4 rounded-2xl border border-primary/20 bg-white/90 p-5 shadow-xl shadow-primary/10 backdrop-blur-sm">

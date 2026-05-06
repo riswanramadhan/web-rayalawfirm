@@ -24,7 +24,7 @@ export const articles: Article[] = [
     author: 'Admin Raya Law Firm',
     date: '2024-01-15',
     readTime: '7 menit',
-    image: '/images/articles/perjanjian.jpg',
+    image: '/images/articles/artikel-hukum-perdata.jpg',
     tags: ['perjanjian', 'kontrak', 'hukum perdata'],
     content: `## Mengapa Perjanjian Harus Tertulis
 Perjanjian tertulis adalah alat utama untuk menjaga kepastian hak dan kewajiban. Dalam praktik bisnis maupun personal, kesepakatan lisan sering menimbulkan tafsir berbeda ketika terjadi sengketa. Dokumen tertulis memberikan bukti konkret tentang apa yang disepakati, kapan berlaku, dan bagaimana pelaksanaannya. Dengan demikian, perjanjian tertulis bukan sekadar formalitas, tetapi mekanisme perlindungan yang menekan risiko konflik di kemudian hari.
@@ -59,7 +59,7 @@ Perjanjian yang kuat adalah investasi perlindungan. Dengan penyusunan yang tepat
     author: 'Admin Raya Law Firm',
     date: '2024-02-08',
     readTime: '8 menit',
-    image: '/images/articles/phk.jpg',
+    image: '/images/articles/artikel-ketenagakerjaan.jpg',
     tags: ['phk', 'ketenagakerjaan', 'hak pekerja'],
     content: `## Dasar Hukum PHK dan Hak Minimum
 Pemutusan hubungan kerja adalah langkah terakhir yang idealnya ditempuh setelah upaya pencegahan dilakukan. Regulasi ketenagakerjaan di Indonesia mengatur bahwa PHK wajib disertai alasan yang jelas, prosedur yang tepat, serta pemenuhan hak pekerja. Peraturan Pemerintah Nomor 35 Tahun 2021 menjadi rujukan penting terkait alasan PHK, mekanisme perundingan, dan formula perhitungan kompensasi.
@@ -97,7 +97,7 @@ PHK bukan hanya persoalan administratif, tetapi menyangkut hak yang dilindungi o
     author: 'Admin Raya Law Firm',
     date: '2024-03-12',
     readTime: '8 menit',
-    image: '/images/articles/sengketa-tanah.jpg',
+    image: '/images/articles/artikel-hukum-properti.jpg',
     tags: ['pertanahan', 'sertifikat ganda', 'properti'],
     content: `## Penyebab Umum Sertifikat Ganda
 Sertifikat ganda terjadi ketika satu bidang tanah memiliki lebih dari satu sertifikat yang diterbitkan pada waktu berbeda. Kondisi ini umumnya muncul karena data peta bidang yang belum sinkron, perubahan batas alam, atau riwayat peralihan hak yang tidak tercatat dengan rapi. Akibatnya, dua pihak sama-sama merasa memiliki hak yang sah.
@@ -135,7 +135,7 @@ Sengketa tanah memerlukan ketelitian serta strategi yang tepat sejak awal. Verif
     author: 'Admin Raya Law Firm',
     date: '2024-04-03',
     readTime: '9 menit',
-    image: '/images/articles/pidana-digital.jpg',
+    image: '/images/articles/artikel-hukum-pidana.jpg',
     tags: ['pidana digital', 'keamanan data', 'kepatuhan'],
     content: `## Apa yang Dimaksud Pidana Digital
 Pidana digital merujuk pada tindak pidana yang melibatkan teknologi informasi, sistem elektronik, atau data digital. Bentuknya beragam, mulai dari akses tanpa izin, penyebaran data pribadi, sampai penipuan berbasis platform online. Perkembangan teknologi membuat modus operandi semakin canggih sehingga risiko tidak hanya muncul pada pelaku, tetapi juga pada pihak yang lalai menjaga sistem.
@@ -170,7 +170,7 @@ Risiko pidana digital dapat diminimalkan melalui kepatuhan, edukasi, dan kesiapa
     author: 'Admin Raya Law Firm',
     date: '2024-04-20',
     readTime: '8 menit',
-    image: '/images/articles/perceraian.jpg',
+    image: '/images/articles/artikel-hukum-keluarga.jpg',
     tags: ['perceraian', 'hak asuh', 'hukum keluarga'],
     content: `## Pilihan Jalur Hukum
 Di Indonesia, perceraian hanya dapat diputus melalui pengadilan. Pasangan beragama Islam mengajukan perkara di Pengadilan Agama, sementara pasangan non-Islam di Pengadilan Negeri. Pengadilan akan menilai alasan perceraian, proses mediasi, dan bukti yang diajukan sebelum memutus perkara.
@@ -210,7 +210,7 @@ Perceraian adalah proses hukum yang memerlukan ketenangan dan strategi yang jela
     author: 'Admin Raya Law Firm',
     date: '2024-05-01',
     readTime: '9 menit',
-    image: '/images/articles/due-diligence.jpg',
+    image: '/images/articles/artikel-hukum-bisnis.jpg',
     tags: ['due diligence', 'akuisisi', 'hukum bisnis'],
     content: `## Tujuan Due Diligence Hukum
 Due diligence hukum adalah proses menilai kondisi legal suatu perusahaan sebelum transaksi akuisisi atau investasi. Tujuannya bukan hanya memeriksa kelengkapan dokumen, tetapi juga mengidentifikasi risiko tersembunyi yang dapat memengaruhi valuasi dan struktur transaksi. Dengan due diligence, pihak pembeli dapat mengambil keputusan yang lebih tepat dan menegosiasikan perlindungan yang memadai.

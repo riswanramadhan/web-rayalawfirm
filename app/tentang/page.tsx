@@ -182,15 +182,15 @@ export default function TentangPage() {
 
       <section className="bg-offwhite py-16 lg:py-20">
         <div className="mx-auto grid w-full max-w-7xl items-center gap-12 px-6 lg:grid-cols-2 lg:px-16">
-          <div data-aos="fade-right" className="relative">
+          <div data-aos="fade-right" className="relative w-full mx-auto max-w-[240px] sm:max-w-[320px] lg:max-w-[400px]">
             <div className="absolute -inset-4 rounded-3xl border border-primary/30" />
             <div className="relative overflow-hidden rounded-3xl border border-primary/20 shadow-2xl shadow-primary/10">
               <Image
-                src="/images/office-team.jpg"
+                src="/images/tentang-kami.jpg"
                 alt="Tim Raya Law Firm"
-                width={560}
-                height={640}
-                className="h-full w-full object-cover"
+                width={600}
+                height={600}
+                className="w-full aspect-[4/5] object-cover"
                 sizes="(max-width: 1024px) 100vw, 560px"
               />
             </div>

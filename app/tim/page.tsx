@@ -46,7 +46,7 @@ export default function TimPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 md:grid-cols-3 xl:grid-cols-4">
             {lawyers.map((lawyer, index) => (
               <div
                 key={lawyer.slug}
@@ -54,13 +54,13 @@ export default function TimPage() {
                 data-aos-delay={index * 100}
                 className="group flex flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:shadow-primary/10"
               >
-                <div className="relative h-64 overflow-hidden bg-gray-100">
+                <div className="relative aspect-[3/4] w-full overflow-hidden bg-gray-100">
                   <Image
                     src={lawyer.image}
                     alt={lawyer.name}
                     fill
                     className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
-                    sizes="(max-width: 1024px) 100vw, 320px"
+                    sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
                   />
                 </div>
                 <div className="flex flex-grow flex-col p-6">
