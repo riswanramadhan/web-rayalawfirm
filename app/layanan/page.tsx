@@ -16,7 +16,7 @@ export function generateMetadata(): Metadata {
 export default function LayananPage() {
   return (
     <main className="flex flex-col">
-      <section className="relative overflow-hidden bg-navy lg:pt-28 lg:pb-20">
+      <section className="relative overflow-hidden bg-navy pt-24 pb-16 lg:pt-28 lg:pb-20">
         <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/85 to-primary/30" />
         <div className="relative mx-auto w-full max-w-7xl px-6 lg:px-16">
           <div className="max-w-2xl" data-aos="fade-up">

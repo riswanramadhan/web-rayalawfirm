@@ -12,7 +12,7 @@ const fadeUp = (delay: number) => ({
 
 export default function HeroSection() {
   return (
-    <section className="relative h-screen min-h-[700px] max-h-screen overflow-hidden bg-navy">
+    <section className="relative  min-h-[700px] overflow-hidden bg-navy">
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/hero-bg.jpg"
@@ -28,7 +28,7 @@ export default function HeroSection() {
       <div className="absolute right-20 top-20 hidden h-96 w-96 rounded-full border border-primary/20 opacity-30 lg:block" />
       <div className="absolute right-32 top-32 hidden h-64 w-64 rounded-full border border-accent/20 opacity-40 lg:block" />
 
-      <div className="relative z-10 mx-auto flex h-full w-full max-w-7xl flex-col justify-center px-6 pt-24 lg:px-16">
+      <div className="relative z-10 mx-auto flex h-full w-full max-w-7xl flex-col md:justify-center px-6 pt-24 lg:px-16">
         <div className="max-w-4xl">
           <motion.div
             {...fadeUp(0.1)}

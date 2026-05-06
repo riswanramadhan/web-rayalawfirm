@@ -157,7 +157,7 @@ export default function ArtikelDetailPage({ params }: PageProps) {
 
   return (
     <main className="flex flex-col">
-      <section className="relative overflow-hidden bg-navy">
+      <section className="relative overflow-hidden bg-navy py-14 sm:py-0">
         <div className="relative h-[520px]">
           <Image
             src={article.image}

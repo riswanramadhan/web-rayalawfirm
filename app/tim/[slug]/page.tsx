@@ -90,7 +90,7 @@ export default function LawyerDetailPage({ params }: PageProps) {
 
   return (
     <main className="flex flex-col">
-      <section className="relative overflow-hidden bg-navy py-16 lg:py-20">
+      <section className="relative overflow-hidden bg-navy pt-24 pb-16 lg:pt-28 lg:pb-20">
         <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/85 to-primary/30" />
         <div className="relative mx-auto grid w-full max-w-7xl items-center gap-10 px-6 lg:grid-cols-[1.2fr_1fr] lg:px-16">
           <div data-aos="fade-right">
