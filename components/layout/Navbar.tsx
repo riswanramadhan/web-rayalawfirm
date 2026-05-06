@@ -168,6 +168,10 @@ export default function Navbar() {
   const activeText = 'text-primary';
   const headerSolid = isScrolled;
 
+  const navbarLogoClass = `w-auto object-contain transition-[filter] duration-300 ${
+    isScrolled ? '' : 'brightness-0 invert'
+  }`;
+
   const mobileDrawer =
     mounted &&
     createPortal(
@@ -216,7 +220,7 @@ export default function Navbar() {
                   className="flex items-center"
                 >
                   <Image
-                    src="/images/logo-rayalawfirm.png"
+                    src="/images/logo-rayalawfirm-with-title.png"
                     alt="Raya Law Firm"
                     width={140}
                     height={42}
@@ -365,11 +369,20 @@ export default function Navbar() {
         <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-12">
           <Link href="/" className="flex items-center">
             <Image
+              src="/images/logo-rayalawfirm-with-title.png"
+              alt="Raya Law Firm"
+              width={160}
+              height={48}
+              className={`h-10 lg:hidden ${navbarLogoClass}`}
+              priority
+            />
+
+            <Image
               src="/images/logo-rayalawfirm.png"
               alt="Raya Law Firm"
               width={160}
               height={48}
-              className="h-10 w-auto object-contain"
+              className={`hidden h-10 lg:block ${navbarLogoClass}`}
               priority
             />
           </Link>

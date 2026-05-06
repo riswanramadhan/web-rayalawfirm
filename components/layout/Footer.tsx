@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { services } from '../../lib/data/services';
+import Image from 'next/image';
 
 const companyLinks = [
   { label: 'Tentang', href: '/tentang' },
@@ -56,12 +57,13 @@ export default function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16 lg:px-12">
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-5">
-            <div>
-              <p className="font-sans text-2xl font-bold text-white">RAYA</p>
-              <p className="text-xs uppercase tracking-[0.35em] text-white/60">
-                Law Firm
-              </p>
-            </div>
+            <Image
+              src="/images/logo-rayalawfirm-with-title.png"
+              alt="Raya Law Firm"
+              width={160}
+              height={48}
+              className="h-16 w-auto brightness-0 invert"
+            />
             <p className="text-sm leading-relaxed text-white/70">
               Raya Law Firm adalah kantor hukum profesional yang menghadirkan
               layanan litigasi dan konsultasi strategis untuk individu maupun
