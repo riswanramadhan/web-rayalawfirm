@@ -65,7 +65,7 @@ export default function LayananDetailPage({ params }: PageProps) {
                 { label: service.title },
               ]}
             />
-            <h1 className="mt-4 font-sans text-5xl font-extrabold tracking-tight text-white lg:text-7xl">
+            <h1 className="mt-4 font-sans text-4xl font-extrabold tracking-tight text-white lg:text-7xl">
               {service.title}
             </h1>
             <p className="mt-4 font-body text-base text-white/70 lg:text-lg">
