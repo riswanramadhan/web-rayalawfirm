@@ -42,6 +42,7 @@ export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<DropdownKey>(null);
+  const [isDrawerVisible, setIsDrawerVisible] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -59,6 +60,11 @@ export default function Navbar() {
     };
   }, [isOpen]);
 
+  useEffect(() => {
+    if (isOpen) setIsDrawerVisible(true);
+    // false-nya di-handle oleh onAnimationComplete di motion.div drawer
+  }, [isOpen]);
+
   const isActive = useMemo(() => {
     return (href: string) => {
       if (!pathname) return false;
@@ -67,14 +73,14 @@ export default function Navbar() {
     };
   }, [pathname]);
 
-  const textColor = isScrolled ? 'text-dark/80' : 'text-white/80';
+  const textColor = isScrolled && !isDrawerVisible ? 'text-dark/80' : 'text-white/80';
   const hoverText = 'hover:text-primary';
   const activeText = 'text-primary';
 
   return (
     <header
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        isScrolled
+        isScrolled && !isDrawerVisible
           ? 'backdrop-blur-xl bg-white/90 border-b border-primary/10 shadow-sm'
           : 'bg-transparent'
       }`}
@@ -179,7 +185,7 @@ export default function Navbar() {
         <button
           type="button"
           className={`flex h-10 w-10 items-center justify-center rounded-lg border transition-colors lg:hidden ${
-            isScrolled
+            isScrolled && !isDrawerVisible
               ? 'border-primary/30 text-primary bg-primary/5'
               : 'border-white/30 text-white bg-white/10'
           }`}
@@ -217,6 +223,9 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'tween', duration: 0.3 }}
+              onAnimationComplete={() => {
+                if (!isOpen) setIsDrawerVisible(false);
+              }}
               className="fixed right-0 top-0 z-50 h-full w-[85%] max-w-sm bg-navy px-6 pb-10 pt-6 shadow-2xl shadow-navy/40"
             >
               <div className="flex flex-col h-full">
