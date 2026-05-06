@@ -138,7 +138,7 @@ export default function ArtikelClient() {
               ))}
             </div>
 
-            <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-8 grid gap-6 md:grid-cols-2">
               {filteredArticles.map((article, index) => (
                 <Link
                   key={article.slug}
