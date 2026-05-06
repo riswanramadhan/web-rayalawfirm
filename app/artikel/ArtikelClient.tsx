@@ -49,6 +49,19 @@ export default function ArtikelClient() {
     return list;
   }, [activeFilter, searchTerm]);
 
+  const searchWidget = (
+    <div className="rounded-2xl border border-primary/10 bg-white p-6 shadow-sm">
+      <p className="text-sm font-semibold text-dark">Pencarian</p>
+      <input
+        type="text"
+        placeholder="Cari artikel..."
+        value={searchTerm}
+        onChange={(event) => setSearchTerm(event.target.value)}
+        className="mt-3 w-full rounded-xl border border-primary/30 px-4 py-3 text-sm text-dark outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
+      />
+    </div>
+  );
+
   return (
     <section className="bg-offwhite py-16 lg:py-20">
       <div className="mx-auto w-full max-w-7xl px-6 lg:px-16">
@@ -118,6 +131,10 @@ export default function ArtikelClient() {
             </div>
           </Link>
         )}
+
+        <div className="block lg:hidden mb-6" data-aos="fade-up">
+          {searchWidget}
+        </div>
 
         <div className="grid gap-10 lg:grid-cols-[2fr_1fr]">
           <div>
@@ -197,15 +214,8 @@ export default function ArtikelClient() {
           </div>
 
           <aside className="space-y-6" data-aos="fade-up">
-            <div className="rounded-2xl border border-primary/10 bg-white p-6 shadow-sm">
-              <p className="text-sm font-semibold text-dark">Pencarian</p>
-              <input
-                type="text"
-                placeholder="Cari artikel..."
-                value={searchTerm}
-                onChange={(event) => setSearchTerm(event.target.value)}
-                className="mt-3 w-full rounded-xl border border-primary/30 px-4 py-3 text-sm text-dark outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
-              />
+            <div className="hidden lg:block">
+              {searchWidget}
             </div>
 
             <div className="rounded-2xl border border-primary/10 bg-white p-6 shadow-sm">
