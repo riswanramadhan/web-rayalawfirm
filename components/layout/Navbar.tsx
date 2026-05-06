@@ -199,13 +199,36 @@ export default function Navbar() {
           })}
         </nav>
 
+        {/* --- TOMBOL DENGAN ANIMASI INITIAL (DESKTOP) --- */}
         <div className="hidden items-center gap-4 lg:flex">
-          <Link
-            href="/konsultasi"
-            className="rounded-xl bg-gradient-to-r from-primary to-accent px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition-transform duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary/30"
+          <motion.div
+            initial="initial"
+            animate="animate"
+            variants={{
+              initial: { scale: 1, rotate: 0 },
+              animate: {
+                // Skala ditahan di 1.2 selama goyangan berlangsung, lalu kembali ke 1
+                scale: [1, 1, 1, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1],
+                // Jumlah rotasi diperbanyak dengan derajat yang sedikit lebih tegas (-5 sampai 5 derajat) untuk efek wiggle yang lebih jelas
+                rotate: [0, 0, -5, 5, -5, 5, -5, 5, -3, 3, -3, 3, -1, 1, 0],
+                transition: {
+                  duration: 1.4, // Durasi total sedikit dipersingkat agar terasa lebih *snappy*
+                  ease: "easeInOut",
+                  // Mapping waktu yang jauh lebih rapat untuk 15 keyframe di atas (jarak ~0.07 detik per goyangan)
+                  times: [0, 0.1, 0.17, 0.24, 0.31, 0.38, 0.45, 0.52, 0.59, 0.66, 0.73, 0.80, 0.87, 0.94, 1],
+                  delay: 0.5, // Tetap gunakan jeda awal agar terlihat oleh user
+                },
+              },
+            }}
+            style={{ originX: 0.5, originY: 0.5 }}
           >
-            Konsultasi Gratis
-          </Link>
+            <Link
+              href="/konsultasi"
+              className="block rounded-xl bg-gradient-to-r from-primary to-accent px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary/30 active:scale-95"
+            >
+              Konsultasi Gratis
+            </Link>
+          </motion.div>
         </div>
 
         <button
@@ -365,12 +388,12 @@ export default function Navbar() {
                   </div>
                 </div>
 
-                {/* CTA Button */}
+                {/* CTA Button in Drawer (TIDAK DIVARIASI/ANIMASI INITIAL) */}
                 <div className="mt-8 pt-6 border-t border-white/10">
                   <Link
                     href="/konsultasi"
                     onClick={() => setIsOpen(false)}
-                    className="flex items-center justify-center rounded-xl bg-gradient-to-r from-primary to-accent px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/30 hover:shadow-xl transition-shadow"
+                    className="flex items-center justify-center rounded-xl bg-gradient-to-r from-primary to-accent px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/30 hover:shadow-xl transition-shadow active:scale-95"
                   >
                     Konsultasi Gratis
                   </Link>
