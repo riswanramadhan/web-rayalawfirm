@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { articles } from '../../lib/data/articles';
+import { main } from 'framer-motion/client';
 
 const getFeaturedArticles = () => {
   const featured = articles.filter((article) => article.featured);
@@ -38,7 +39,7 @@ export default function ArtikelSection() {
             data-aos="fade-right"
             className="group relative overflow-hidden rounded-2xl bg-white shadow-md transition-all duration-500 hover:-translate-y-1 hover:shadow-xl lg:col-span-2"
           >
-            <div className="relative h-[420px] w-full">
+            <div className="relative h-[460px] lg:h-[560px] w-full">
               <Image
                 src={mainArticle.image}
                 alt={mainArticle.title}
@@ -48,17 +49,17 @@ export default function ArtikelSection() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/85 via-navy/40 to-transparent" />
             </div>
-            <div className="absolute inset-0 flex flex-col justify-end p-8 text-white">
+            <div className="absolute inset-0 flex flex-col justify-end p-8 text-white lg:text-dark">
               <span className="inline-flex w-fit items-center rounded-full bg-primary/30 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white">
                 {mainArticle.category}
               </span>
               <h3 className="mt-4 font-sans text-2xl font-bold tracking-tight lg:text-3xl">
                 {mainArticle.title}
               </h3>
-              <p className="mt-3 max-w-xl text-sm text-white/80">
+              <p className="mt-3 max-w-xl text-sm text-white/80 lg:text-dark/70">
                 {mainArticle.excerpt}
               </p>
-              <div className="mt-5 flex flex-wrap items-center gap-3 text-xs text-white/70">
+              <div className="mt-5 flex flex-wrap items-center gap-3 text-xs text-white/70 lg:text-dark/50">
                 <span className="inline-flex items-center gap-2">
                   <svg
                     className="h-4 w-4"
@@ -88,9 +89,9 @@ export default function ArtikelSection() {
                 href={`/artikel/${article.slug}`}
                 data-aos="fade-left"
                 data-aos-delay={100 + index * 100}
-                className="group flex overflow-hidden rounded-2xl bg-white shadow-md transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"
+                className="group overflow-hidden rounded-2xl bg-white shadow-md transition-all duration-500 hover:-translate-y-1 hover:shadow-xl"
               >
-                <div className="relative w-2/5">
+                <div className="relative h-40">
                   <Image
                     src={article.image}
                     alt={article.title}
@@ -99,7 +100,7 @@ export default function ArtikelSection() {
                     sizes="(max-width: 1024px) 40vw, 240px"
                   />
                 </div>
-                <div className="flex w-3/5 flex-col justify-between p-4">
+                <div className="flex flex-col justify-between p-4">
                   <div>
                     <span className="inline-flex items-center rounded-full bg-primary/10 px-2.5 py-1 text-[10px] font-semibold uppercase tracking-[0.2em] text-primary">
                       {article.category}
