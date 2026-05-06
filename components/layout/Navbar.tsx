@@ -52,12 +52,38 @@ export default function Navbar() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = isOpen ? 'hidden' : '';
-    document.body.classList.toggle('menu-open', isOpen);
-    return () => {
+    if (isOpen) {
+      // 1. Hitung scrollbar untuk mencegah layout shift di desktop
+      const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+      
+      // 2. Kunci scroll di html dan body
+      document.documentElement.style.overflow = 'hidden';
+      document.body.style.overflow = 'hidden';
+      
+      // 3. Tambahkan padding pengganti scrollbar
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+      
+      // 4. Cegah efek bounce/rubber-band di mobile (tanpa mematikan scroll di dalam drawer)
+      document.body.style.overscrollBehavior = 'none';
+      
+      document.body.classList.add('menu-open');
+
+      return () => {
+        document.documentElement.style.overflow = '';
+        document.body.style.overflow = '';
+        document.body.style.paddingRight = '';
+        document.body.style.overscrollBehavior = '';
+        document.body.classList.remove('menu-open');
+      };
+    } else {
+      document.documentElement.style.overflow = '';
       document.body.style.overflow = '';
+      document.body.style.paddingRight = '';
+      document.body.style.overscrollBehavior = '';
       document.body.classList.remove('menu-open');
-    };
+      // Re-kalkulasi apakah posisi user saat menutup menu sedang ada di atas atau bawah
+      setIsScrolled(window.scrollY > 50);
+    }
   }, [isOpen]);
 
   useEffect(() => {
@@ -208,7 +234,7 @@ export default function Navbar() {
         </button>
       </div>
 
-      <AnimatePresence>
+      <AnimatePresence onExitComplete={() => setIsDrawerVisible(false)}>
         {isOpen && (
           <>
             <motion.div
@@ -223,9 +249,6 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'tween', duration: 0.3 }}
-              onAnimationComplete={() => {
-                if (!isOpen) setIsDrawerVisible(false);
-              }}
               className="fixed right-0 top-0 z-50 h-full w-[85%] max-w-sm bg-navy px-6 pb-10 pt-6 shadow-2xl shadow-navy/40"
             >
               <div className="flex flex-col h-full">
