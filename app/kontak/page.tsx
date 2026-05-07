@@ -185,13 +185,20 @@ export default function KontakPage() {
             <div className="flex flex-col gap-6" data-aos="fade-up" data-aos-delay="200">
               <div className="rounded-2xl bg-gray-200/80 p-6 shadow-inner">
                 <div className="flex h-96 items-center justify-center rounded-2xl border border-dashed border-gray-300 bg-gray-100">
-                  <p className="text-sm font-semibold text-dark/60">
-                    Kunjungi Kami di Google Maps
-                  </p>
+                  <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3330.987073101995!2d106.84331907413147!3d-6.237539161079284!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3be1870e33f%3A0x179d46bc7feb6589!2sJl.%20Tebet%20Barat%20Dalam%20IV%20No.10%2C%20RT.17%2FRW.6%2C%20Tebet%20Bar.%2C%20Kec.%20Tebet%2C%20Kota%20Jakarta%20Selatan%2C%20Daerah%20Khusus%20Ibukota%20Jakarta%2012810!5e1!3m2!1sid!2sid!4v1778143566646!5m2!1sid!2sid"
+                  width="100%"
+                  height="384" // height 384px setara dengan class Tailwind h-96
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Lokasi Kantor Kami di Jakarta Selatan"
+                ></iframe>
                 </div>
               </div>
               <div className="rounded-2xl border border-primary/10 bg-white/80 p-6 text-sm text-dark/70">
-                Lokasi berada di pusat bisnis Jakarta Selatan dengan akses mudah
+                Lokasi berada di pusat bisnis DKI Jakarta dengan akses mudah
                 ke transportasi umum dan parkir yang memadai.
               </div>
             </div>
@@ -290,7 +297,7 @@ export default function KontakPage() {
                     id="email"
                     name="email"
                     type="email"
-                    placeholder="email@domain.com"
+                    placeholder="email@gmail.com"
                     className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-dark outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
                   />
                 </div>

@@ -203,7 +203,7 @@ export default function KonsultasiForm() {
             name="email"
             type="email"
             autoComplete="email"
-            placeholder="email@domain.com"
+            placeholder="email@gmail.com"
             value={form.email}
             onChange={handleChange('email')}
             className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-dark outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"

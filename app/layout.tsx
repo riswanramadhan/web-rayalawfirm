@@ -47,7 +47,11 @@ export const metadata: Metadata = {
     locale: 'id_ID',
     url: 'https://rayalawfirm.com',
     siteName: 'Raya Law Firm',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: '/images/logo-rayalawfirm.png', width: 1200, height: 630 }],
+  },
+  icons: {
+    icon: '/images/logo-rayalawfirm.png',
+    apple: '/images/logo-rayalawfirm.png',
   },
   twitter: {
     card: 'summary_large_image',

@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 
 export const siteConfig = {
   name: 'Raya Law Firm',
-  url: 'https://rayalawfirm.co.id',
+  url: 'https://rayalawfirm.com',
   description:
     'Raya Law Firm adalah kantor hukum profesional di Indonesia yang melayani perkara pidana, perdata, bisnis, keluarga, properti, dan ketenagakerjaan.',
   keywords: [
@@ -15,7 +15,7 @@ export const siteConfig = {
     'hukum bisnis indonesia',
     'raya law firm',
   ],
-  ogImage: '/og-image.jpg',
+  ogImage: '/images/logo-rayalawfirm.png',
   email: 'info@rayalawfirm.com',
   address: {
     street: 'Jl. Tebet Barat Dalam IV No. 10',

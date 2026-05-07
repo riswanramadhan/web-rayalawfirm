@@ -126,7 +126,7 @@ export default function KonsultasiSection() {
 
           <div className="rounded-2xl border border-white/15 bg-white/10 p-5 text-sm text-white/70 backdrop-blur-sm">
             <p className="font-semibold text-white">Kontak Darurat WhatsApp</p>
-            <p className="mt-1">+62 812-3456-7890 (24 jam)</p>
+            <p className="mt-1">+62 813-3566-3379 (24 jam)</p>
           </div>
         </div>
 

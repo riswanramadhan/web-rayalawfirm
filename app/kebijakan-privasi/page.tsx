@@ -80,11 +80,11 @@ b. Data yang dikumpulkan otomatis:
   {
     title: '12. HUBUNGI KAMI',
     body: `Untuk pertanyaan mengenai kebijakan privasi ini atau untuk menggunakan hak-hak Anda:
-Email: privacy@rayalawfirm.co.id
-Telepon: +62 21 1234 5678
-Alamat: Jl. Contoh No. 123, Jakarta Selatan 12190
+Email: info@rayalawfirm.com
+Telepon: +62 813 3566 3379
+Alamat: Jl. Tebet Barat Dalam IV No. 10, Jakarta.
 
-Terakhir diperbarui: Januari 2025`,
+Terakhir diperbarui: 10 Mei 2026`,
   },
 ];
 
@@ -114,7 +114,7 @@ export default function KebijakanPrivasiPage() {
           <div className="rounded-2xl bg-white p-8 shadow-sm lg:p-12">
             <div className="space-y-8">
               {sections.map((section) => (
-                <div key={section.title} className="border-b border-gray-100 pb-8 last:border-b-0 last:pb-0 text-center">
+                <div key={section.title} className="border-b border-gray-100 pb-8 last:border-b-0 last:pb-0 text-left">
                   <h2 className="mb-4 font-sans text-xl font-semibold text-dark">
                     {section.title}
                   </h2>
