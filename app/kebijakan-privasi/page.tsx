@@ -1,12 +1,20 @@
 import type { Metadata } from 'next';
 import Breadcrumb from '@/components/ui/Breadcrumb';
+import { generatePageMetadata } from '@/lib/metadata';
+import { getDictionary } from '@/lib/i18n/dictionaries';
+import { getCurrentLocale } from '@/lib/i18n/server';
 
-export const metadata: Metadata = {
-  title: 'Kebijakan Privasi | Raya Law Firm',
-  description:
-    'Kebijakan privasi Raya Law Firm mengenai pengumpulan, penggunaan, dan perlindungan data pribadi klien dan pengunjung website.',
-  robots: { index: true, follow: true },
-};
+export function generateMetadata(): Metadata {
+  const locale = getCurrentLocale();
+  const t = getDictionary(locale).privacyPage;
+
+  return generatePageMetadata({
+    title: t.metaTitle,
+    description: t.metaDescription,
+    path: '/kebijakan-privasi',
+    locale,
+  });
+}
 
 const sections = [
   {
@@ -89,6 +97,9 @@ Terakhir diperbarui: 10 Mei 2026`,
 ];
 
 export default function KebijakanPrivasiPage() {
+  const locale = getCurrentLocale();
+  const t = getDictionary(locale);
+
   return (
     <main className="flex flex-col">
       <section className="relative overflow-hidden bg-navy pt-24 pb-16 lg:pt-28 lg:pb-20">
@@ -96,14 +107,16 @@ export default function KebijakanPrivasiPage() {
         <div className="relative mx-auto w-full max-w-7xl px-6 lg:px-16">
           <div className="max-w-2xl" data-aos="fade-up">
             <Breadcrumb
-              items={[{ label: 'Beranda', href: '/' }, { label: 'Kebijakan Privasi' }]}
+              items={[
+                { label: t.common.home, href: '/' },
+                { label: t.privacyPage.breadcrumb },
+              ]}
             />
             <h1 className="mt-4 font-sans text-5xl font-extrabold tracking-tight text-white lg:text-7xl">
-              Kebijakan Privasi
+              {t.privacyPage.title}
             </h1>
             <p className="mt-4 font-body text-base text-white/70 lg:text-lg">
-              Komitmen kami dalam menjaga kerahasiaan dan perlindungan data pribadi
-              klien serta pengunjung website.
+              {t.privacyPage.description}
             </p>
           </div>
         </div>
@@ -113,7 +126,7 @@ export default function KebijakanPrivasiPage() {
         <div className="mx-auto w-full max-w-7xl px-6 lg:px-16">
           <div className="rounded-2xl bg-white p-8 shadow-sm lg:p-12">
             <div className="space-y-8">
-              {sections.map((section) => (
+              {t.privacyPage.sections.map((section) => (
                 <div key={section.title} className="border-b border-gray-100 pb-8 last:border-b-0 last:pb-0 text-left">
                   <h2 className="mb-4 font-sans text-xl font-semibold text-dark">
                     {section.title}

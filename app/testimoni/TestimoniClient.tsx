@@ -1,18 +1,35 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
-import { testimonials } from '@/lib/data/testimonials';
+import type { Locale } from '@/lib/i18n/config';
+import { getDictionary } from '@/lib/i18n/dictionaries';
+import { getTestimonials } from '@/lib/i18n/localized-data';
 
-const filters = ['Semua', ...Array.from(new Set(testimonials.map((t) => t.kasusType)))];
+interface TestimoniClientProps {
+  locale: Locale;
+}
 
-export default function TestimoniClient() {
-  const [activeFilter, setActiveFilter] = useState<string>('Semua');
+export default function TestimoniClient({ locale }: TestimoniClientProps) {
+  const t = getDictionary(locale).testimonialsPage;
+  const testimonials = useMemo(() => getTestimonials(locale), [locale]);
+  const filters = useMemo(
+    () => [
+      t.allFilter,
+      ...Array.from(new Set(testimonials.map((item) => item.kasusType))),
+    ],
+    [testimonials, t.allFilter]
+  );
+  const [activeFilter, setActiveFilter] = useState<string>(t.allFilter);
+
+  useEffect(() => {
+    setActiveFilter(t.allFilter);
+  }, [t.allFilter]);
 
   const filteredTestimonials = useMemo(() => {
-    if (activeFilter === 'Semua') return testimonials;
+    if (activeFilter === t.allFilter) return testimonials;
     return testimonials.filter((testimonial) => testimonial.kasusType === activeFilter);
-  }, [activeFilter]);
+  }, [activeFilter, testimonials, t.allFilter]);
 
   return (
     <div className="mt-10">
@@ -59,7 +76,7 @@ export default function TestimoniClient() {
                   </svg>
                 ))}
               </div>
-              <p className="mt-4 font-sans text-6xl text-primary/20">“</p>
+              <p className="mt-4 font-sans text-6xl text-primary/20">"</p>
               <p className="-mt-6 flex-grow text-sm text-dark/70">{testimonial.text}</p>
               <div className="mt-6 space-y-3 justify-between gap-3">
                 <div className="flex items-center gap-3 pb-3">

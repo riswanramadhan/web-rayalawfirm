@@ -1,11 +1,13 @@
-const missions: string[] = [
-  'Memberikan layanan hukum profesional, integritas tinggi, dan berorientasi hasil.',
-  'Mendampingi klien dengan pendekatan personal dan solusi strategis.',
-  'Berkontribusi pada penegakan hukum dan keadilan di Indonesia.',
-  'Membangun kepercayaan melalui transparansi dan komunikasi yang efektif.',
-];
+import type { Locale } from '@/lib/i18n/config';
+import { getDictionary } from '@/lib/i18n/dictionaries';
 
-export default function VisiMisiSection() {
+interface VisiMisiSectionProps {
+  locale: Locale;
+}
+
+export default function VisiMisiSection({ locale }: VisiMisiSectionProps) {
+  const t = getDictionary(locale).home.visionMission;
+
   return (
     <section className="relative bg-gradient-to-br from-navy to-navy/90 py-16 sm:py-20 lg:py-24 text-white">
       <div className="absolute inset-0 overflow-hidden">
@@ -28,8 +30,7 @@ export default function VisiMisiSection() {
           <div className="relative rounded-3xl border border-white/10 bg-white/5 p-10">
             <p className="font-sans text-[200px] leading-none text-primary/20">"</p>
             <p className="-mt-20 font-body text-base text-white/80 lg:text-lg">
-              Kami percaya bahwa keadilan lahir dari keberanian, integritas, dan
-              dedikasi pada prinsip hukum yang benar.
+              {t.quote}
             </p>
           </div>
         </div>
@@ -55,19 +56,17 @@ export default function VisiMisiSection() {
                   <path d="M12 3v2m0 14v2M7 5h10l2 7-2 7H7l-2-7 2-7z" />
                 </svg>
               </span>
-              <h3 className="font-sans text-2xl font-bold">Visi</h3>
+              <h3 className="font-sans text-2xl font-bold">{t.visionTitle}</h3>
             </div>
             <p className="mt-4 font-body text-base text-white/80 lg:text-lg">
-              Menjadi kantor hukum terdepan di Indonesia yang menghadirkan
-              keadilan, kejujuran, dan pelayanan hukum berkualitas tinggi bagi
-              seluruh lapisan masyarakat.
+              {t.visionText}
             </p>
           </div>
 
           <div data-aos="fade-left" data-aos-delay="200" className="space-y-4">
-            <h3 className="font-sans text-2xl font-bold">Misi</h3>
+            <h3 className="font-sans text-2xl font-bold">{t.missionTitle}</h3>
             <div className="space-y-4">
-              {missions.map((mission, index) => (
+              {t.missions.map((mission) => (
                 <div key={mission} className="flex items-start gap-4">
                   <svg
                     className="mt-1 h-5 w-5 flex-shrink-0 text-primary"

@@ -6,6 +6,9 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useLanguage } from '@/components/i18n/LanguageProvider';
+import { localeShortLabels, locales, type Locale } from '@/lib/i18n/config';
+import { getDictionary } from '@/lib/i18n/dictionaries';
 
 interface DropdownLink {
   label: string;
@@ -18,28 +21,12 @@ interface NavLink {
   dropdown?: DropdownLink[];
 }
 
-const layananLinks: DropdownLink[] = [
-  { label: 'Hukum Pidana', href: '/layanan/hukum-pidana' },
-  { label: 'Hukum Perdata', href: '/layanan/hukum-perdata' },
-  { label: 'Hukum Bisnis', href: '/layanan/hukum-bisnis' },
-  { label: 'Hukum Keluarga', href: '/layanan/hukum-keluarga' },
-  { label: 'Hukum Properti', href: '/layanan/hukum-properti' },
-  { label: 'Ketenagakerjaan', href: '/layanan/hukum-ketenagakerjaan' },
-];
-
-const navLinks: NavLink[] = [
-  { label: 'Beranda', href: '/' },
-  { label: 'Tentang', href: '/tentang' },
-  { label: 'Layanan', href: '/layanan', dropdown: layananLinks },
-  { label: 'Tim', href: '/tim' },
-  { label: 'Artikel', href: '/artikel' },
-  { label: 'Konsultasi', href: '/konsultasi' },
-];
-
 type DropdownKey = 'layanan' | null;
 
 export default function Navbar() {
   const pathname = usePathname();
+  const { locale, setLocale } = useLanguage();
+  const t = getDictionary(locale);
   const [mounted, setMounted] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const [isDrawerRendered, setIsDrawerRendered] = useState(false);
@@ -47,6 +34,35 @@ export default function Navbar() {
   const [activeDropdown, setActiveDropdown] = useState<DropdownKey>(null);
 
   const closeTimeoutRef = useRef<number | null>(null);
+
+  const layananLinks = useMemo<DropdownLink[]>(() => {
+    const serviceLinks = t.nav.serviceLinks;
+
+    return [
+      { label: serviceLinks.criminal, href: '/layanan/hukum-pidana' },
+      { label: serviceLinks.civil, href: '/layanan/hukum-perdata' },
+      { label: serviceLinks.business, href: '/layanan/hukum-bisnis' },
+      { label: serviceLinks.family, href: '/layanan/hukum-keluarga' },
+      { label: serviceLinks.property, href: '/layanan/hukum-properti' },
+      {
+        label: serviceLinks.employment,
+        href: '/layanan/hukum-ketenagakerjaan',
+      },
+      { label: serviceLinks.administrative, href: '/layanan/hukum-ptun' },
+    ];
+  }, [t]);
+
+  const navLinks = useMemo<NavLink[]>(
+    () => [
+      { label: t.common.home, href: '/' },
+      { label: t.common.about, href: '/tentang' },
+      { label: t.common.services, href: '/layanan', dropdown: layananLinks },
+      { label: t.common.team, href: '/tim' },
+      { label: t.common.articles, href: '/artikel' },
+      { label: t.common.consultation, href: '/konsultasi' },
+    ],
+    [layananLinks, t]
+  );
 
   useEffect(() => {
     setMounted(true);
@@ -172,6 +188,55 @@ export default function Navbar() {
     isScrolled ? '' : 'brightness-0 invert'
   }`;
 
+  const renderLanguageToggle = (variant: 'header' | 'drawer') => {
+    const isDrawer = variant === 'drawer';
+
+    return (
+      <div
+        className={`flex h-9 items-center rounded-full border p-1 ${
+          isDrawer
+            ? 'border-white/15 bg-white/10'
+            : headerSolid
+              ? 'border-primary/20 bg-primary/5'
+              : 'border-white/25 bg-white/10'
+        }`}
+        role="group"
+        aria-label={t.common.languageLabel}
+      >
+        {locales.map((item: Locale) => {
+          const isActiveLocale = locale === item;
+
+          return (
+            <button
+              key={item}
+              type="button"
+              aria-pressed={isActiveLocale}
+              aria-label={
+                item === locale
+                  ? t.common.languageLabel
+                  : t.common.languageSwitchTo
+              }
+              onClick={() => setLocale(item)}
+              className={`flex h-7 min-w-8 items-center justify-center rounded-full px-2 text-xs font-bold transition-colors ${
+                isActiveLocale
+                  ? isDrawer
+                    ? 'bg-white text-navy'
+                    : 'bg-primary text-white'
+                  : isDrawer
+                    ? 'text-white/70 hover:text-white'
+                    : headerSolid
+                      ? 'text-dark/60 hover:text-primary'
+                      : 'text-white/70 hover:text-white'
+              }`}
+            >
+              {localeShortLabels[item]}
+            </button>
+          );
+        })}
+      </div>
+    );
+  };
+
   const mobileDrawer =
     mounted &&
     createPortal(
@@ -232,7 +297,7 @@ export default function Navbar() {
                 <button
                   type="button"
                   className="flex h-8 w-8 items-center justify-center rounded-lg bg-white/10 text-white transition-colors hover:bg-white/20"
-                  aria-label="Close menu"
+                  aria-label={t.common.closeMenu}
                   onClick={closeDrawer}
                 >
                   <svg
@@ -294,7 +359,7 @@ export default function Navbar() {
                                 className="overflow-hidden"
                               >
                                 <div className="grid gap-3 border-l border-white/20 pl-3 pt-2">
-                                  {layananLinks.map((item) => (
+                                  {link.dropdown.map((item) => (
                                     <Link
                                       key={item.href}
                                       href={item.href}
@@ -347,8 +412,11 @@ export default function Navbar() {
                   }}
                   className="flex items-center justify-center rounded-xl bg-gradient-to-r from-primary to-accent px-5 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition-shadow hover:shadow-xl active:scale-95"
                 >
-                  Konsultasi Gratis
+                  {t.common.freeConsultation}
                 </Link>
+                <div className="mt-4 flex justify-center">
+                  {renderLanguageToggle('drawer')}
+                </div>
               </div>
             </div>
           </motion.aside>
@@ -466,6 +534,7 @@ export default function Navbar() {
           </nav>
 
           <div className="hidden items-center gap-4 lg:flex">
+            {renderLanguageToggle('header')}
             <motion.div
               initial="initial"
               animate="animate"
@@ -496,41 +565,44 @@ export default function Navbar() {
                 href="/konsultasi"
                 className="block rounded-xl bg-gradient-to-r from-primary to-accent px-5 py-2.5 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl hover:shadow-primary/30 active:scale-95"
               >
-                Konsultasi Gratis
+                {t.common.freeConsultation}
               </Link>
             </motion.div>
           </div>
 
-          <button
-            type="button"
-            className={`flex h-10 w-10 items-center justify-center rounded-lg border transition-colors lg:hidden ${
-              headerSolid
-                ? 'border-primary/30 bg-primary/5 text-primary'
-                : 'border-white/30 bg-white/10 text-white'
-            }`}
-            aria-label="Toggle menu"
-            onClick={() => {
-              if (isDrawerRendered) {
-                closeDrawer();
-              } else {
-                openDrawer();
-              }
-            }}
-          >
-            <svg
-              className="h-5 w-5"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+          <div className="flex items-center gap-2 lg:hidden">
+            {renderLanguageToggle('header')}
+            <button
+              type="button"
+              className={`flex h-10 w-10 items-center justify-center rounded-lg border transition-colors ${
+                headerSolid
+                  ? 'border-primary/30 bg-primary/5 text-primary'
+                  : 'border-white/30 bg-white/10 text-white'
+              }`}
+              aria-label={t.common.toggleMenu}
+              onClick={() => {
+                if (isDrawerRendered) {
+                  closeDrawer();
+                } else {
+                  openDrawer();
+                }
+              }}
             >
-              <line x1="4" y1="7" x2="20" y2="7" />
-              <line x1="4" y1="12" x2="16" y2="12" />
-              <line x1="4" y1="17" x2="20" y2="17" />
-            </svg>
-          </button>
+              <svg
+                className="h-5 w-5"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="4" y1="7" x2="20" y2="7" />
+                <line x1="4" y1="12" x2="16" y2="12" />
+                <line x1="4" y1="17" x2="20" y2="17" />
+              </svg>
+            </button>
+          </div>
         </div>
       </header>
 

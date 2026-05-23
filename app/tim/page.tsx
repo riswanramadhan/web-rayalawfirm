@@ -2,32 +2,45 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import Breadcrumb from '@/components/ui/Breadcrumb';
-import { lawyers } from '@/lib/data/team';
 import { generatePageMetadata } from '@/lib/metadata';
+import { getDictionary } from '@/lib/i18n/dictionaries';
+import { getCurrentLocale } from '@/lib/i18n/server';
+import { getLawyers } from '@/lib/i18n/localized-data';
 
 export function generateMetadata(): Metadata {
+  const locale = getCurrentLocale();
+  const t = getDictionary(locale).teamPage;
+
   return generatePageMetadata({
-    title: 'Tim Advokat Raya Law Firm',
-    description:
-      'Kenali tim advokat Raya Law Firm dengan keahlian lintas bidang hukum dan komitmen layanan profesional untuk setiap klien.',
+    title: t.metaTitle,
+    description: t.metaDescription,
     path: '/tim',
+    locale,
   });
 }
 
 export default function TimPage() {
+  const locale = getCurrentLocale();
+  const t = getDictionary(locale);
+  const lawyers = getLawyers(locale);
+
   return (
     <main className="flex flex-col">
       <section className="relative overflow-hidden bg-navy pt-24 pb-16 lg:pt-28 lg:pb-20">
         <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/85 to-primary/30" />
         <div className="relative mx-auto w-full max-w-7xl px-6 lg:px-16">
           <div className="max-w-2xl" data-aos="fade-up">
-            <Breadcrumb items={[{ label: 'Beranda', href: '/' }, { label: 'Tim Advokat' }]} />
+            <Breadcrumb
+              items={[
+                { label: t.common.home, href: '/' },
+                { label: t.teamPage.breadcrumb },
+              ]}
+            />
             <h1 className="mt-4 font-sans text-5xl font-extrabold tracking-tight text-white lg:text-7xl">
-              Tim Advokat Kami
+              {t.teamPage.title}
             </h1>
             <p className="mt-4 font-body text-base text-white/70 lg:text-lg">
-              Profesional hukum dengan keahlian mendalam dan integritas tinggi
-              untuk mendampingi setiap langkah klien.
+              {t.teamPage.description}
             </p>
           </div>
         </div>
@@ -37,12 +50,10 @@ export default function TimPage() {
         <div className="mx-auto flex w-full max-w-7xl flex-col space-y-12 px-6 lg:px-16">
           <div className="max-w-3xl" data-aos="fade-up">
             <h2 className="font-sans text-3xl font-bold tracking-tight text-dark lg:text-5xl">
-              Keahlian yang Teruji dan Komitmen Jangka Panjang
+              {t.teamPage.expertiseTitle}
             </h2>
             <p className="mt-4 font-body text-base text-dark/70 lg:text-lg">
-              Tim kami terdiri dari advokat dengan pengalaman lintas sektor.
-              Setiap anggota berfokus pada komunikasi yang transparan, strategi
-              yang terukur, dan penyelesaian perkara yang berorientasi hasil.
+              {t.teamPage.expertiseDescription}
             </p>
           </div>
 
@@ -73,14 +84,14 @@ export default function TimPage() {
                   <span className="mb-4 inline-block w-fit rounded-full bg-primary/8 py-1 text-xs font-semibold text-primary">
                     {lawyer.specialization}
                   </span>
-                  <p className="mb-4 text-xs text-dark/50">{lawyer.experience} pengalaman</p>
+                  {/* <p className="mb-4 text-xs text-dexark/50">{lawyer.experience} pengalaman</p> */}
                   <div className="flex-grow" />
                   <div className="border-t border-gray-100 pt-4">
                     <Link
                       href={`/tim/${lawyer.slug}`}
                       className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-primary px-4 py-2.5 text-sm font-semibold text-primary transition-all duration-200 hover:bg-primary hover:text-white"
                     >
-                      Lihat Profil
+                      {t.common.viewProfile}
                       <svg
                         className="h-4 w-4"
                         fill="none"
@@ -106,17 +117,16 @@ export default function TimPage() {
           data-aos="fade-up"
         >
           <h2 className="font-sans text-3xl font-bold tracking-tight text-dark">
-            Butuh konsultasi langsung?
+            {t.teamPage.finalTitle}
           </h2>
           <p className="font-body text-sm text-dark/70">
-            Jadwalkan konsultasi dengan tim kami untuk mendapatkan arahan hukum
-            yang tepat sesuai kebutuhan Anda.
+            {t.teamPage.finalDescription}
           </p>
           <Link
             href="/konsultasi"
             className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-accent px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition-transform duration-300 hover:-translate-y-0.5"
           >
-            Konsultasi Sekarang
+            {t.common.consultationNow}
             <svg
               className="h-4 w-4"
               viewBox="0 0 20 20"

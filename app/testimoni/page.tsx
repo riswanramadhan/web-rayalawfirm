@@ -2,30 +2,43 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import { generatePageMetadata } from '@/lib/metadata';
+import { getDictionary } from '@/lib/i18n/dictionaries';
+import { getCurrentLocale } from '@/lib/i18n/server';
 import TestimoniClient from './TestimoniClient';
 
 export function generateMetadata(): Metadata {
+  const locale = getCurrentLocale();
+  const t = getDictionary(locale).testimonialsPage;
+
   return generatePageMetadata({
-    title: 'Testimoni Klien | Raya Law Firm',
-    description:
-      'Testimoni klien Raya Law Firm dari berbagai bidang hukum yang menunjukkan kualitas layanan profesional dan terpercaya.',
+    title: t.metaTitle,
+    description: t.metaDescription,
     path: '/testimoni',
+    locale,
   });
 }
 
 export default function TestimoniPage() {
+  const locale = getCurrentLocale();
+  const t = getDictionary(locale);
+
   return (
     <main className="flex flex-col">
       <section className="relative overflow-hidden bg-navy pt-24 pb-16 lg:pt-28 lg:pb-20">
         <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/85 to-primary/30" />
         <div className="relative mx-auto w-full max-w-7xl px-6 lg:px-16">
           <div className="max-w-2xl" data-aos="fade-up">
-            <Breadcrumb items={[{ label: 'Beranda', href: '/' }, { label: 'Testimoni' }]} />
+            <Breadcrumb
+              items={[
+                { label: t.common.home, href: '/' },
+                { label: t.testimonialsPage.breadcrumb },
+              ]}
+            />
             <h1 className="mt-4 font-sans text-5xl font-extrabold tracking-tight text-white lg:text-7xl">
-              Apa Kata Klien Kami
+              {t.testimonialsPage.title}
             </h1>
             <p className="mt-4 font-body text-base text-white/70 lg:text-lg">
-              Kepercayaan klien adalah indikator utama kualitas layanan kami.
+              {t.testimonialsPage.description}
             </p>
           </div>
         </div>
@@ -35,7 +48,7 @@ export default function TestimoniPage() {
         <div className="mx-auto w-full max-w-7xl px-6 lg:px-16">
           <div className="flex flex-col gap-4" data-aos="fade-up">
             <p className="text-sm uppercase tracking-[0.3em] text-dark/50">
-              Rata-rata Penilaian
+              {t.testimonialsPage.averageRating}
             </p>
             <div className="flex flex-wrap items-center gap-3">
               <div className="flex items-center gap-1 text-gold">
@@ -52,19 +65,19 @@ export default function TestimoniPage() {
                 ))}
               </div>
               <p className="text-lg font-semibold text-dark">
-                4.9/5.0 dari 150+ klien
+                {t.testimonialsPage.ratingText}
               </p>
             </div>
           </div>
 
-          <TestimoniClient />
+          <TestimoniClient locale={locale} />
 
           <div className="mt-10 flex justify-center" data-aos="fade-up">
             <Link
               href="/konsultasi"
               className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-accent px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition-transform duration-300 hover:-translate-y-0.5"
             >
-              Jadilah Klien Berikutnya
+              {t.testimonialsPage.cta}
               <svg
                 className="h-4 w-4"
                 viewBox="0 0 20 20"

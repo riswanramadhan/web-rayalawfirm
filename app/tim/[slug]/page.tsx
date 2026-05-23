@@ -3,14 +3,18 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Breadcrumb from '@/components/ui/Breadcrumb';
-import { lawyers, type Lawyer } from '@/lib/data/team';
 import { generatePageMetadata } from '@/lib/metadata';
 import { buildWhatsAppURL } from '@/lib/whatsapp';
+import { getDictionary } from '@/lib/i18n/dictionaries';
+import { getCurrentLocale } from '@/lib/i18n/server';
+import { getLawyerBySlug, getLawyers } from '@/lib/i18n/localized-data';
 import LawyerTabs from './LawyerTabs';
 
 interface PageProps {
   params: { slug: string };
 }
+
+export const dynamic = 'force-dynamic';
 
 const expertiseMap: Record<string, string[]> = {
   'raya-putri-sh-mh': [
@@ -44,39 +48,42 @@ const expertiseMap: Record<string, string[]> = {
 };
 
 const caseCounts: Record<string, string> = {
-  'raya-putri-sh-mh': '120+',
-  'ahmad-fauzan-sh': '80+',
-  'siti-rahma-sh-mkn': '60+',
-  'dimas-prasetyo-sh': '45+',
+  // 'raya-putri-sh-mh': '120+',
+  // 'ahmad-fauzan-sh': '80+',
+  // 'siti-rahma-sh-mkn': '60+',
+  // 'dimas-prasetyo-sh': '45+',
+  'arham': '-',
+  'dimas': '-',
+  'yuli': '-',
+  'alif': '-',
 };
 
-const getLawyerBySlug = (slug: string): Lawyer | undefined =>
-  lawyers.find((lawyer) => lawyer.slug === slug);
-
-export function generateStaticParams() {
-  return lawyers.map((lawyer) => ({ slug: lawyer.slug }));
-}
-
 export function generateMetadata({ params }: PageProps): Metadata {
-  const lawyer = getLawyerBySlug(params.slug);
+  const locale = getCurrentLocale();
+  const t = getDictionary(locale).lawyerDetail;
+  const lawyer = getLawyerBySlug(params.slug, locale);
 
   if (!lawyer) {
     return generatePageMetadata({
-      title: 'Profil Tidak Ditemukan',
-      description: 'Profil advokat yang Anda cari tidak tersedia.',
+      title: t.notFoundTitle,
+      description: t.notFoundDescription,
       path: `/tim/${params.slug}`,
+      locale,
     });
   }
 
   return generatePageMetadata({
     title: lawyer.name,
-    description: `Profil ${lawyer.name}, ${lawyer.position} di Raya Law Firm dengan spesialisasi ${lawyer.specialization}.`,
+    description: `${t.metadataDescriptionPrefix} ${lawyer.name}, ${lawyer.position} ${t.metadataDescriptionMiddle} ${lawyer.specialization}.`,
     path: `/tim/${lawyer.slug}`,
+    locale,
   });
 }
 
 export default function LawyerDetailPage({ params }: PageProps) {
-  const lawyer = getLawyerBySlug(params.slug);
+  const locale = getCurrentLocale();
+  const t = getDictionary(locale);
+  const lawyer = getLawyerBySlug(params.slug, locale);
 
   if (!lawyer) {
     notFound();
@@ -84,9 +91,12 @@ export default function LawyerDetailPage({ params }: PageProps) {
 
   const expertise = expertiseMap[lawyer.slug] ?? [lawyer.specialization];
   const waLink = buildWhatsAppURL(
-    `Halo Raya Law Firm, saya ingin konsultasi langsung dengan ${lawyer.name}.`
+    `${t.lawyerDetail.waMessagePrefix} ${lawyer.name}.`,
+    lawyer.phone || '6281335663379'
   );
-  const otherLawyers = lawyers.filter((item) => item.slug !== lawyer.slug).slice(0, 3);
+  const otherLawyers = getLawyers(locale)
+    .filter((item) => item.slug !== lawyer.slug)
+    .slice(0, 3);
 
   return (
     <main className="flex flex-col">
@@ -96,8 +106,8 @@ export default function LawyerDetailPage({ params }: PageProps) {
           <div data-aos="fade-right">
             <Breadcrumb
               items={[
-                { label: 'Beranda', href: '/' },
-                { label: 'Tim', href: '/tim' },
+                { label: t.common.home, href: '/' },
+                { label: t.common.team, href: '/tim' },
                 { label: lawyer.name },
               ]}
             />
@@ -140,13 +150,13 @@ export default function LawyerDetailPage({ params }: PageProps) {
           >
             <path strokeLinecap="round" strokeLinejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
           </svg>
-          Kembali ke Halaman Tim
+          {t.lawyerDetail.backToTeam}
         </Link>
       </div>
 
       <section className="bg-offwhite py-16 lg:py-20">
         <div className="mx-auto grid w-full max-w-7xl gap-12 px-6 lg:grid-cols-[1fr_2fr] lg:px-16">
-          <div data-aos="fade-right" className="relative">
+          <div data-aos="fade-right" className="relative hidden lg:block">
             <div className="lg:sticky lg:top-28">
               <div className="rounded-3xl border border-primary/20 bg-white p-4 shadow-lg shadow-primary/10">
                 <Image
@@ -158,26 +168,26 @@ export default function LawyerDetailPage({ params }: PageProps) {
                   sizes="(max-width: 1024px) 100vw, 360px"
                 />
               </div>
-              <div className="mt-6 rounded-2xl border border-primary/10 bg-white p-5 shadow-sm">
+              {/* <div className="mt-6 rounded-2xl border border-primary/10 bg-white p-5 shadow-sm">
                 <p className="text-xs uppercase tracking-[0.3em] text-dark/50">
                   Kontak
                 </p>
                 <p className="mt-3 text-sm text-dark/70">{lawyer.email}</p>
                 <p className="text-sm text-dark/70">+{lawyer.phone}</p>
-              </div>
+              </div> */}
             </div>
           </div>
 
           <div data-aos="fade-left" className="space-y-6">
             <h2 className="font-sans text-3xl font-bold tracking-tight text-dark lg:text-5xl">
-              Profil dan Keahlian
+              {t.lawyerDetail.profileTitle}
             </h2>
-            <LawyerTabs lawyer={lawyer} expertise={expertise} />
+            <LawyerTabs lawyer={lawyer} expertise={expertise} locale={locale} />
           </div>
         </div>
       </section>
 
-      <section className="bg-white py-16 lg:py-20">
+      {/* <section className="bg-white py-16 lg:py-20">
         <div className="mx-auto grid w-full max-w-7xl gap-6 px-6 md:grid-cols-3 lg:px-16">
           <div className="rounded-2xl border border-primary/10 bg-offwhite p-6 text-center">
             <p className="text-xs uppercase tracking-[0.3em] text-dark/50">
@@ -204,7 +214,7 @@ export default function LawyerDetailPage({ params }: PageProps) {
             </span>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <section className="bg-navy py-16 lg:py-20">
         <div
@@ -212,11 +222,10 @@ export default function LawyerDetailPage({ params }: PageProps) {
           data-aos="fade-up"
         >
           <h2 className="font-sans text-3xl font-bold tracking-tight">
-            Konsultasi Langsung dengan {lawyer.name}
+            {t.lawyerDetail.directConsultationPrefix} {lawyer.name}
           </h2>
           <p className="font-body text-sm text-white/70">
-            Jadwalkan konsultasi pribadi untuk mendapatkan arahan hukum yang
-            tepat dan strategis.
+            {t.lawyerDetail.directConsultationDescription}
           </p>
           <div className="flex flex-col items-center gap-4 sm:flex-row">
             <a
@@ -225,13 +234,13 @@ export default function LawyerDetailPage({ params }: PageProps) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#25D366]/40 transition-transform duration-300 hover:-translate-y-0.5"
             >
-              Konsultasi via WhatsApp
+              {t.common.whatsappConsultation}
             </a>
             <Link
               href="/konsultasi"
               className="inline-flex items-center gap-2 rounded-xl border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:bg-white/10"
             >
-              Form Konsultasi
+              {t.common.consultationForm}
             </Link>
           </div>
         </div>
@@ -240,7 +249,7 @@ export default function LawyerDetailPage({ params }: PageProps) {
       <section className="bg-offwhite py-16 lg:py-20">
         <div className="mx-auto w-full max-w-7xl px-6 lg:px-16">
           <h2 className="font-sans text-3xl font-bold tracking-tight text-dark lg:text-5xl">
-            Tim Kami Lainnya
+            {t.lawyerDetail.otherTeam}
           </h2>
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             {otherLawyers.map((item, index) => (
@@ -256,7 +265,7 @@ export default function LawyerDetailPage({ params }: PageProps) {
                     src={item.image}
                     alt={item.name}
                     fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
                     sizes="(max-width: 1024px) 100vw, 280px"
                   />
                 </div>

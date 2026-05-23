@@ -1,36 +1,49 @@
 'use client';
 
-import { useMemo, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { articles } from '@/lib/data/articles';
+import type { Locale } from '@/lib/i18n/config';
+import { getDictionary } from '@/lib/i18n/dictionaries';
+import { getArticles } from '@/lib/i18n/localized-data';
 
-const filters = [
-  { label: 'Semua', value: 'all' },
-  { label: 'Hukum Pidana', value: 'Hukum Pidana' },
-  { label: 'Hukum Perdata', value: 'Hukum Perdata' },
-  { label: 'Hukum Bisnis', value: 'Hukum Bisnis' },
-  { label: 'Hukum Keluarga', value: 'Hukum Keluarga' },
-  { label: 'Hukum Properti', value: 'Properti & Pertanahan' },
-  { label: 'Ketenagakerjaan', value: 'Ketenagakerjaan' },
-];
+interface ArtikelClientProps {
+  locale: Locale;
+}
 
-const featuredArticle = articles.find((article) => article.featured) ?? articles[0];
-
-const popularArticles = (() => {
-  const featured = articles.filter((article) => article.featured);
-  const rest = articles.filter((article) => !article.featured);
-  return [...featured, ...rest].slice(0, 3);
-})();
-
-const categoryCounts = articles.reduce<Record<string, number>>((acc, article) => {
-  acc[article.category] = (acc[article.category] ?? 0) + 1;
-  return acc;
-}, {});
-
-export default function ArtikelClient() {
+export default function ArtikelClient({ locale }: ArtikelClientProps) {
+  const t = getDictionary(locale).articlePage;
+  const articles = useMemo(() => getArticles(locale), [locale]);
+  const featuredArticle =
+    articles.find((article) => article.featured) ?? articles[0];
+  const popularArticles = useMemo(() => {
+    const featured = articles.filter((article) => article.featured);
+    const rest = articles.filter((article) => !article.featured);
+    return [...featured, ...rest].slice(0, 3);
+  }, [articles]);
+  const categoryCounts = useMemo(
+    () =>
+      articles.reduce<Record<string, number>>((acc, article) => {
+        acc[article.category] = (acc[article.category] ?? 0) + 1;
+        return acc;
+      }, {}),
+    [articles]
+  );
+  const filters = useMemo(
+    () => [
+      { label: t.allFilter, value: 'all' },
+      ...Array.from(new Set(articles.map((article) => article.category))).map(
+        (category) => ({ label: category, value: category })
+      ),
+    ],
+    [articles, t.allFilter]
+  );
   const [activeFilter, setActiveFilter] = useState<string>('all');
   const [searchTerm, setSearchTerm] = useState<string>('');
+
+  useEffect(() => {
+    setActiveFilter('all');
+  }, [locale]);
 
   const filteredArticles = useMemo(() => {
     let list = articles.filter((article) => article.slug !== featuredArticle?.slug);
@@ -47,14 +60,14 @@ export default function ArtikelClient() {
     }
 
     return list;
-  }, [activeFilter, searchTerm]);
+  }, [activeFilter, featuredArticle?.slug, searchTerm, articles]);
 
   const searchWidget = (
     <div className="rounded-2xl border border-primary/10 bg-white p-6 shadow-sm">
-      <p className="text-sm font-semibold text-dark">Pencarian</p>
+      <p className="text-sm font-semibold text-dark">{t.searchTitle}</p>
       <input
         type="text"
-        placeholder="Cari artikel..."
+        placeholder={t.searchPlaceholder}
         value={searchTerm}
         onChange={(event) => setSearchTerm(event.target.value)}
         className="mt-3 w-full rounded-xl border border-primary/30 px-4 py-3 text-sm text-dark outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
@@ -113,7 +126,7 @@ export default function ArtikelClient() {
                 <span>|</span>
                 <span>{featuredArticle.readTime}</span>
                 <span className="ml-auto inline-flex items-center gap-2 font-semibold text-primary">
-                  Baca Artikel
+                  {t.readArticle}
                   <svg
                     className="h-4 w-4"
                     viewBox="0 0 20 20"
@@ -219,7 +232,9 @@ export default function ArtikelClient() {
             </div>
 
             <div className="rounded-2xl border border-primary/10 bg-white p-6 shadow-sm">
-              <p className="text-sm font-semibold text-dark">Artikel Populer</p>
+              <p className="text-sm font-semibold text-dark">
+                {t.popularArticles}
+              </p>
               <ul className="mt-4 space-y-3 text-sm text-dark/70">
                 {popularArticles.map((article) => (
                   <li key={article.slug}>
@@ -235,7 +250,7 @@ export default function ArtikelClient() {
             </div>
 
             <div className="rounded-2xl border border-primary/10 bg-white p-6 shadow-sm">
-              <p className="text-sm font-semibold text-dark">Kategori</p>
+              <p className="text-sm font-semibold text-dark">{t.categories}</p>
               <ul className="mt-4 space-y-3 text-sm text-dark/70">
                 {Object.entries(categoryCounts).map(([category, count]) => (
                   <li key={category} className="flex items-center justify-between">

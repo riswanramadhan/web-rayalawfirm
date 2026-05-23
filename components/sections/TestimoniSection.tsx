@@ -4,18 +4,27 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import { testimonials } from '../../lib/data/testimonials';
+import type { Locale } from '@/lib/i18n/config';
+import { getDictionary } from '@/lib/i18n/dictionaries';
+import { getTestimonials } from '@/lib/i18n/localized-data';
 
-const totalTestimonials = testimonials.length;
+interface TestimoniSectionProps {
+  locale: Locale;
+}
 
-const wrapIndex = (index: number) =>
-  (index + totalTestimonials) % totalTestimonials;
-
-export default function TestimoniSection() {
+export default function TestimoniSection({ locale }: TestimoniSectionProps) {
+  const t = getDictionary(locale).home.testimonials;
+  const testimonials = getTestimonials(locale);
+  const totalTestimonials = testimonials.length;
   const [activeIndex, setActiveIndex] = useState(0);
   const [direction, setDirection] = useState(1);
   const [isPaused, setIsPaused] = useState(false);
   const [visibleCount, setVisibleCount] = useState(1);
+
+  const wrapIndex = useCallback(
+    (index: number) => (index + totalTestimonials) % totalTestimonials,
+    [totalTestimonials]
+  );
 
   useEffect(() => {
     const updateCount = () => {
@@ -31,12 +40,12 @@ export default function TestimoniSection() {
   const goNext = useCallback(() => {
     setDirection(1);
     setActiveIndex((prev) => wrapIndex(prev + 1));
-  }, []);
+  }, [wrapIndex]);
 
   const goPrev = useCallback(() => {
     setDirection(-1);
     setActiveIndex((prev) => wrapIndex(prev - 1));
-  }, []);
+  }, [wrapIndex]);
 
   const goTo = useCallback(
     (index: number) => {
@@ -44,7 +53,7 @@ export default function TestimoniSection() {
       setDirection(index > activeIndex ? 1 : -1);
       setActiveIndex(wrapIndex(index));
     },
-    [activeIndex]
+    [activeIndex, wrapIndex]
   );
 
   useEffect(() => {
@@ -57,17 +66,17 @@ export default function TestimoniSection() {
     return Array.from({ length: visibleCount }, (_, idx) =>
       testimonials[wrapIndex(activeIndex + idx)]
     );
-  }, [activeIndex, visibleCount]);
+  }, [activeIndex, testimonials, visibleCount, wrapIndex]);
 
   return (
     <section className="bg-white py-16 sm:py-20 lg:py-24">
       <div className="mx-auto flex w-full max-w-7xl flex-col space-y-12 px-6 sm:px-8 lg:px-16">
         <div className="text-center" data-aos="fade-up">
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-primary">
-            Testimoni Klien
+            {t.badge}
           </span>
           <h2 className="mt-4 font-sans text-3xl font-bold tracking-tight text-dark lg:text-5xl">
-            Kepercayaan yang Terbukti
+            {t.title}
           </h2>
         </div>
 
@@ -141,7 +150,7 @@ export default function TestimoniSection() {
             <button
               type="button"
               onClick={goPrev}
-              aria-label="Sebelumnya"
+              aria-label={t.previousAria}
               className="flex h-11 w-11 items-center justify-center rounded-full border border-primary/30 text-primary transition-colors hover:bg-primary/10"
             >
               <svg
@@ -164,7 +173,7 @@ export default function TestimoniSection() {
                   key={`dot-${index}`}
                   type="button"
                   onClick={() => goTo(index)}
-                  aria-label={`Pergi ke testimoni ${index + 1}`}
+                  aria-label={`${t.goToAria} ${index + 1}`}
                   className={`h-2.5 w-2.5 rounded-full transition-colors ${
                     index === activeIndex
                       ? 'bg-primary'
@@ -177,7 +186,7 @@ export default function TestimoniSection() {
             <button
               type="button"
               onClick={goNext}
-              aria-label="Berikutnya"
+              aria-label={t.nextAria}
               className="flex h-11 w-11 items-center justify-center rounded-full border border-primary/30 text-primary transition-colors hover:bg-primary/10"
             >
               <svg
@@ -201,7 +210,7 @@ export default function TestimoniSection() {
             href="/testimoni"
             className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-all duration-300 hover:gap-3"
           >
-            Lihat Semua Testimoni
+            {t.viewAll}
             <span aria-hidden="true">&gt;</span>
           </Link>
         </div>

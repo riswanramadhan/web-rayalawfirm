@@ -1,5 +1,7 @@
 import Link from 'next/link';
-import { services } from '../../lib/data/services';
+import type { Locale } from '@/lib/i18n/config';
+import { getDictionary } from '@/lib/i18n/dictionaries';
+import { getServices } from '@/lib/i18n/localized-data';
 
 const serviceIcons: Record<string, React.ReactNode> = {
   pidana: (
@@ -56,21 +58,37 @@ const serviceIcons: Record<string, React.ReactNode> = {
       />
     </svg>
   ),
+  ptun: (
+    <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        d="M12 3.75L3.75 8.25h16.5L12 3.75zM5.25 8.25v8.25M9.75 8.25v8.25m4.5-8.25v8.25m4.5-8.25v8.25M4.5 16.5h15M3.75 20.25h16.5M8.25 12h7.5m-7.5 2.25h7.5"
+      />
+    </svg>
+  ),
 };
 
-export default function ServicesSection() {
+interface ServicesSectionProps {
+  locale: Locale;
+}
+
+export default function ServicesSection({ locale }: ServicesSectionProps) {
+  const t = getDictionary(locale);
+  const services = getServices(locale);
+
   return (
     <section className="bg-white py-16 sm:py-20 lg:py-24">
       <div className="mx-auto flex w-full max-w-7xl flex-col space-y-12 px-6 sm:px-8 lg:px-16">
         <div className="text-center" data-aos="fade-up">
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-primary">
-            Layanan Hukum
+            {t.home.services.badge}
           </span>
           <h2 className="mt-4 font-sans text-3xl font-bold tracking-tight text-dark lg:text-5xl">
-            Solusi Hukum Komprehensif
+            {t.home.services.title}
           </h2>
           <p className="mt-4 font-body text-base text-dark/70 lg:text-lg">
-            Pendampingan strategis untuk kebutuhan individu maupun korporasi dengan pendekatan yang terukur dan berorientasi hasil.
+            {t.home.services.description}
           </p>
         </div>
 
@@ -113,7 +131,7 @@ export default function ServicesSection() {
                   href={`/layanan/${service.slug}`}
                   className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-all duration-200 hover:gap-3"
                 >
-                  Pelajari Lebih Lanjut
+                  {t.common.learnMore}
                   <svg
                     className="h-4 w-4"
                     fill="none"
@@ -135,7 +153,7 @@ export default function ServicesSection() {
             href="/layanan"
             className="inline-flex items-center gap-2 rounded-xl border border-primary/30 px-6 py-3 text-sm font-semibold text-primary transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/10"
           >
-            Lihat Semua Layanan
+            {t.home.services.viewAll}
             <svg
               className="h-4 w-4"
               fill="none"

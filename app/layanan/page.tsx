@@ -1,19 +1,28 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Breadcrumb from '@/components/ui/Breadcrumb';
-import { services } from '@/lib/data/services';
 import { generatePageMetadata } from '@/lib/metadata';
+import { getDictionary } from '@/lib/i18n/dictionaries';
+import { getCurrentLocale } from '@/lib/i18n/server';
+import { getServices } from '@/lib/i18n/localized-data';
 
 export function generateMetadata(): Metadata {
+  const locale = getCurrentLocale();
+  const t = getDictionary(locale).servicesPage;
+
   return generatePageMetadata({
-    title: 'Layanan Hukum Raya Law Firm',
-    description:
-      'Raya Law Firm menyediakan layanan hukum pidana, perdata, bisnis, keluarga, properti, dan ketenagakerjaan dengan pendekatan strategis dan profesional.',
+    title: t.metaTitle,
+    description: t.metaDescription,
     path: '/layanan',
+    locale,
   });
 }
 
 export default function LayananPage() {
+  const locale = getCurrentLocale();
+  const t = getDictionary(locale);
+  const services = getServices(locale);
+
   return (
     <main className="flex flex-col">
       <section className="relative overflow-hidden bg-navy pt-24 pb-16 lg:pt-28 lg:pb-20">
@@ -21,14 +30,16 @@ export default function LayananPage() {
         <div className="relative mx-auto w-full max-w-7xl px-6 lg:px-16">
           <div className="max-w-2xl" data-aos="fade-up">
             <Breadcrumb
-              items={[{ label: 'Beranda', href: '/' }, { label: 'Layanan Hukum' }]}
+              items={[
+                { label: t.common.home, href: '/' },
+                { label: t.servicesPage.breadcrumb },
+              ]}
             />
             <h1 className="mt-4 font-sans text-5xl font-extrabold tracking-tight text-white lg:text-7xl">
-              Layanan Hukum Kami
+              {t.servicesPage.title}
             </h1>
             <p className="mt-4 font-body text-base text-white/70 lg:text-lg">
-              Pendampingan hukum terintegrasi untuk kebutuhan pribadi dan
-              korporasi dengan strategi yang terukur dan berorientasi hasil.
+              {t.servicesPage.description}
             </p>
           </div>
         </div>
@@ -38,10 +49,10 @@ export default function LayananPage() {
         <div className="mx-auto flex w-full max-w-7xl flex-col space-y-12 px-6 lg:px-16">
           <div className="max-w-3xl" data-aos="fade-up">
             <h2 className="font-sans text-3xl font-bold tracking-tight text-dark lg:text-5xl">
-              Komitmen Layanan Hukum Komprehensif
+              {t.servicesPage.commitmentTitle}
             </h2>
             <p className="mt-4 font-body text-base text-dark/70 lg:text-lg">
-              Kami menyiapkan strategi hukum yang jelas sejak awal, memastikan seluruh tahapan berjalan sesuai prosedur, serta menjaga komunikasi transparan agar klien memahami setiap langkah pendampingan.
+              {t.servicesPage.commitmentDescription}
             </p>
           </div>
 
@@ -84,6 +95,11 @@ export default function LayananPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M15 9h3.75M15 12h3.75M15 15h3.75M4.5 19.5h15a2.25 2.25 0 002.25-2.25V6.75A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25v10.5A2.25 2.25 0 004.5 19.5zm6-10.125a1.875 1.875 0 11-3.75 0 1.875 1.875 0 013.75 0zm1.294 6.336a6.721 6.721 0 01-3.17.789 6.721 6.721 0 01-3.168-.789 3.376 3.376 0 016.338 0z" />
                     </svg>
                   )}
+                  {service.icon === 'ptun' && (
+                    <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 3.75L3.75 8.25h16.5L12 3.75zM5.25 8.25v8.25M9.75 8.25v8.25m4.5-8.25v8.25m4.5-8.25v8.25M4.5 16.5h15M3.75 20.25h16.5M8.25 12h7.5m-7.5 2.25h7.5" />
+                    </svg>
+                  )}
                 </div>
                 <h3 className="mb-3 font-sans text-xl font-semibold text-dark">
                   {service.title}
@@ -106,7 +122,7 @@ export default function LayananPage() {
                     href={`/layanan/${service.slug}`}
                     className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-all duration-200 hover:gap-3"
                   >
-                    Pelajari Lebih Lanjut
+                    {t.common.learnMore}
                     <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                     </svg>
@@ -124,17 +140,16 @@ export default function LayananPage() {
           data-aos="fade-up"
         >
           <h2 className="font-sans text-3xl font-bold tracking-tight text-dark">
-            Tidak menemukan layanan yang sesuai?
+            {t.servicesPage.notFoundTitle}
           </h2>
           <p className="font-body text-sm text-dark/70">
-            Sampaikan kebutuhan Anda dan kami akan menyiapkan strategi pendampingan
-            yang paling relevan.
+            {t.servicesPage.notFoundDescription}
           </p>
           <Link
             href="/konsultasi"
             className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-accent px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition-transform duration-300 hover:-translate-y-0.5"
           >
-            Konsultasi Sekarang
+            {t.common.consultationNow}
             <svg
               className="h-4 w-4"
               viewBox="0 0 20 20"

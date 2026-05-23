@@ -3,70 +3,70 @@ export interface Lawyer {
   name: string;
   position: string;
   specialization: string;
-  experience: string;
-  education: string[];
-  bio: string;
   achievements: string[];
+  handledCases: string[];
   image: string;
   linkedin: string;
+  instagram: string;
+  facebook: string;
   phone: string;
   email: string;
 }
 
 export const lawyers: Lawyer[] = [
   {
-    slug: 'muh-alif-maulana-akbar-paisal',
-    name: 'Muh. Alif Maulana Akbar Paisal, S.H.',
+    slug: 'arham',
+    name: 'Arham Yusuf',
     position: 'Advokat',
-    specialization: 'Litigasi & Penyelesaian Sengketa',
-    experience: '—',
-    education: [],
-    bio: '',
-    achievements: [],
-    image: '/images/team/tim-muh-alif.jpg',
-    linkedin: '',
-    phone: '',
-    email: '',
+    specialization: 'Litigasi dan Hukum Perdata',
+    achievements: ['Anggota PERADI'],
+    handledCases: [],
+    image: '/images/team/tim-arham-1.jpg',
+    linkedin: 'https://www.linkedin.com/in/arham-yusuf-952829278',
+    instagram: 'https://www.instagram.com/arhamyusufk',
+    facebook: '',
+    phone: '6281242079060',
+    email: 'arhamarhamyusuf@gmail.com',
   },
   {
-    slug: 'yuliana-damayanti',
-    name: 'Yuliana Damayanti, S.H.',
+    slug: 'dimas',
+    name: 'Ryan A. Dimas',
     position: 'Advokat',
-    specialization: 'Keluarga & Waris',
-    experience: '—',
-    education: [],
-    bio: '',
-    achievements: [],
-    image: '/images/team/tim-yuliana.jpg',
-    linkedin: '',
-    phone: '',
-    email: '',
+    specialization: 'Litigasi, Ketenagakerjaan, Perdata, Pidana',
+    achievements: ['Mediasi'],
+    handledCases: ['Litigasi', 'Ketenagakerjaan', 'Perdata', 'Sengketa Tanah Utang-Piutang'],
+    image: '/images/team/tim-dimas-1.jpg',
+    linkedin: 'https://www.linkedin.com/in/ryan-a-dimas-93b9a6b7',
+    instagram: 'https://www.instagram.com/r.a_dimas',
+    facebook: 'https://www.facebook.com/dimas.ran.5',
+    phone: '628111126103',
+    email: 'radmsradms@gmail.com',
   },
   {
-    slug: 'muh-arham-yusuf',
-    name: 'Muh. Arham Yusuf, S.H., M.H.',
+    slug: 'yuli',
+    name: 'Yuli',
     position: 'Advokat',
     specialization: 'Hukum Bisnis & Korporat',
-    experience: '—',
-    education: [],
-    bio: '',
     achievements: [],
-    image: '/images/team/tim-muh-arham.jpg',
+    handledCases: [],
+    image: '/images/team/tim-yuli-1.jpg',
     linkedin: '',
-    phone: '',
+    instagram: '',
+    facebook: '',
+    phone: '62895334909799',
     email: '',
   },
   {
-    slug: 'ryan-arya-dimas',
-    name: 'Ryan Arya Dimas, S.H.',
+    slug: 'alif',
+    name: 'Alif',
     position: 'Advokat',
     specialization: 'Hukum Perdata & Keluarga',
-    experience: '—',
-    education: [],
-    bio: '',
     achievements: [],
-    image: '/images/team/tim-ryan.jpg',
+    handledCases: [],
+    image: '/images/team/tim-alif-1.jpg',
     linkedin: '',
+    instagram: '',
+    facebook: '',
     phone: '',
     email: '',
   },

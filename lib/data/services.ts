@@ -13,7 +13,7 @@ export interface Service {
   title: string;
   shortDesc: string;
   fullDesc: string;
-  icon: 'pidana' | 'perdata' | 'bisnis' | 'keluarga' | 'properti' | 'ketenagakerjaan';
+  icon: 'pidana' | 'perdata' | 'bisnis' | 'keluarga' | 'properti' | 'ketenagakerjaan' | 'ptun';
   highlights: string[];
   process: ServiceProcessStep[];
   faq: ServiceFaq[];
@@ -417,5 +417,71 @@ Kami juga menangani aspek kepatuhan, audit ketenagakerjaan, dan mitigasi risiko 
     metaTitle: 'Hukum Ketenagakerjaan | Raya Law Firm',
     metaDesc:
       'Pendampingan hukum ketenagakerjaan untuk perusahaan dan pekerja, dari kepatuhan hingga penyelesaian sengketa.',
+  },
+  {
+    slug: 'hukum-ptun',
+    title: 'Hukum Peradilan Tata Usaha Negara (PTUN)',
+    shortDesc:
+      'Pendampingan hukum untuk pengujian dan pembatalan Keputusan Tata Usaha Negara (KTUN) yang merugikan.',
+    fullDesc: `Sengketa Tata Usaha Negara (TUN) terjadi ketika keputusan pejabat atau badan publik merugikan kepentingan individu maupun badan hukum. Kami mendampingi klien dalam menguji keabsahan Keputusan Tata Usaha Negara (KTUN) agar keadilan administratif dapat ditegakkan.
+
+Tim kami berpengalaman dalam menyusun gugatan pembatalan keputusan pejabat pemerintah, sengketa kepegawaian (seperti sengketa ASN), perizinan, hingga sengketa pertanahan yang masuk ranah PTUN. Kami menganalisis secara mendalam apakah suatu keputusan bertentangan dengan peraturan perundang-undangan atau melanggar Asas-Asas Umum Pemerintahan yang Baik (AUPB).
+
+Dengan pendekatan yang teliti dan argumentasi hukum yang kuat, kami memastikan hak klien sebagai warga negara atau pelaku usaha tetap terlindungi dari penyalahgunaan wewenang administrasi.`,
+    icon: 'ptun',
+    highlights: [
+      'Gugatan pembatalan Keputusan Tata Usaha Negara (KTUN)',
+      'Penanganan sengketa kepegawaian (PNS/ASN)',
+      'Sengketa pencabutan atau penolakan perizinan usaha',
+      'Pengujian Asas-Asas Umum Pemerintahan yang Baik (AUPB)',
+      'Sengketa administratif terkait hak atas tanah',
+    ],
+    process: [
+      {
+        title: 'Asesmen Kasus & Legal Standing',
+        desc: 'Mengkaji Keputusan TUN yang disengketakan serta memastikan klien memiliki kedudukan hukum untuk menggugat.',
+      },
+      {
+        title: 'Upaya Administratif',
+        desc: 'Mendampingi proses pengajuan keberatan atau banding administratif ke atasan instansi sebelum melangkah ke pengadilan.',
+      },
+      {
+        title: 'Penyusunan Gugatan',
+        desc: 'Merumuskan dalil gugatan secara presisi berdasarkan cacat wewenang, prosedur, maupun substansi.',
+      },
+      {
+        title: 'Proses Persidangan',
+        desc: 'Mewakili klien dalam pembuktian, pemeriksaan saksi, hingga pengajuan kesimpulan di sidang PTUN.',
+      },
+      {
+        title: 'Pengawalan Eksekusi',
+        desc: 'Memastikan putusan pembatalan atau pencabutan KTUN dilaksanakan oleh Pejabat Tata Usaha Negara terkait.',
+      },
+    ],
+    faq: [
+      {
+        question: 'Apa yang dimaksud dengan Keputusan Tata Usaha Negara (KTUN)?',
+        answer:
+          'KTUN adalah penetapan tertulis oleh pejabat administrasi negara yang bersifat konkret, individual, dan final, serta menimbulkan akibat hukum.',
+      },
+      {
+        question: 'Apakah ada batas waktu untuk mengajukan gugatan ke PTUN?',
+        answer:
+          'Ya, gugatan harus diajukan dalam tenggang waktu 90 hari sejak diterimanya atau diumumkannya KTUN tersebut.',
+      },
+      {
+        question: 'Apakah saya bisa langsung menggugat ke PTUN tanpa lapor ke instansi terkait?',
+        answer:
+          'Tergantung aturannya. Untuk banyak jenis sengketa, undang-undang mewajibkan penempuhan upaya administratif (keberatan/banding) terlebih dahulu sebelum mendaftar gugatan ke PTUN.',
+      },
+      {
+        question: 'Apakah PTUN berwenang mengadili sengketa kontrak kerja sama dengan pemerintah?',
+        answer:
+          'Tidak selalu. Jika sengketanya murni keperdataan (wanprestasi kontrak), hal tersebut masuk yurisdiksi Pengadilan Negeri. PTUN hanya mengadili keputusan yang bersifat administratif sebelah pihak (sepihak).',
+      },
+    ],
+    metaTitle: 'Hukum Peradilan Tata Usaha Negara (PTUN) | Raya Law Firm',
+    metaDesc:
+      'Layanan pendampingan sengketa PTUN untuk pembatalan KTUN, sengketa perizinan, dan kepegawaian oleh Raya Law Firm.',
   },
 ];

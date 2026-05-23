@@ -3,31 +3,35 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Breadcrumb from '@/components/ui/Breadcrumb';
-import { articles, type Article } from '@/lib/data/articles';
-import { services } from '@/lib/data/services';
+import type { Article } from '@/lib/data/articles';
 import { buildWhatsAppURL } from '@/lib/whatsapp';
 import { generatePageMetadata, siteConfig } from '@/lib/metadata';
+import { getDictionary } from '@/lib/i18n/dictionaries';
+import { getCurrentLocale } from '@/lib/i18n/server';
+import {
+  getArticleBySlug,
+  getArticles,
+  getServices,
+} from '@/lib/i18n/localized-data';
 import SocialShareButtons from './SocialShareButtons';
 
 interface PageProps {
   params: { slug: string };
 }
 
-const getArticleBySlug = (slug: string): Article | undefined =>
-  articles.find((article) => article.slug === slug);
-
-export function generateStaticParams() {
-  return articles.map((article) => ({ slug: article.slug }));
-}
+export const dynamic = 'force-dynamic';
 
 export function generateMetadata({ params }: PageProps): Metadata {
-  const article = getArticleBySlug(params.slug);
+  const locale = getCurrentLocale();
+  const t = getDictionary(locale).articleDetail;
+  const article = getArticleBySlug(params.slug, locale);
 
   if (!article) {
     return generatePageMetadata({
-      title: 'Artikel Tidak Ditemukan',
-      description: 'Artikel yang Anda cari tidak tersedia.',
+      title: t.notFoundTitle,
+      description: t.notFoundDescription,
       path: `/artikel/${params.slug}`,
+      locale,
     });
   }
 
@@ -36,6 +40,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
     description: article.metaDesc,
     path: `/artikel/${article.slug}`,
     ogImage: article.image,
+    locale,
   });
 }
 
@@ -76,25 +81,40 @@ const renderContent = (content: string) => {
   });
 };
 
-const mapTagsToServices = (article: Article) => {
+const mapTagsToServices = (article: Article, locale: ReturnType<typeof getCurrentLocale>) => {
   const tagText = `${article.tags.join(' ')} ${article.category}`.toLowerCase();
   const mapping: Array<{ key: string; slug: string }> = [
     { key: 'pidana', slug: 'hukum-pidana' },
+    { key: 'criminal', slug: 'hukum-pidana' },
     { key: 'perdata', slug: 'hukum-perdata' },
+    { key: 'civil', slug: 'hukum-perdata' },
     { key: 'perjanjian', slug: 'hukum-perdata' },
+    { key: 'agreement', slug: 'hukum-perdata' },
     { key: 'kontrak', slug: 'hukum-perdata' },
+    { key: 'contract', slug: 'hukum-perdata' },
     { key: 'bisnis', slug: 'hukum-bisnis' },
+    { key: 'business', slug: 'hukum-bisnis' },
     { key: 'korporat', slug: 'hukum-bisnis' },
+    { key: 'corporate', slug: 'hukum-bisnis' },
     { key: 'akuisisi', slug: 'hukum-bisnis' },
+    { key: 'acquisition', slug: 'hukum-bisnis' },
     { key: 'due diligence', slug: 'hukum-bisnis' },
     { key: 'keluarga', slug: 'hukum-keluarga' },
+    { key: 'family', slug: 'hukum-keluarga' },
     { key: 'perceraian', slug: 'hukum-keluarga' },
+    { key: 'divorce', slug: 'hukum-keluarga' },
+    { key: 'custody', slug: 'hukum-keluarga' },
     { key: 'properti', slug: 'hukum-properti' },
+    { key: 'property', slug: 'hukum-properti' },
     { key: 'pertanahan', slug: 'hukum-properti' },
     { key: 'tanah', slug: 'hukum-properti' },
+    { key: 'land', slug: 'hukum-properti' },
     { key: 'ketenagakerjaan', slug: 'hukum-ketenagakerjaan' },
+    { key: 'employment', slug: 'hukum-ketenagakerjaan' },
     { key: 'phk', slug: 'hukum-ketenagakerjaan' },
+    { key: 'termination', slug: 'hukum-ketenagakerjaan' },
     { key: 'pekerja', slug: 'hukum-ketenagakerjaan' },
+    { key: 'employee', slug: 'hukum-ketenagakerjaan' },
   ];
 
   const slugs = new Set<string>();
@@ -104,6 +124,7 @@ const mapTagsToServices = (article: Article) => {
     }
   });
 
+  const services = getServices(locale);
   const related = services.filter((service) => slugs.has(service.slug));
 
   if (related.length > 0) {
@@ -114,21 +135,23 @@ const mapTagsToServices = (article: Article) => {
 };
 
 export default function ArtikelDetailPage({ params }: PageProps) {
-  const article = getArticleBySlug(params.slug);
+  const locale = getCurrentLocale();
+  const t = getDictionary(locale);
+  const articles = getArticles(locale);
+  const article = getArticleBySlug(params.slug, locale);
 
   if (!article) {
     notFound();
   }
 
   const articleUrl = new URL(`/artikel/${article.slug}`, siteConfig.url).toString();
-  const authorBio =
-    'Tim editorial Raya Law Firm merangkum artikel ini untuk memberikan panduan hukum yang ringkas, akurat, dan mudah dipahami.';
+  const authorBio = t.articleDetail.authorBio;
   const relatedArticles = articles
     .filter((item) => item.category === article.category && item.slug !== article.slug)
     .concat(articles.filter((item) => item.slug !== article.slug && item.category !== article.category))
     .slice(0, 3);
   const otherArticles = articles.filter((item) => item.slug !== article.slug).slice(0, 3);
-  const relatedServices = mapTagsToServices(article);
+  const relatedServices = mapTagsToServices(article, locale);
   const index = articles.findIndex((item) => item.slug === article.slug);
   const prevArticle = index > 0 ? articles[index - 1] : null;
   const nextArticle = index < articles.length - 1 ? articles[index + 1] : null;
@@ -173,8 +196,8 @@ export default function ArtikelDetailPage({ params }: PageProps) {
           <div className="mx-auto flex h-full w-full max-w-7xl flex-col justify-end px-6 pb-12 lg:px-16">
             <Breadcrumb
               items={[
-                { label: 'Beranda', href: '/' },
-                { label: 'Artikel', href: '/artikel' },
+                { label: t.common.home, href: '/' },
+                { label: t.common.articles, href: '/artikel' },
                 { label: article.title },
               ]}
             />
@@ -231,16 +254,24 @@ export default function ArtikelDetailPage({ params }: PageProps) {
                   </div>
                   <div>
                     <p className="text-sm font-semibold text-dark">{article.author}</p>
-                    <p className="text-xs text-dark/60">Admin Raya Law Firm</p>
+                    <p className="text-xs text-dark/60">
+                      {t.articleDetail.authorRole}
+                    </p>
                     <p className="mt-2 text-sm text-dark/70">{authorBio}</p>
                   </div>
                 </div>
               </div>
 
               <div className="mt-8">
-                <p className="text-sm font-semibold text-dark">Bagikan Artikel</p>
+                <p className="text-sm font-semibold text-dark">
+                  {t.articleDetail.shareArticle}
+                </p>
                 <div className="mt-3">
-                  <SocialShareButtons title={article.title} url={articleUrl} />
+                  <SocialShareButtons
+                    title={article.title}
+                    url={articleUrl}
+                    locale={locale}
+                  />
                 </div>
               </div>
 
@@ -251,7 +282,7 @@ export default function ArtikelDetailPage({ params }: PageProps) {
                     className="rounded-2xl border border-primary/10 bg-white p-5 text-sm text-dark/70 transition-colors hover:border-primary/30"
                   >
                     <p className="text-xs uppercase tracking-[0.2em] text-dark/40">
-                      Artikel Sebelumnya
+                      {t.articleDetail.previousArticle}
                     </p>
                     <p className="mt-2 font-semibold text-dark">
                       {prevArticle.title}
@@ -264,7 +295,7 @@ export default function ArtikelDetailPage({ params }: PageProps) {
                     className="rounded-2xl border border-primary/10 bg-white p-5 text-sm text-dark/70 transition-colors hover:border-primary/30"
                   >
                     <p className="text-xs uppercase tracking-[0.2em] text-dark/40">
-                      Artikel Berikutnya
+                      {t.articleDetail.nextArticle}
                     </p>
                     <p className="mt-2 font-semibold text-dark">
                       {nextArticle.title}
@@ -277,22 +308,26 @@ export default function ArtikelDetailPage({ params }: PageProps) {
 
           <aside className="space-y-6 lg:sticky lg:top-28">
             <div className="rounded-2xl bg-primary p-6 text-white shadow-lg shadow-primary/20">
-              <h3 className="text-lg font-semibold">Konsultasi Sekarang</h3>
+              <h3 className="text-lg font-semibold">
+                {t.articleDetail.consultNow}
+              </h3>
               <p className="mt-2 text-sm text-white/80">
-                Dapatkan arahan hukum dari tim advokat kami.
+                {t.articleDetail.consultDescription}
               </p>
               <a
-                href={buildWhatsAppURL('Halo Raya Law Firm, saya ingin konsultasi mengenai artikel ini.')}
+                href={buildWhatsAppURL(t.articleDetail.waMessage)}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-4 py-3 text-sm font-semibold text-primary"
               >
-                Konsultasi via WhatsApp
+                {t.common.whatsappConsultation}
               </a>
             </div>
 
             <div className="rounded-2xl border border-primary/10 bg-white p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-dark">Artikel Terkait</h3>
+              <h3 className="text-lg font-semibold text-dark">
+                {t.articleDetail.relatedArticles}
+              </h3>
               <ul className="mt-4 space-y-3 text-sm text-dark/70">
                 {relatedArticles.map((item) => (
                   <li key={item.slug}>
@@ -308,7 +343,9 @@ export default function ArtikelDetailPage({ params }: PageProps) {
             </div>
 
             <div className="rounded-2xl border border-primary/10 bg-white p-6 shadow-sm">
-              <h3 className="text-lg font-semibold text-dark">Layanan Terkait</h3>
+              <h3 className="text-lg font-semibold text-dark">
+                {t.articleDetail.relatedServices}
+              </h3>
               <ul className="mt-4 space-y-3 text-sm text-dark/70">
                 {relatedServices.map((service) => (
                   <li key={service.slug}>
@@ -330,10 +367,10 @@ export default function ArtikelDetailPage({ params }: PageProps) {
         <div className="mx-auto w-full max-w-7xl px-6 lg:px-16">
           <div className="flex items-center justify-between">
             <h2 className="font-sans text-3xl font-bold tracking-tight text-dark lg:text-5xl">
-              Artikel Lainnya
+              {t.articleDetail.otherArticles}
             </h2>
             <Link href="/artikel" className="text-sm font-semibold text-primary">
-              Lihat Semua
+              {t.common.viewAll}
             </Link>
           </div>
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">

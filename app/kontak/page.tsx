@@ -2,13 +2,18 @@ import type { Metadata } from 'next';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import { generatePageMetadata } from '@/lib/metadata';
 import { buildWhatsAppURL } from '@/lib/whatsapp';
+import { getDictionary } from '@/lib/i18n/dictionaries';
+import { getCurrentLocale } from '@/lib/i18n/server';
 
 export function generateMetadata(): Metadata {
+  const locale = getCurrentLocale();
+  const t = getDictionary(locale).contactPage;
+
   return generatePageMetadata({
-    title: 'Kontak & Lokasi | Raya Law Firm',
-    description:
-      'Hubungi Raya Law Firm untuk konsultasi hukum, jadwal pertemuan, dan kebutuhan pendampingan hukum profesional.',
+    title: t.metaTitle,
+    description: t.metaDescription,
     path: '/kontak',
+    locale,
   });
 }
 
@@ -129,19 +134,49 @@ const actionCards = [
 ];
 
 export default function KontakPage() {
+  const locale = getCurrentLocale();
+  const t = getDictionary(locale);
+  const contactLabels = [
+    {
+      label: t.common.address,
+      value: 'Jl. Tebet Barat Dalam IV No. 10, Jakarta.',
+    },
+    { label: t.common.phone, value: '0813 3566 3379' },
+    { label: 'WhatsApp', value: '0813 3566 3379' },
+    { label: t.common.email, value: 'info@rayalawfirm.com' },
+    {
+      label: t.common.operationalHours,
+      value: t.contactPage.officeHoursValue,
+    },
+  ];
+  const localizedContactItems = contactItems.map((item, index) => ({
+    ...item,
+    ...contactLabels[index],
+  }));
+  const localizedActionCards = actionCards.map((card, index) => ({
+    ...card,
+    ...t.contactPage.cards[index],
+    href:
+      index === 0 ? buildWhatsAppURL(t.contactPage.waMessage) : card.href,
+  }));
+
   return (
     <main className="flex flex-col">
       <section className="relative overflow-hidden bg-navy pt-24 pb-16 lg:pt-28 lg:pb-20">
         <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/85 to-primary/30" />
         <div className="relative mx-auto w-full max-w-7xl px-6 lg:px-16">
           <div className="max-w-2xl" data-aos="fade-up">
-            <Breadcrumb items={[{ label: 'Beranda', href: '/' }, { label: 'Kontak' }]} />
+            <Breadcrumb
+              items={[
+                { label: t.common.home, href: '/' },
+                { label: t.contactPage.breadcrumb },
+              ]}
+            />
             <h1 className="mt-4 font-sans text-5xl font-extrabold tracking-tight text-white lg:text-7xl">
-              Kontak dan Lokasi
+              {t.contactPage.title}
             </h1>
             <p className="mt-4 font-body text-base text-white/70 lg:text-lg">
-              Kami siap membantu kebutuhan hukum Anda. Hubungi tim Raya Law Firm
-              melalui kanal komunikasi resmi.
+              {t.contactPage.description}
             </p>
           </div>
         </div>
@@ -153,15 +188,15 @@ export default function KontakPage() {
             <div className="space-y-6">
               <div data-aos="fade-up">
                 <p className="text-xs uppercase tracking-[0.3em] text-dark/50">
-                  Informasi Kantor
+                  {t.contactPage.officeInfo}
                 </p>
                 <h2 className="mt-3 font-sans text-3xl font-bold tracking-tight text-dark">
-                  Kantor Raya Law Firm
+                  {t.contactPage.officeTitle}
                 </h2>
               </div>
 
               <div className="grid gap-4" data-aos="fade-up" data-aos-delay="100">
-                {contactItems.map((item) => (
+                {localizedContactItems.map((item) => (
                   <div
                     key={item.label}
                     className="flex items-start gap-4 rounded-2xl border border-primary/10 bg-white/80 p-5 shadow-lg shadow-primary/5"
@@ -193,13 +228,12 @@ export default function KontakPage() {
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Lokasi Kantor Kami di Jakarta Selatan"
+                  title={t.common.locationIframeTitle}
                 ></iframe>
                 </div>
               </div>
               <div className="rounded-2xl border border-primary/10 bg-white/80 p-6 text-sm text-dark/70">
-                Lokasi berada di pusat bisnis DKI Jakarta dengan akses mudah
-                ke transportasi umum dan parkir yang memadai.
+                {t.contactPage.mapNote}
               </div>
             </div>
           </div>
@@ -210,10 +244,10 @@ export default function KontakPage() {
         <div className="mx-auto w-full max-w-7xl px-6 lg:px-16">
           <div className="space-y-4 text-center" data-aos="fade-up">
             <p className="text-xs uppercase tracking-[0.3em] text-dark/50">
-              Cara Menghubungi
+              {t.contactPage.contactMethod}
             </p>
             <h2 className="font-sans text-3xl font-bold tracking-tight text-dark lg:text-5xl">
-              Pilih Kanal Komunikasi
+              {t.contactPage.chooseChannel}
             </h2>
           </div>
 
@@ -222,7 +256,7 @@ export default function KontakPage() {
             data-aos="fade-up"
             data-aos-delay="100"
           >
-            {actionCards.map((card) => (
+            {localizedActionCards.map((card) => (
               <div
                 key={card.title}
                 className={`flex h-full flex-col gap-4 rounded-2xl border p-6 transition-all duration-300 ${card.style}`}
@@ -243,7 +277,7 @@ export default function KontakPage() {
                   rel={card.href.startsWith('http') ? 'noreferrer' : undefined}
                   className={`mt-auto inline-flex items-center justify-center rounded-xl px-4 py-2 text-sm font-semibold transition ${card.buttonStyle}`}
                 >
-                  Hubungi Sekarang
+                  {t.common.contactNow}
                 </a>
               </div>
             ))}
@@ -256,14 +290,13 @@ export default function KontakPage() {
           <div className="grid gap-10 lg:grid-cols-[1fr_1.1fr]">
             <div className="space-y-4" data-aos="fade-up">
               <p className="text-xs uppercase tracking-[0.3em] text-dark/50">
-                Form Kontak
+                {t.contactPage.formBadge}
               </p>
               <h2 className="font-sans text-3xl font-bold tracking-tight text-dark">
-                Kirim Pesan Anda
+                {t.contactPage.formTitle}
               </h2>
               <p className="font-body text-base text-dark/70">
-                Sampaikan pertanyaan atau kebutuhan pendampingan hukum melalui
-                formulir ini. Tim kami akan menindaklanjuti secepatnya.
+                {t.contactPage.formDescription}
               </p>
             </div>
 
@@ -278,52 +311,52 @@ export default function KontakPage() {
               <div className="grid gap-5">
                 <div className="space-y-2">
                   <label htmlFor="nama" className="text-sm font-medium text-dark">
-                    Nama Lengkap
+                    {t.contactPage.fields.name}
                   </label>
                   <input
                     id="nama"
                     name="nama"
                     type="text"
-                    placeholder="Nama lengkap"
+                    placeholder={t.contactPage.placeholders.name}
                     className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-dark outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
                   />
                 </div>
 
                 <div className="space-y-2">
                   <label htmlFor="email" className="text-sm font-medium text-dark">
-                    Email
+                    {t.contactPage.fields.email}
                   </label>
                   <input
                     id="email"
                     name="email"
                     type="email"
-                    placeholder="email@gmail.com"
+                    placeholder={t.contactPage.placeholders.email}
                     className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-dark outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
                   />
                 </div>
 
                 <div className="space-y-2">
                   <label htmlFor="subjek" className="text-sm font-medium text-dark">
-                    Subjek
+                    {t.contactPage.fields.subject}
                   </label>
                   <input
                     id="subjek"
                     name="subjek"
                     type="text"
-                    placeholder="Topik yang ingin dibahas"
+                    placeholder={t.contactPage.placeholders.subject}
                     className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-dark outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
                   />
                 </div>
 
                 <div className="space-y-2">
                   <label htmlFor="pesan" className="text-sm font-medium text-dark">
-                    Pesan
+                    {t.contactPage.fields.message}
                   </label>
                   <textarea
                     id="pesan"
                     name="pesan"
                     rows={5}
-                    placeholder="Tuliskan pesan Anda"
+                    placeholder={t.contactPage.placeholders.message}
                     className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-dark outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
                   />
                 </div>
@@ -332,11 +365,10 @@ export default function KontakPage() {
                   type="submit"
                   className="inline-flex h-12 items-center justify-center rounded-xl bg-gradient-to-r from-primary to-accent text-sm font-semibold text-white transition-transform duration-300 hover:-translate-y-0.5"
                 >
-                  Kirim Pesan
+                  {t.contactPage.submit}
                 </button>
                 <p className="text-xs text-dark/60">
-                  Form ini akan membuka aplikasi email Anda untuk mengirim
-                  pesan.
+                  {t.contactPage.mailNote}
                 </p>
               </div>
             </form>

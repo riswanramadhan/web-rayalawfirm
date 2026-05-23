@@ -1,13 +1,21 @@
 'use client';
 
 import { useState } from 'react';
+import type { Locale } from '@/lib/i18n/config';
+import { getDictionary } from '@/lib/i18n/dictionaries';
 
 interface SocialShareButtonsProps {
   title: string;
   url: string;
+  locale: Locale;
 }
 
-export default function SocialShareButtons({ title, url }: SocialShareButtonsProps) {
+export default function SocialShareButtons({
+  title,
+  url,
+  locale,
+}: SocialShareButtonsProps) {
+  const t = getDictionary(locale).articleDetail;
   const [toast, setToast] = useState<string | null>(null);
 
   const showToast = (message: string) => {
@@ -18,9 +26,9 @@ export default function SocialShareButtons({ title, url }: SocialShareButtonsPro
   const handleCopy = async () => {
     try {
       await navigator.clipboard.writeText(url);
-      showToast('Tautan berhasil disalin.');
+      showToast(t.copySuccess);
     } catch {
-      showToast('Gagal menyalin tautan.');
+      showToast(t.copyError);
     }
   };
 
@@ -59,7 +67,7 @@ export default function SocialShareButtons({ title, url }: SocialShareButtonsPro
           onClick={handleCopy}
           className="rounded-full border border-primary/20 px-4 py-2 text-xs font-semibold text-primary transition-colors hover:bg-primary/10"
         >
-          Copy Link
+          {t.copyLink}
         </button>
       </div>
 

@@ -1,14 +1,19 @@
 import type { Metadata } from 'next';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import { generatePageMetadata } from '@/lib/metadata';
+import { getDictionary } from '@/lib/i18n/dictionaries';
+import { getCurrentLocale } from '@/lib/i18n/server';
 import KonsultasiForm from './KonsultasiForm';
 
 export function generateMetadata(): Metadata {
+  const locale = getCurrentLocale();
+  const t = getDictionary(locale).consultationPage;
+
   return generatePageMetadata({
-    title: 'Konsultasi Hukum Gratis | Raya Law Firm',
-    description:
-      'Ajukan konsultasi hukum gratis bersama tim advokat Raya Law Firm. Isi formulir singkat dan lanjutkan konsultasi melalui WhatsApp.',
+    title: t.metaTitle,
+    description: t.metaDescription,
     path: '/konsultasi',
+    locale,
   });
 }
 
@@ -43,6 +48,9 @@ const steps = [
 ];
 
 export default function KonsultasiPage() {
+  const locale = getCurrentLocale();
+  const t = getDictionary(locale);
+
   return (
     <main className="bg-navy">
       <section className="py-8 lg:py-20">
@@ -53,19 +61,22 @@ export default function KonsultasiPage() {
 
             <div className="relative z-10 space-y-10">
               <div className="space-y-4" data-aos="fade-up" data-aos-delay="100">
-                <Breadcrumb items={[{ label: 'Beranda', href: '/' }, { label: 'Konsultasi' }]} />
+                <Breadcrumb
+                  items={[
+                    { label: t.common.home, href: '/' },
+                    { label: t.consultationPage.breadcrumb },
+                  ]}
+                />
                 <h1 className="font-sans text-5xl font-extrabold tracking-tight text-white lg:text-7xl">
-                  Ceritakan Masalah Hukum Anda
+                  {t.consultationPage.title}
                 </h1>
                 <p className="font-body text-base text-white/70 lg:text-lg">
-                  Sampaikan kebutuhan hukum Anda secara singkat. Tim kami akan
-                  meninjau informasi dan mengarahkan konsultasi lanjutan melalui
-                  WhatsApp secara profesional dan terstruktur.
+                  {t.consultationPage.description}
                 </p>
               </div>
 
               <div className="space-y-6" data-aos="fade-up" data-aos-delay="200">
-                {steps.map((step, index) => (
+                {t.consultationPage.steps.map((step, index) => (
                   <div key={step.title} className="flex items-start gap-4">
                     <div>
                       <span className="flex h-12 w-12 items-center justify-center rounded-full bg-primary text-lg font-bold text-white">
@@ -89,27 +100,28 @@ export default function KonsultasiPage() {
                 data-aos="fade-up"
                 data-aos-delay="300"
               >
-                Informasi Anda aman dan dijaga kerahasiaannya. Kami menerapkan
-                standar privasi untuk setiap konsultasi yang masuk.
+                {t.consultationPage.privacyNote}
               </div>
 
               <div className="space-y-4" data-aos="fade-up" data-aos-delay="400">
                 <div>
                   <p className="text-sm uppercase tracking-[0.3em] text-white/60">
-                    Jam Operasional
+                    {t.consultationPage.operationalHours}
                   </p>
                   <p className="mt-2 text-base text-white">
-                    Senin - Jumat 08:00 - 17:00 WIB
+                    {t.consultationPage.weekdayHours}
                   </p>
-                  <p className="text-base text-white/70">Sabtu 09:00 - 13:00 WIB</p>
+                  <p className="text-base text-white/70">
+                    {t.consultationPage.saturdayHours}
+                  </p>
                 </div>
                 <div>
                   <p className="text-sm uppercase tracking-[0.3em] text-white/60">
-                    Kontak Alternatif
+                    {t.consultationPage.alternativeContact}
                   </p>
                   <div className="mt-2 space-y-1 text-base text-white">
-                    <p>Telepon: 0813 3566 3379</p>
-                    <p>Email: info@rayalawfirm.com</p>
+                    <p>{t.common.phone}: 0813 3566 3379</p>
+                    <p>{t.common.email}: info@rayalawfirm.com</p>
                   </div>
                 </div>
               </div>
@@ -120,19 +132,18 @@ export default function KonsultasiPage() {
             <div className="mx-auto w-full max-w-2xl space-y-6">
               <div className="space-y-3" data-aos="fade-up">
                 <p className="text-xs uppercase tracking-[0.3em] text-dark/50">
-                  Form Konsultasi
+                  {t.consultationPage.formLabel}
                 </p>
                 <h2 className="font-sans text-3xl font-bold tracking-tight text-dark lg:text-5xl">
-                  Formulir Konsultasi Gratis
+                  {t.consultationPage.formTitle}
                 </h2>
                 <p className="font-body text-base text-dark/70">
-                  Isi data di bawah dengan lengkap untuk mempercepat proses
-                  pendampingan hukum Anda.
+                  {t.consultationPage.formDescription}
                 </p>
               </div>
 
               <div data-aos="fade-up" data-aos-delay="100">
-                <KonsultasiForm />
+                <KonsultasiForm locale={locale} />
               </div>
             </div>
           </div>

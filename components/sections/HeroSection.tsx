@@ -3,6 +3,8 @@
 import { motion } from 'framer-motion';
 import Link from 'next/link';
 import Image from 'next/image';
+import type { Locale } from '@/lib/i18n/config';
+import { getDictionary } from '@/lib/i18n/dictionaries';
 
 const fadeUp = (delay: number) => ({
   initial: { opacity: 0, y: 30 },
@@ -10,10 +12,16 @@ const fadeUp = (delay: number) => ({
   transition: { duration: 0.8, delay },
 });
 
-export default function HeroSection() {
+interface HeroSectionProps {
+  locale: Locale;
+}
+
+export default function HeroSection({ locale }: HeroSectionProps) {
+  const t = getDictionary(locale).home.hero;
+
   return (
     <section className="relative min-h-[700px] overflow-hidden bg-navy pb-6 lg:pt-20 lg:pb-0">
-      {/* ── Background & Efek (Tetap Full Screen) ── */}
+      {/* Background and effects */}
       <div className="absolute inset-0 z-0 lg:hidden">
         <Image
           src="/images/gambar-hero.png"
@@ -29,31 +37,31 @@ export default function HeroSection() {
       <div className="absolute right-20 top-20 hidden h-96 w-96 rounded-full border border-primary/20 opacity-30 lg:block" />
       <div className="absolute right-32 top-32 hidden h-64 w-64 rounded-full border border-accent/20 opacity-40 lg:block" />
 
-      {/* ── WRAPPER PEMBATAS LAYAR LEBAR (BARU) ── */}
+      {/* Wrapper pembatas layar lebar */}
       {/* Container ini membatasi ekspansi maksimal hingga 1536px */}
       <div className="relative mx-auto w-full max-w-[1536px] lg:min-h-[700px]">
         
-        {/* ── Layout utama — KONTEN TEKS ── */}
+        {/* Layout utama - konten teks */}
         {/* Tetap menggunakan max-w-7xl agar sejajar dengan konten web lainnya */}
         <div className="relative z-10 mx-auto flex h-full w-full max-w-7xl flex-col px-6 pt-24 lg:min-h-[700px] lg:flex-row lg:items-center lg:px-16 lg:pt-0">
           
-          {/* Kolom kiri — konten teks */}
+          {/* Kolom kiri - konten teks */}
           <div className="max-w-2xl lg:w-[60%] xl:w-[55%]">
             <motion.div
               {...fadeUp(0.1)}
               className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/20 px-4 py-2 text-sm font-semibold uppercase tracking-wide text-accent backdrop-blur-sm"
             >
               <span className="h-2 w-2 animate-pulse rounded-full bg-accent" />
-              Konsultasi Hukum Profesional
+              {t.badge}
             </motion.div>
 
             <motion.h1
               {...fadeUp(0.25)}
               className="mt-8 font-sans text-5xl font-extrabold leading-tight tracking-tight text-white lg:text-6xl xl:text-7xl"
             >
-              Keadilan yang
+              {t.titleLine}
               <span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                Dapat Anda Percaya
+                {t.titleHighlight}
               </span>
             </motion.h1>
 
@@ -61,9 +69,7 @@ export default function HeroSection() {
               {...fadeUp(0.4)}
               className="mt-6 max-w-2xl font-body text-base leading-relaxed text-white/70 sm:text-lg"
             >
-              Raya Law Firm hadir memberikan solusi hukum komprehensif dengan tim
-              advokat berpengalaman. Kami mendampingi Anda di setiap langkah, dari
-              konsultasi hingga penyelesaian perkara.
+              {t.description}
             </motion.p>
 
             <motion.div
@@ -74,7 +80,7 @@ export default function HeroSection() {
                 href="/konsultasi"
                 className="inline-flex items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-primary to-accent px-8 py-4 font-semibold text-white shadow-lg shadow-primary/40 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-xl"
               >
-                Konsultasi Gratis
+                {t.primaryCta}
                 <svg
                   className="h-5 w-5"
                   fill="none"
@@ -94,7 +100,7 @@ export default function HeroSection() {
                 href="/layanan"
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/30 px-8 py-4 font-semibold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/10"
               >
-                Lihat Layanan Kami
+                {t.secondaryCta}
               </Link>
             </motion.div>
 
@@ -102,11 +108,7 @@ export default function HeroSection() {
               {...fadeUp(0.8)}
               className="mb-8 mt-16 grid max-w-lg grid-cols-3 gap-8 border-t border-white/10 pt-8"
             >
-              {[
-                { num: '15+', label: 'Tahun Pengalaman' },
-                { num: '500+', label: 'Kasus Diselesaikan' },
-                { num: '98%', label: 'Tingkat Kepuasan' },
-              ].map((item) => (
+              {t.stats.map((item) => (
                 <div key={item.label}>
                   <p className="font-sans text-3xl font-bold text-accent">
                     {item.num}
@@ -118,14 +120,14 @@ export default function HeroSection() {
           </div>
         </div>
 
-        {/* ── Kolom kanan — GAMBAR (Berhenti di batas 1536px) ── */}
+        {/* Kolom kanan - gambar */}
         <motion.div
           initial={{ opacity: 0, x: 40, scale: 0.97 }}
           animate={{ opacity: 1, x: 0, scale: 1 }}
           transition={{ duration: 1, delay: 0.3, ease: 'easeOut' }}
           className="absolute bottom-0 right-0 z-10 hidden w-[40vw] max-w-[800px] lg:block xl:w-[40vw]"
         >
-          {/* Frame gambar — Mengembalikan rounded-tl-3xl menjadi rounded-t-3xl jika gambar tidak lagi menempel di tepi viewport 4K */}
+          {/* Frame gambar */}
           <div className="relative w-full overflow-hidden rounded-t-3xl">
             <Image
               src="/images/gambar-hero.png"

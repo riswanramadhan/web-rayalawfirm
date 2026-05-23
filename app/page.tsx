@@ -9,6 +9,8 @@ import {
   legalServiceSchema,
   organizationSchema,
 } from '@/lib/metadata';
+import { getCurrentLocale } from '@/lib/i18n/server';
+import { getDictionary } from '@/lib/i18n/dictionaries';
 
 const SectionSkeleton = ({ className = 'bg-offwhite' }: { className?: string }) => (
   <div className={`min-h-[60vh] w-full animate-pulse ${className}`} />
@@ -46,26 +48,31 @@ const CTASection = dynamic(() => import('@/components/sections/CTASection'), {
 });
 
 export function generateMetadata(): Metadata {
+  const locale = getCurrentLocale();
+  const t = getDictionary(locale).home;
+
   return generatePageMetadata({
-    title: 'Raya Law Firm | Kantor Hukum Profesional Indonesia',
-    description:
-      'Raya Law Firm adalah kantor hukum profesional di Indonesia dengan layanan pidana, perdata, bisnis, keluarga, properti, dan ketenagakerjaan. Konsultasi terpercaya untuk kebutuhan hukum Anda.',
+    title: t.metaTitle,
+    description: t.metaDescription,
     path: '/',
+    locale,
   });
 }
 
 export default function HomePage() {
+  const locale = getCurrentLocale();
+
   return (
     <main className="flex flex-col">
-      <HeroSection />
-      <ProfileSection />
-      <ServicesSection />
-      <VisiMisiSection />
-      <TeamSection />
-      <TestimoniSection />
-      <ArtikelSection />
-      <KonsultasiSection />
-      <CTASection />
+      <HeroSection locale={locale} />
+      <ProfileSection locale={locale} />
+      <ServicesSection locale={locale} />
+      <VisiMisiSection locale={locale} />
+      <TeamSection locale={locale} />
+      <TestimoniSection locale={locale} />
+      <ArtikelSection locale={locale} />
+      <KonsultasiSection locale={locale} />
+      <CTASection locale={locale} />
 
       <script
         type="application/ld+json"

@@ -2,30 +2,33 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import Breadcrumb from '@/components/ui/Breadcrumb';
-import { services, type Service } from '@/lib/data/services';
 import { generatePageMetadata } from '@/lib/metadata';
 import { buildWhatsAppURL, WA_NUMBER } from '@/lib/whatsapp';
+import { getDictionary } from '@/lib/i18n/dictionaries';
+import { getCurrentLocale } from '@/lib/i18n/server';
+import {
+  getServiceBySlug,
+  getServices,
+} from '@/lib/i18n/localized-data';
 import FaqAccordion from './FaqAccordion';
 
 interface PageProps {
   params: { slug: string };
 }
 
-const getServiceBySlug = (slug: string): Service | undefined =>
-  services.find((service) => service.slug === slug);
-
-export function generateStaticParams() {
-  return services.map((service) => ({ slug: service.slug }));
-}
+export const dynamic = 'force-dynamic';
 
 export function generateMetadata({ params }: PageProps): Metadata {
-  const service = getServiceBySlug(params.slug);
+  const locale = getCurrentLocale();
+  const t = getDictionary(locale).serviceDetail;
+  const service = getServiceBySlug(params.slug, locale);
 
   if (!service) {
     return generatePageMetadata({
-      title: 'Layanan Tidak Ditemukan',
-      description: 'Layanan yang Anda cari tidak tersedia.',
+      title: t.notFoundTitle,
+      description: t.notFoundDescription,
       path: `/layanan/${params.slug}`,
+      locale,
     });
   }
 
@@ -33,21 +36,25 @@ export function generateMetadata({ params }: PageProps): Metadata {
     title: service.metaTitle,
     description: service.metaDesc,
     path: `/layanan/${service.slug}`,
+    locale,
   });
 }
 
 export default function LayananDetailPage({ params }: PageProps) {
-  const service = getServiceBySlug(params.slug);
+  const locale = getCurrentLocale();
+  const t = getDictionary(locale);
+  const service = getServiceBySlug(params.slug, locale);
 
   if (!service) {
     notFound();
   }
 
-  const waMessage = `Halo Raya Law Firm, saya ingin konsultasi terkait layanan ${
-    service.title
-  }.`;
+  const waMessage =
+    locale === 'en'
+      ? `${t.serviceDetail.waMessagePrefix} ${service.title} service.`
+      : `${t.serviceDetail.waMessagePrefix} ${service.title}.`;
   const waLink = buildWhatsAppURL(waMessage);
-  const otherServices = services
+  const otherServices = getServices(locale)
     .filter((item) => item.slug !== service.slug)
     .slice(0, 5);
   const paragraphs = service.fullDesc.split('\n\n');
@@ -60,8 +67,8 @@ export default function LayananDetailPage({ params }: PageProps) {
           <div className="max-w-3xl" data-aos="fade-up">
             <Breadcrumb
               items={[
-                { label: 'Beranda', href: '/' },
-                { label: 'Layanan', href: '/layanan' },
+                { label: t.common.home, href: '/' },
+                { label: t.common.services, href: '/layanan' },
                 { label: service.title },
               ]}
             />
@@ -80,7 +87,7 @@ export default function LayananDetailPage({ params }: PageProps) {
           <div className="space-y-12">
             <div data-aos="fade-up">
               <h2 className="font-sans text-3xl font-bold tracking-tight text-dark lg:text-5xl">
-                Penjelasan Lengkap
+                {t.serviceDetail.fullExplanation}
               </h2>
               <div className="mt-4 space-y-4 font-body text-base leading-relaxed text-dark/80">
                 {paragraphs.map((paragraph, index) => (
@@ -91,7 +98,7 @@ export default function LayananDetailPage({ params }: PageProps) {
 
             <div data-aos="fade-up">
               <h2 className="font-sans text-3xl font-bold tracking-tight text-dark lg:text-5xl">
-                Proses Penanganan
+                {t.serviceDetail.process}
               </h2>
               <div className="mt-6 grid gap-4">
                 {service.process.map((step, index) => (
@@ -115,7 +122,7 @@ export default function LayananDetailPage({ params }: PageProps) {
 
             <div data-aos="fade-up">
               <h2 className="font-sans text-3xl font-bold tracking-tight text-dark lg:text-5xl">
-                Pertanyaan Umum
+                {t.serviceDetail.faq}
               </h2>
               <div className="mt-6 rounded-2xl border border-primary/10 bg-white p-6">
                 <FaqAccordion items={service.faq} />
@@ -128,12 +135,14 @@ export default function LayananDetailPage({ params }: PageProps) {
               data-aos="fade-left"
               className="rounded-2xl bg-primary p-6 text-white shadow-lg shadow-primary/20"
             >
-              <h3 className="text-lg font-semibold">Konsultasi Sekarang</h3>
+              <h3 className="text-lg font-semibold">
+                {t.serviceDetail.consultNow}
+              </h3>
               <p className="mt-2 text-sm text-white/80">
-                Hubungi tim kami untuk pendampingan layanan {service.title}.
+                {t.serviceDetail.contactFor} {service.title}.
               </p>
               <p className="mt-4 text-sm text-white/80">
-                Telepon: +{WA_NUMBER.slice(0, 2)} {WA_NUMBER.slice(2, 5)}-{WA_NUMBER.slice(5, 9)}-{WA_NUMBER.slice(9)}
+                {t.serviceDetail.phone}: +{WA_NUMBER.slice(0, 2)} {WA_NUMBER.slice(2, 5)}-{WA_NUMBER.slice(5, 9)}-{WA_NUMBER.slice(9)}
               </p>
               <a
                 href={waLink}
@@ -141,7 +150,7 @@ export default function LayananDetailPage({ params }: PageProps) {
                 rel="noopener noreferrer"
                 className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-white px-4 py-3 text-sm font-semibold text-primary shadow-md"
               >
-                Konsultasi via WhatsApp
+                {t.common.whatsappConsultation}
               </a>
             </div>
 
@@ -150,7 +159,9 @@ export default function LayananDetailPage({ params }: PageProps) {
               data-aos-delay="100"
               className="rounded-2xl border border-primary/10 bg-white p-6 shadow-sm"
             >
-              <h3 className="text-lg font-semibold text-dark">Layanan Lainnya</h3>
+              <h3 className="text-lg font-semibold text-dark">
+                {t.serviceDetail.otherServices}
+              </h3>
               <ul className="mt-4 space-y-3 text-sm text-dark/70">
                 {otherServices.map((item) => (
                   <li key={item.slug}>
@@ -171,12 +182,12 @@ export default function LayananDetailPage({ params }: PageProps) {
               className="rounded-2xl border border-primary/10 bg-white p-6 shadow-sm"
             >
               <h3 className="text-lg font-semibold text-dark">
-                Mengapa Memilih Kami
+                {t.serviceDetail.whyChoose}
               </h3>
               <ul className="mt-4 space-y-3 pl-5 list-disc text-sm text-dark/70">
-                <li>Analisis kasus mendalam dan strategi terukur.</li>
-                <li>Tim advokat berpengalaman lintas bidang.</li>
-                <li>Komunikasi transparan dan respons cepat.</li>
+                {t.serviceDetail.reasons.map((reason) => (
+                  <li key={reason}>{reason}</li>
+                ))}
               </ul>
             </div>
           </aside>
@@ -189,10 +200,11 @@ export default function LayananDetailPage({ params }: PageProps) {
           data-aos="fade-up"
         >
           <h2 className="font-sans text-3xl font-bold tracking-tight">
-            Butuh bantuan layanan {service.title}?
+            {t.serviceDetail.needHelpPrefix} {service.title}
+            {t.serviceDetail.needHelpSuffix}
           </h2>
           <p className="font-body text-sm text-white/70">
-            Hubungi tim kami sekarang untuk mendapatkan arahan hukum yang tepat.
+            {t.serviceDetail.needHelpDescription}
           </p>
           <div className="flex flex-col items-center gap-4 sm:flex-row">
             <a
@@ -201,13 +213,13 @@ export default function LayananDetailPage({ params }: PageProps) {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 rounded-xl bg-[#25D366] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-[#25D366]/40 transition-transform duration-300 hover:-translate-y-0.5"
             >
-              Konsultasi via WhatsApp
+              {t.common.whatsappConsultation}
             </a>
             <Link
               href="/konsultasi"
               className="inline-flex items-center gap-2 rounded-xl border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors duration-300 hover:bg-white/10"
             >
-              Form Konsultasi
+              {t.common.consultationForm}
             </Link>
           </div>
         </div>

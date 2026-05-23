@@ -8,6 +8,8 @@ import CustomCursor from '../components/layout/CustomCursor';
 import Navbar from '../components/layout/Navbar';
 import Footer from '../components/layout/Footer';
 import WhatsAppFloat from '../components/layout/WhatsAppFloat';
+import { LanguageProvider } from '../components/i18n/LanguageProvider';
+import { getCurrentLocale } from '../lib/i18n/server';
 import { legalServiceSchema } from '../lib/metadata';
 
 const poppins = Poppins({
@@ -72,23 +74,27 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
+  const locale = getCurrentLocale();
+
   return (
-    <html lang="id" className={`${poppins.variable} ${barlow.variable}`}>
+    <html lang={locale} className={`${poppins.variable} ${barlow.variable}`}>
       <body className="font-sans bg-offwhite text-dark antialiased">
-        <AOSWrapper>
-          <ScrollProgress />
-          <CustomCursor />
-          <Navbar />
-          {children}
-          <Footer />
-          <WhatsAppFloat />
-          <script
-            type="application/ld+json"
-            dangerouslySetInnerHTML={{
-              __html: JSON.stringify(legalServiceSchema),
-            }}
-          />
-        </AOSWrapper>
+        <LanguageProvider initialLocale={locale}>
+          <AOSWrapper>
+            <ScrollProgress />
+            <CustomCursor />
+            <Navbar />
+            {children}
+            <Footer locale={locale} />
+            <WhatsAppFloat />
+            <script
+              type="application/ld+json"
+              dangerouslySetInnerHTML={{
+                __html: JSON.stringify(legalServiceSchema),
+              }}
+            />
+          </AOSWrapper>
+        </LanguageProvider>
       </body>
     </html>
   );

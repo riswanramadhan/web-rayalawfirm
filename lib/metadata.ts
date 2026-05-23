@@ -1,4 +1,9 @@
 import type { Metadata } from 'next';
+import {
+  defaultLocale,
+  localeOpenGraph,
+  type Locale,
+} from './i18n/config';
 
 export const siteConfig = {
   name: 'Raya Law Firm',
@@ -38,6 +43,7 @@ export interface PageMetadataInput {
   description: string;
   path: string;
   ogImage?: string;
+  locale?: Locale;
 }
 
 export function generatePageMetadata({
@@ -45,6 +51,7 @@ export function generatePageMetadata({
   description,
   path,
   ogImage,
+  locale = defaultLocale,
 }: PageMetadataInput): Metadata {
   const safePath = path.startsWith('/') ? path : `/${path}`;
   const pageUrl = new URL(safePath, siteConfig.url).toString();
@@ -58,7 +65,7 @@ export function generatePageMetadata({
     keywords: [...siteConfig.keywords],
     openGraph: {
       type: 'website',
-      locale: 'id_ID',
+      locale: localeOpenGraph[locale],
       url: pageUrl,
       title,
       description,

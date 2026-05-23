@@ -1,14 +1,15 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Locale } from '@/lib/i18n/config';
+import { getDictionary } from '@/lib/i18n/dictionaries';
 
-const strengths = [
-  'Pendekatan strategi litigasi dan non-litigasi yang terukur',
-  'Tim advokat berpengalaman lintas bidang hukum',
-  'Komunikasi transparan dan laporan perkembangan rutin',
-  'Standar etika tinggi serta kerahasiaan klien terjaga',
-];
+interface ProfileSectionProps {
+  locale: Locale;
+}
 
-export default function ProfileSection() {
+export default function ProfileSection({ locale }: ProfileSectionProps) {
+  const t = getDictionary(locale).home.profile;
+
   return (
     <section className="relative bg-offwhite pt-24 pb-20 lg:pt-32 lg:pb-28">
       <div className="absolute -left-20 -top-20 h-72 w-72 rounded-full bg-primary/10 blur-3xl" />
@@ -17,9 +18,9 @@ export default function ProfileSection() {
         <div data-aos="fade-right" data-aos-delay="100" className="relative max-w-md mx-auto w-full">
             <div className="absolute max-w-lg mx-auto -inset-4 rounded-3xl border border-primary/30" />
             <div className="relative overflow-hidden rounded-3xl border border-primary/20 shadow-2xl shadow-primary/20">
-              <Image
-                src="/images/tentang-kami.jpg"
-                alt="Raya Law Firm Office"
+                <Image
+                  src="/images/advocate-group-5.jpg"
+                alt={t.imageAlt}
                 width={600}
                 height={800} // Disarankan menyesuaikan rasio height dengan aspect ratio 3/4
                 className="aspect-[3/4] w-full h-full object-cover" // Ditambahkan h-full dan object-cover
@@ -27,36 +28,29 @@ export default function ProfileSection() {
               />
             </div>
           <div className="absolute -bottom-6 -right-4 rounded-2xl border border-primary/20 bg-white/90 p-5 shadow-xl shadow-primary/10 backdrop-blur-sm">
-            <p className="text-xs uppercase tracking-[0.3em] text-dark/50">
+            {/* <p className="text-xs uppercase tracking-[0.3em] text-dark/50">
               Sejak 2009
-            </p>
+            </p> */}
             <p className="mt-2 font-sans text-xl font-bold text-primary">
-              20+ Mitra Korporasi
+              {t.corporatePartners}
             </p>
-            <p className="text-sm text-dark/60">Kepercayaan jangka panjang</p>
+            <p className="text-sm text-dark/60">{t.longTermTrust}</p>
           </div>
         </div>
 
         <div data-aos="fade-left" data-aos-delay="200" className="space-y-6">
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-primary">
-            Tentang Kami
+            {t.badge}
           </span>
           <h2 className="font-sans text-3xl font-bold tracking-tight text-dark lg:text-5xl">
-            Firma Hukum dengan Standar Internasional
+            {t.title}
           </h2>
           <p className="font-body text-base leading-relaxed text-dark/80 lg:text-lg">
-            Raya Law Firm adalah kantor hukum yang fokus pada solusi komprehensif
-            bagi klien individu maupun korporasi di Indonesia. Kami menggabungkan
-            pengalaman litigasi, ketelitian analisis, dan pendekatan personal
-            untuk memastikan setiap perkara ditangani dengan standar profesional
-            tinggi. Dalam setiap pendampingan, kami menjaga komunikasi yang
-            transparan agar klien memahami langkah dan risiko yang dihadapi.
-            Komitmen kami adalah hasil yang terukur, etika, dan kepercayaan
-            jangka panjang.
+            {t.description}
           </p>
 
           <div className="grid gap-3">
-            {strengths.map((item) => (
+            {t.strengths.map((item) => (
               <div key={item} className="flex items-start gap-3">
                 <span className="mt-1 flex h-5 w-5 items-center justify-center rounded-full bg-primary/15 text-primary">
                   <svg
@@ -79,7 +73,7 @@ export default function ProfileSection() {
             href="/tentang"
             className="inline-flex items-center gap-2 rounded-xl border border-primary/30 px-6 py-3 text-sm font-semibold text-primary transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/10"
           >
-            Selengkapnya
+            {t.more}
             <svg
               className="h-4 w-4"
               viewBox="0 0 20 20"

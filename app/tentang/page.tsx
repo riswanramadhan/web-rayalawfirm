@@ -3,6 +3,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Breadcrumb from '@/components/ui/Breadcrumb';
 import { generatePageMetadata } from '@/lib/metadata';
+import { getDictionary } from '@/lib/i18n/dictionaries';
+import { getCurrentLocale } from '@/lib/i18n/server';
 
 const timeline = [
   {
@@ -152,15 +154,25 @@ const awards = [
 ];
 
 export function generateMetadata(): Metadata {
+  const locale = getCurrentLocale();
+  const t = getDictionary(locale).aboutPage;
+
   return generatePageMetadata({
-    title: 'Tentang Raya Law Firm',
-    description:
-      'Profil Raya Law Firm, sejarah perjalanan, nilai-nilai perusahaan, serta komitmen kami dalam memberikan layanan hukum profesional di Indonesia.',
+    title: t.metaTitle,
+    description: t.metaDescription,
     path: '/tentang',
+    locale,
   });
 }
 
 export default function TentangPage() {
+  const locale = getCurrentLocale();
+  const t = getDictionary(locale).aboutPage;
+  const localizedValues = t.values.map((value, index) => ({
+    ...value,
+    icon: values[index].icon,
+  }));
+
   return (
     <main className="flex flex-col">
       <section className="relative overflow-hidden bg-navy pt-24 pb-16 lg:pt-28 lg:pb-20">
@@ -168,13 +180,16 @@ export default function TentangPage() {
           <div className="relative mx-auto w-full max-w-7xl px-6 lg:px-16">
           <div className="max-w-2xl" data-aos="fade-up">
             <Breadcrumb
-              items={[{ label: 'Beranda', href: '/' }, { label: 'Tentang Kami' }]}
+              items={[
+                { label: getDictionary(locale).common.home, href: '/' },
+                { label: t.breadcrumb },
+              ]}
             />
             <h1 className="mt-4 font-sans text-5xl font-extrabold tracking-tight text-white lg:text-7xl">
-              RAYA LAW FIRM
+              {t.heroTitle}
             </h1>
             <p className="mt-4 font-body text-base text-white/70 lg:text-lg">
-              Berawal dari komitmen untuk menghadirkan keadilan yang aksesibel dan berkualitas, Raya Law Firm hadir sebagai mitra hukum yang berfokus pada ketepatan solusi.
+              {t.heroDescription}
             </p>
           </div>
         </div>
@@ -185,9 +200,9 @@ export default function TentangPage() {
           <div data-aos="fade-right" className="relative w-full mx-auto max-w-[240px] sm:max-w-[320px] lg:max-w-[400px]">
             <div className="absolute -inset-4 rounded-3xl border border-primary/30" />
             <div className="relative overflow-hidden rounded-3xl border border-primary/20 shadow-2xl shadow-primary/10">
-              <Image
-                src="/images/tentang-kami.jpg"
-                alt="Tim Raya Law Firm"
+                <Image
+                src="/images/advocate-group-6.jpg"
+                alt={t.imageAlt}
                 width={600}
                 height={600}
                 className="w-full aspect-[4/5] object-cover"
@@ -198,15 +213,17 @@ export default function TentangPage() {
 
           <div data-aos="fade-left" className="space-y-6">
             <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-primary">
-              Profil Singkat
+              {t.profileBadge}
             </span>
             <h2 className="font-sans text-3xl font-bold tracking-tight text-dark lg:text-5xl">
-              Menyatukan Keahlian, Integritas, dan Dedikasi
+              {t.profileTitle}
             </h2>
             <div className="space-y-4 font-body text-base text-dark/80 lg:text-lg">
-              <h3 className="font-sans text-xl font-semibold text-dark">Sejarah / Background</h3>
+              <h3 className="font-sans text-xl font-semibold text-dark">
+                {t.backgroundTitle}
+              </h3>
               <p>
-                Berawal dari komitmen untuk menghadirkan keadilan yang aksesibel dan berkualitas, Raya Law Firm hadir sebagai mitra hukum yang berfokus pada ketepatan solusi. Kami percaya bahwa setiap persoalan hukum memerlukan pendekatan yang personal dan strategis. Perjalanan kami dimulai dari visi untuk membangun firma hukum yang tidak hanya sekedar memberikan konsultasi, tetapi juga menjadi pendamping setia bagi klien dalam menghadapi dinamika hukum di Indonesia.
+                {t.background}
               </p>
             </div>
           </div>
@@ -217,20 +234,22 @@ export default function TentangPage() {
         <div className="mx-auto w-full max-w-7xl px-6 lg:px-16">
           <div className="text-center" data-aos="fade-up">
             <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-primary">
-              Visi dan Misi
+              {t.visionBadge}
             </span>
             <h2 className="mt-4 font-sans text-3xl font-bold tracking-tight text-dark lg:text-5xl">
-              VISI DAN MISI
+              {t.visionTitle}
             </h2>
             <p className="mt-4 font-body text-base text-dark/70 lg:text-lg">
-              Visi: Menjadi firma hukum terdepan yang mengedepankan integritas, profesionalisme, dan inovasi dalam memberikan perlindungan hukum bagi masyarakat maupun entitas bisnis.
+              {t.visionText}
             </p>
             <div className="mt-6 text-left max-w-3xl mx-auto">
-              <h3 className="font-sans text-lg font-semibold text-dark">Misi</h3>
+              <h3 className="font-sans text-lg font-semibold text-dark">
+                {t.missionTitle}
+              </h3>
               <ul className="mt-3 list-disc pl-6 space-y-2 text-dark/80">
-                <li>Memberikan layanan hukum secara komprehensif dengan standar etika profesi yang tinggi.</li>
-                <li>Menghadirkan strategi hukum yang efektif dan solutif bagi setiap permasalahan klien.</li>
-                <li>Membangun hubungan jangka panjang yang didasarkan pada kepercayaan dan transparansi.</li>
+                {t.missions.map((mission) => (
+                  <li key={mission}>{mission}</li>
+                ))}
               </ul>
             </div>
           </div>
@@ -241,18 +260,18 @@ export default function TentangPage() {
         <div className="mx-auto w-full max-w-7xl px-6 lg:px-16">
           <div className="text-center" data-aos="fade-up">
             <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-primary">
-              Nilai-Nilai
+              {t.valuesBadge}
             </span>
             <h2 className="mt-4 font-sans text-3xl font-bold tracking-tight text-dark lg:text-5xl">
-              Prinsip yang Kami Pegang
+              {t.valuesTitle}
             </h2>
             <p className="mt-4 font-body text-base text-dark/70 lg:text-lg">
-              Nilai inti ini menjadi fondasi setiap layanan yang kami berikan.
+              {t.valuesDescription}
             </p>
           </div>
 
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {values.map((value, index) => (
+            {localizedValues.map((value, index) => (
               <div
                 key={value.title}
                 data-aos="fade-up"
@@ -278,18 +297,18 @@ export default function TentangPage() {
         <div className="mx-auto w-full max-w-7xl px-6 lg:px-16">
           <div className="text-center" data-aos="fade-up">
             <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-primary">
-              Penghargaan
+              {t.awardsBadge}
             </span>
             <h2 className="mt-4 font-sans text-3xl font-bold tracking-tight text-dark lg:text-5xl">
-              Penghargaan dan Sertifikasi
+              {t.awardsTitle}
             </h2>
             <p className="mt-4 font-body text-base text-dark/70 lg:text-lg">
-              Pengakuan atas dedikasi kami terhadap kualitas layanan hukum.
+              {t.awardsDescription}
             </p>
           </div>
 
           <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {awards.map((award, index) => (
+            {t.awards.map((award, index) => (
               <div
                 key={award.title}
                 data-aos="fade-up"
@@ -317,17 +336,16 @@ export default function TentangPage() {
           data-aos="fade-up"
         >
           <h2 className="font-sans text-3xl font-bold tracking-tight text-dark">
-            Siap Mendiskusikan Kebutuhan Hukum Anda?
+            {t.finalTitle}
           </h2>
           <p className="font-body text-sm text-dark/70">
-            Tim kami siap memberikan konsultasi awal dan pendampingan strategis
-            sesuai kebutuhan Anda.
+            {t.finalDescription}
           </p>
           <Link
             href="/konsultasi"
             className="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-primary to-accent px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/20 transition-transform duration-300 hover:-translate-y-0.5"
           >
-            Konsultasi Sekarang
+            {t.finalCta}
             <svg
               className="h-4 w-4"
               viewBox="0 0 20 20"

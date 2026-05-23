@@ -1,21 +1,29 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { lawyers } from '../../lib/data/team';
+import type { Locale } from '@/lib/i18n/config';
+import { getDictionary } from '@/lib/i18n/dictionaries';
+import { getLawyers } from '@/lib/i18n/localized-data';
 
-export default function TeamSection() {
+interface TeamSectionProps {
+  locale: Locale;
+}
+
+export default function TeamSection({ locale }: TeamSectionProps) {
+  const t = getDictionary(locale);
+  const lawyers = getLawyers(locale);
+
   return (
     <section className="bg-offwhite py-16 sm:py-20 lg:py-24">
       <div className="mx-auto flex w-full max-w-7xl flex-col space-y-12 px-6 sm:px-8 lg:px-16">
         <div className="text-center" data-aos="fade-up">
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-primary">
-            Tim Advokat
+            {t.home.team.badge}
           </span>
           <h2 className="mt-4 font-sans text-3xl font-bold tracking-tight text-dark lg:text-5xl">
-            Profesional Berpengalaman dan Terpercaya
+            {t.home.team.title}
           </h2>
           <p className="mt-4 font-body text-base text-dark/70 lg:text-lg">
-            Tim kami terdiri dari advokat dengan keahlian lintas bidang hukum dan
-            rekam jejak menangani kasus kompleks secara strategis.
+            {t.home.team.description}
           </p>
         </div>
 
@@ -46,14 +54,14 @@ export default function TeamSection() {
                 <span className="mb-4 inline-block w-fit rounded-full bg-primary/8 py-1 text-xs font-semibold text-primary">
                   {lawyer.specialization}
                 </span>
-                <p className="mb-4 text-xs text-dark/50">{lawyer.experience} pengalaman</p>
+                {/* <p className="mb-4 text-xs text-dark/50">{lawyer.experience} pengalaman</p> */}
                 <div className="flex-grow" />
                 <div className="border-t border-gray-100 pt-4">
                   <Link
                     href={`/tim/${lawyer.slug}`}
                     className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-primary px-4 py-2.5 text-sm font-semibold text-primary transition-all duration-200 hover:bg-primary hover:text-white"
                   >
-                    Lihat Profil
+                    {t.common.viewProfile}
                     <svg
                       className="h-4 w-4"
                       fill="none"
@@ -76,7 +84,7 @@ export default function TeamSection() {
             href="/tim"
             className="inline-flex items-center gap-2 rounded-xl border border-primary/30 px-6 py-3 text-sm font-semibold text-primary transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/10"
           >
-            Kenali Tim Kami
+            {t.home.team.cta}
             <svg
               className="h-4 w-4"
               viewBox="0 0 20 20"

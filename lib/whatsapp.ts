@@ -1,3 +1,6 @@
+import { defaultLocale, type Locale } from './i18n/config';
+import { getDictionary } from './i18n/dictionaries';
+
 export interface KonsultasiForm {
   nama: string;
   telepon: string;
@@ -13,36 +16,41 @@ export interface KonsultasiForm {
 
 export const WA_NUMBER = '6281335663379';
 
-export function buildWhatsAppMessage(form: KonsultasiForm): string {
+export function buildWhatsAppMessage(
+  form: KonsultasiForm,
+  locale: Locale = defaultLocale
+): string {
+  const t = getDictionary(locale).whatsapp;
+
   const lines = [
-    'KONSULTASI RAYA LAW FIRM',
+    t.title,
     '----------------------------------------',
     '',
-    'DATA PEMOHON:',
-    `- Nama: ${form.nama}`,
-    `- Telepon: ${form.telepon}`,
-    `- Email: ${form.email}`,
-    `- Jenis Kelamin: ${form.jenisKelamin}`,
-    `- Kota: ${form.kota}`,
+    t.applicantData,
+    `- ${t.labels.name}: ${form.nama}`,
+    `- ${t.labels.phone}: ${form.telepon}`,
+    `- ${t.labels.email}: ${form.email}`,
+    `- ${t.labels.gender}: ${form.jenisKelamin}`,
+    `- ${t.labels.city}: ${form.kota}`,
     '',
-    'DETAIL KASUS:',
-    `- Bidang Hukum: ${form.bidangHukum}`,
-    `- Status Kasus: ${form.statusKasus}`,
-    `- Waktu Konsultasi: ${form.waktuKonsul}`,
+    t.caseDetails,
+    `- ${t.labels.lawField}: ${form.bidangHukum}`,
+    `- ${t.labels.caseStatus}: ${form.statusKasus}`,
+    `- ${t.labels.consultationTime}: ${form.waktuKonsul}`,
     '',
-    'DESKRIPSI KASUS:',
+    t.caseDescription,
     form.deskripsiSingkat,
     '',
-    `Sumber Informasi: ${form.sumberInfo}`,
+    `${t.labels.source}: ${form.sumberInfo}`,
     '',
     '----------------------------------------',
-    'Pesan ini dikirim dari website Raya Law Firm',
+    t.sentFromWebsite,
   ];
 
   return lines.join('\n');
 }
 
-export function buildWhatsAppURL(message: string): string {
+export function buildWhatsAppURL(message: string, waNumber: string = WA_NUMBER): string {
   const encoded = encodeURIComponent(message);
-  return `https://wa.me/${WA_NUMBER}?text=${encoded}`;
+  return `https://wa.me/${waNumber}?text=${encoded}`;
 }

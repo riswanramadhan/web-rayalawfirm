@@ -2,10 +2,14 @@
 
 import { motion, useAnimationControls } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import { useLanguage } from '@/components/i18n/LanguageProvider';
+import { getDictionary } from '@/lib/i18n/dictionaries';
+import { buildWhatsAppURL, WA_NUMBER } from '@/lib/whatsapp';
 
 export default function WhatsAppFloat() {
-  const waNumber = '6281335663379';
-  const waLink = `https://wa.me/${waNumber}?text=Halo%20Raya%20Law%20Firm%2C%20saya%20ingin%20konsultasi.`;
+  const { locale } = useLanguage();
+  const t = getDictionary(locale);
+  const waLink = buildWhatsAppURL(t.whatsapp.defaultMessage, WA_NUMBER);
 
   const shakeControls = useAnimationControls();
   const [idleReady, setIdleReady] = useState(false);
@@ -68,7 +72,7 @@ export default function WhatsAppFloat() {
         whileTap={{ scale: 0.94 }}
         className="wa-float relative flex items-center gap-3 rounded-full bg-[#25D366] px-3 md:px-4 py-3 text-white shadow-lg shadow-[#25D366]/40 transition-shadow duration-300"
       >
-        {/* Notification dot — muncul setelah FAB tampil */}
+        {/* Notification dot after the FAB appears */}
         {idleReady && (
           <motion.span
             className="absolute -right-0.5 -top-0.5 h-3 w-3 rounded-full bg-red-500 border-2 border-white"
@@ -78,7 +82,7 @@ export default function WhatsAppFloat() {
           />
         )}
 
-        {/* Icon float — hanya aktif setelah FAB tampil */}
+        {/* Icon float after the FAB appears */}
         <motion.svg
           className="h-6 w-6 flex-shrink-0"
           fill="currentColor"
@@ -90,7 +94,7 @@ export default function WhatsAppFloat() {
         </motion.svg>
 
         <span className="hidden md:block text-sm font-semibold whitespace-nowrap">
-          Hubungi Sekarang
+          {t.common.contactNow}
         </span>
       </motion.a>
     </motion.div>

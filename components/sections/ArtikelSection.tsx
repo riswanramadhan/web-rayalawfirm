@@ -1,16 +1,23 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { articles } from '../../lib/data/articles';
-import { main } from 'framer-motion/client';
+import type { Locale } from '@/lib/i18n/config';
+import { getDictionary } from '@/lib/i18n/dictionaries';
+import { getArticles } from '@/lib/i18n/localized-data';
 
-const getFeaturedArticles = () => {
+const getFeaturedArticles = (articles: ReturnType<typeof getArticles>) => {
   const featured = articles.filter((article) => article.featured);
   const fallback = articles.filter((article) => !article.featured);
   return [...featured, ...fallback].slice(0, 3);
 };
 
-export default function ArtikelSection() {
-  const featuredArticles = getFeaturedArticles();
+interface ArtikelSectionProps {
+  locale: Locale;
+}
+
+export default function ArtikelSection({ locale }: ArtikelSectionProps) {
+  const t = getDictionary(locale).home.articles;
+  const articles = getArticles(locale);
+  const featuredArticles = getFeaturedArticles(articles);
   const [mainArticle, ...secondaryArticles] = featuredArticles;
 
   if (!mainArticle) {
@@ -22,14 +29,13 @@ export default function ArtikelSection() {
       <div className="mx-auto flex w-full max-w-7xl flex-col space-y-12 px-6 sm:px-8 lg:px-16">
         <div data-aos="fade-up">
           <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-primary">
-            Insight Hukum
+            {t.badge}
           </span>
           <h2 className="mt-4 font-sans text-3xl font-bold tracking-tight text-dark lg:text-5xl">
-            Artikel dan Analisis Terkini
+            {t.title}
           </h2>
           <p className="mt-4 font-body text-base text-dark/70 lg:text-lg">
-            Rangkuman topik penting untuk membantu Anda memahami risiko dan peluang
-            hukum secara tepat.
+            {t.description}
           </p>
         </div>
 
@@ -126,7 +132,7 @@ export default function ArtikelSection() {
             href="/artikel"
             className="inline-flex items-center gap-2 rounded-xl border border-primary/30 px-6 py-3 text-sm font-semibold text-primary transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/10"
           >
-            Baca Semua Artikel
+            {t.readAll}
             <svg
               className="h-4 w-4"
               viewBox="0 0 20 20"
