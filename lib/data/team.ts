@@ -53,7 +53,7 @@ export const lawyers: Lawyer[] = [
     linkedin: '',
     instagram: '',
     facebook: '',
-    phone: '62895334909799',
+    phone: '',
     email: '',
   },
   {
