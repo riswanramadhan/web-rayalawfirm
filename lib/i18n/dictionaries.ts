@@ -85,7 +85,7 @@ export const dictionaries = {
         badge: 'Tentang Kami',
         title: 'Firma Hukum dengan Standar Internasional',
         description:
-          'Raya Law Firm adalah kantor hukum yang fokus pada solusi komprehensif bagi klien individu maupun korporasi di Indonesia. Kami menggabungkan pengalaman litigasi, ketelitian analisis, dan pendekatan personal untuk memastikan setiap perkara ditangani dengan standar profesional tinggi. Dalam setiap pendampingan, kami menjaga komunikasi yang transparan agar klien memahami langkah dan risiko yang dihadapi. Komitmen kami adalah hasil yang terukur, etika, dan kepercayaan jangka panjang.',
+          'Di Raya Law Firm, kami meyakini bahwa hukum bukan sekadar instrumen penyelesaian sengketa, melainkan fondasi perlindungan hak, pengelolaan risiko, dan penciptaan nilai bagi individu maupun dunia usaha. Kami berkomitmen menghadirkan layanan hukum yang strategis, responsif, dan berorientasi pada hasil, sehingga setiap klien memperoleh perlindungan hukum yang kuat dan solusi yang efektif untuk mencapai tujuan mereka.',
         strengths: [
           'Pendekatan strategi litigasi dan non-litigasi yang terukur',
           'Tim advokat berpengalaman lintas bidang hukum',
@@ -105,17 +105,18 @@ export const dictionaries = {
         viewAll: 'Lihat Semua Layanan',
       },
       visionMission: {
-        quote:
-          'Kami percaya bahwa keadilan lahir dari keberanian, integritas, dan dedikasi pada prinsip hukum yang benar.',
+        quote: 'Legal Excellence. Strategic Advocacy. Trusted Results.',
         visionTitle: 'Visi',
         visionText:
-          'Menjadi kantor hukum terdepan di Indonesia yang menghadirkan keadilan, kejujuran, dan pelayanan hukum berkualitas tinggi bagi seluruh lapisan masyarakat.',
+          'Menjadi firma hukum terkemuka dengan menghadirkan solusi hukum strategis yang melindungi kepentingan klien, menciptakan kepastian hukum, dan mendukung keberlanjutan bisnis di era global.',
         missionTitle: 'Misi',
         missions: [
-          'Memberikan layanan hukum profesional, integritas tinggi, dan berorientasi hasil.',
-          'Mendampingi klien dengan pendekatan personal dan solusi strategis.',
-          'Berkontribusi pada penegakan hukum dan keadilan di Indonesia.',
-          'Membangun kepercayaan melalui transparansi dan komunikasi yang efektif.',
+          'Memberikan layanan hukum yang unggul, profesional, dan berorientasi pada hasil, dengan mengedepankan integritas, ketelitian, dan standar etika tertinggi dalam setiap penugasan.',
+          'Melindungi kepentingan hukum klien secara efektif dan strategis, baik melalui litigasi maupun penyelesaian sengketa alternatif, dengan pendekatan yang terukur dan berbasis risiko.',
+          'Menjadi mitra hukum terpercaya bagi pelaku usaha, investor, profesional, dan individu, dalam menghadapi tantangan hukum yang kompleks di tingkat nasional maupun internasional.',
+          'Menyediakan layanan hukum yang komprehensif dan bernilai tambah, mencakup aspek korporasi, ketenagakerjaan, hubungan industrial, energi, pertambangan, investasi, dan bidang hukum lainnya.',
+          'Membangun hubungan jangka panjang dengan klien berdasarkan kepercayaan, kerahasiaan, responsivitas, dan kualitas layanan yang konsisten.',
+          'Mendorong kepastian hukum dan tata kelola yang baik, melalui pemberian nasihat hukum yang strategis, praktis, dan berorientasi pada keberhasilan klien.',
         ],
       },
       team: {
@@ -151,33 +152,23 @@ export const dictionaries = {
           'Kerahasiaan dan etika profesi terjaga',
           'Tim advokat berpengalaman lintas sektor',
         ],
-        emergency: 'Kontak Darurat WhatsApp',
-        twentyFourHours: '+62 813-3566-3379 (24 jam)',
         fields: {
-          name: 'Nama Lengkap',
-          phone: 'Nomor Telepon',
-          lawField: 'Bidang Hukum',
-          description: 'Deskripsi Singkat',
+          name: 'Nama',
+          phone: 'Nomor',
+          email: 'Email',
+          story: 'Ceritakan',
           namePlaceholder: 'Nama lengkap',
           phonePlaceholder: 'Contoh: 081234567890',
-          lawFieldPlaceholder: 'Pilih bidang hukum',
-          descriptionPlaceholder: 'Ceritakan kronologi singkat kasus Anda',
-          submit: 'Konsultasi via WhatsApp',
+          emailPlaceholder: 'email@gmail.com',
+          storyPlaceholder: 'Ceritakan kebutuhan atau masalah Anda',
+          submit: 'Kirim',
         },
-        options: [
-          'Pidana',
-          'Perdata',
-          'Bisnis',
-          'Keluarga',
-          'Properti',
-          'Ketenagakerjaan',
-          'Lainnya',
-        ],
         errors: {
           name: 'Nama wajib diisi.',
           phone: 'Nomor telepon wajib diisi.',
-          lawField: 'Pilih bidang hukum.',
-          description: 'Deskripsi singkat wajib diisi.',
+          email: 'Email wajib diisi.',
+          emailFormat: 'Format email tidak valid.',
+          story: 'Ceritakan kebutuhan atau masalah Anda.',
         },
       },
       cta: {
@@ -202,16 +193,19 @@ export const dictionaries = {
       profileTitle: 'Menyatukan Keahlian, Integritas, dan Dedikasi',
       backgroundTitle: 'Sejarah / Background',
       background:
-        'Berawal dari komitmen untuk menghadirkan keadilan yang aksesibel dan berkualitas, Raya Law Firm hadir sebagai mitra hukum yang berfokus pada ketepatan solusi. Kami percaya bahwa setiap persoalan hukum memerlukan pendekatan yang personal dan strategis. Perjalanan kami dimulai dari visi untuk membangun firma hukum yang tidak hanya sekedar memberikan konsultasi, tetapi juga menjadi pendamping setia bagi klien dalam menghadapi dinamika hukum di Indonesia.',
+        'Di Raya Law Firm, kami meyakini bahwa hukum bukan sekadar instrumen penyelesaian sengketa, melainkan fondasi perlindungan hak, pengelolaan risiko, dan penciptaan nilai bagi individu maupun dunia usaha. Kami berkomitmen menghadirkan layanan hukum yang strategis, responsif, dan berorientasi pada hasil, sehingga setiap klien memperoleh perlindungan hukum yang kuat dan solusi yang efektif untuk mencapai tujuan mereka.',
       visionBadge: 'Visi dan Misi',
       visionTitle: 'VISI DAN MISI',
       visionText:
-        'Visi: Menjadi firma hukum terdepan yang mengedepankan integritas, profesionalisme, dan inovasi dalam memberikan perlindungan hukum bagi masyarakat maupun entitas bisnis.',
+        'Menjadi firma hukum terkemuka dengan menghadirkan solusi hukum strategis yang melindungi kepentingan klien, menciptakan kepastian hukum, dan mendukung keberlanjutan bisnis di era global.',
       missionTitle: 'Misi',
       missions: [
-        'Memberikan layanan hukum secara komprehensif dengan standar etika profesi yang tinggi.',
-        'Menghadirkan strategi hukum yang efektif dan solutif bagi setiap permasalahan klien.',
-        'Membangun hubungan jangka panjang yang didasarkan pada kepercayaan dan transparansi.',
+        'Memberikan layanan hukum yang unggul, profesional, dan berorientasi pada hasil, dengan mengedepankan integritas, ketelitian, dan standar etika tertinggi dalam setiap penugasan.',
+        'Melindungi kepentingan hukum klien secara efektif dan strategis, baik melalui litigasi maupun penyelesaian sengketa alternatif, dengan pendekatan yang terukur dan berbasis risiko.',
+        'Menjadi mitra hukum terpercaya bagi pelaku usaha, investor, profesional, dan individu, dalam menghadapi tantangan hukum yang kompleks di tingkat nasional maupun internasional.',
+        'Menyediakan layanan hukum yang komprehensif dan bernilai tambah, mencakup aspek korporasi, ketenagakerjaan, hubungan industrial, energi, pertambangan, investasi, dan bidang hukum lainnya.',
+        'Membangun hubungan jangka panjang dengan klien berdasarkan kepercayaan, kerahasiaan, responsivitas, dan kualitas layanan yang konsisten.',
+        'Mendorong kepastian hukum dan tata kelola yang baik, melalui pemberian nasihat hukum yang strategis, praktis, dan berorientasi pada keberhasilan klien.',
       ],
       valuesBadge: 'Nilai-Nilai',
       valuesTitle: 'Prinsip yang Kami Pegang',
@@ -236,35 +230,6 @@ export const dictionaries = {
           title: 'Inovatif',
           description:
             'Kami terus berinovasi dalam layanan, dari digitalisasi hingga penyusunan strategi litigasi modern agar klien selalu selangkah lebih siap.',
-        },
-      ],
-      awardsBadge: 'Penghargaan',
-      awardsTitle: 'Penghargaan dan Sertifikasi',
-      awardsDescription: 'Pengakuan atas dedikasi kami terhadap kualitas layanan hukum.',
-      awards: [
-        {
-          title: 'Indonesia Legal Excellence Awards',
-          year: '2015',
-          description:
-            'Penghargaan atas kontribusi praktik litigasi dan penguatan akses bantuan hukum.',
-        },
-        {
-          title: 'Top Corporate Legal Advisor',
-          year: '2018',
-          description:
-            'Pengakuan atas pendampingan strategis untuk perusahaan nasional dan multinasional.',
-        },
-        {
-          title: 'Best Client Service in Law Firm',
-          year: '2021',
-          description:
-            'Apresiasi atas kualitas layanan klien, transparansi, dan respons cepat.',
-        },
-        {
-          title: 'National Law Firm Leadership',
-          year: '2024',
-          description:
-            'Penghargaan atas ekspansi nasional dan konsistensi menjaga standar profesional.',
         },
       ],
       imageAlt: 'Tim Raya Law Firm',
@@ -416,60 +381,26 @@ export const dictionaries = {
     },
     consultationForm: {
       personalData: 'Data Diri',
-      caseDetails: 'Detail Kasus',
-      additionalInfo: 'Informasi Tambahan',
       fields: {
-        name: 'Nama Lengkap',
-        phone: 'No. WhatsApp atau Telepon',
+        name: 'Nama',
+        phone: 'Nomor',
         email: 'Email',
-        city: 'Kota Domisili',
-        gender: 'Jenis Kelamin',
-        lawField: 'Bidang Hukum',
-        caseStatus: 'Status Kasus',
-        consultationTime: 'Waktu Konsultasi',
-        caseDescription: 'Deskripsi Singkat Kasus',
-        source: 'Dari mana tahu Raya Law Firm',
+        story: 'Ceritakan',
       },
       placeholders: {
         name: 'Nama lengkap',
         phone: '08xx',
         email: 'email@gmail.com',
-        city: 'Kota domisili',
-        lawField: 'Pilih bidang hukum',
-        caseDescription: 'Tuliskan kronologi singkat kasus Anda',
-        source: 'Pilih sumber informasi',
-      },
-      options: {
-        lawFields: [
-          'Hukum Pidana',
-          'Hukum Perdata',
-          'Hukum Bisnis',
-          'Hukum Keluarga',
-          'Hukum Properti',
-          'Hukum Ketenagakerjaan',
-          'Hukum Administrasi',
-          'Lainnya',
-        ],
-        sources: ['Google', 'Media Sosial', 'Referensi Teman', 'Lainnya'],
-        genders: ['Laki-laki', 'Perempuan'],
-        caseStatuses: ['Baru', 'Sudah Berjalan', 'Naik Banding'],
-        consultationTimes: ['Segera', 'Minggu Ini', 'Fleksibel'],
+        story: 'Ceritakan kebutuhan atau masalah Anda',
       },
       errors: {
-        name: 'Nama lengkap wajib diisi.',
+        name: 'Nama wajib diisi.',
         phone: 'Nomor telepon wajib diisi.',
-        phoneNumber: 'Nomor telepon harus berupa angka.',
         email: 'Email wajib diisi.',
         emailFormat: 'Format email tidak valid.',
-        gender: 'Pilih jenis kelamin.',
-        city: 'Kota domisili wajib diisi.',
-        lawField: 'Pilih bidang hukum.',
-        caseStatus: 'Pilih status kasus.',
-        consultationTime: 'Pilih waktu konsultasi.',
-        caseDescription: 'Deskripsi singkat wajib diisi.',
+        story: 'Ceritakan kebutuhan atau masalah Anda.',
       },
-      sourceFallback: 'Tidak disebutkan',
-      submit: 'Konsultasi via WhatsApp',
+      submit: 'Kirim',
       processing: 'Memproses...',
     },
     contactPage: {
@@ -500,7 +431,7 @@ export const dictionaries = {
         },
         {
           title: 'Email',
-          detail: 'info@rayalawfirm.com',
+          detail: 'rayaraya.lfadm@gmail.com',
           description: 'Kirim dokumen atau pertanyaan tertulis.',
         },
       ],
@@ -509,18 +440,18 @@ export const dictionaries = {
       formDescription:
         'Sampaikan pertanyaan atau kebutuhan pendampingan hukum melalui formulir ini. Tim kami akan menindaklanjuti secepatnya.',
       fields: {
-        name: 'Nama Lengkap',
+        name: 'Nama',
+        phone: 'Nomor',
         email: 'Email',
-        subject: 'Subjek',
-        message: 'Pesan',
+        story: 'Ceritakan',
       },
       placeholders: {
         name: 'Nama lengkap',
+        phone: '08xx',
         email: 'email@gmail.com',
-        subject: 'Topik yang ingin dibahas',
-        message: 'Tuliskan pesan Anda',
+        story: 'Ceritakan kebutuhan atau masalah Anda',
       },
-      submit: 'Kirim Pesan',
+      submit: 'Kirim',
       mailNote: 'Form ini akan membuka aplikasi email Anda untuk mengirim pesan.',
       waMessage: 'Halo Raya Law Firm, saya ingin konsultasi.',
     },
@@ -554,7 +485,6 @@ export const dictionaries = {
           body: `a. Data yang Anda berikan secara langsung:
 - Nama lengkap dan informasi identitas
 - Nomor telepon/WhatsApp dan alamat email
-- Informasi domisili dan wilayah hukum
 - Kronologi dan keterangan kasus yang Anda sampaikan
 - Dokumen atau bukti yang Anda serahkan untuk keperluan konsultasi
 
@@ -616,7 +546,7 @@ b. Data yang dikumpulkan otomatis:
         {
           title: '12. HUBUNGI KAMI',
           body: `Untuk pertanyaan mengenai kebijakan privasi ini atau untuk menggunakan hak-hak Anda:
-Email: info@rayalawfirm.com
+Email: rayaraya.lfadm@gmail.com
 Telepon: +62 813 3566 3379
 Alamat: Jl. Tebet Barat Dalam IV No. 10, Jakarta.
 
@@ -631,18 +561,11 @@ Terakhir diperbarui: 10 Mei 2026`,
       sentFromWebsite: 'Pesan ini dikirim dari website Raya Law Firm',
       title: 'KONSULTASI RAYA LAW FIRM',
       applicantData: 'DATA PEMOHON:',
-      caseDetails: 'DETAIL KASUS:',
-      caseDescription: 'DESKRIPSI KASUS:',
+      tellUs: 'CERITAKAN:',
       labels: {
         name: 'Nama',
         phone: 'Telepon',
         email: 'Email',
-        gender: 'Jenis Kelamin',
-        city: 'Kota',
-        lawField: 'Bidang Hukum',
-        caseStatus: 'Status Kasus',
-        consultationTime: 'Waktu Konsultasi',
-        source: 'Sumber Informasi',
       },
     },
   },
@@ -730,7 +653,7 @@ Terakhir diperbarui: 10 Mei 2026`,
         badge: 'About Us',
         title: 'A Law Firm with International Standards',
         description:
-          'Raya Law Firm focuses on comprehensive legal solutions for individuals and corporations in Indonesia. We combine litigation experience, meticulous analysis, and a personal approach to ensure every matter is handled with high professional standards. In every engagement, we maintain transparent communication so clients understand the steps and risks ahead. Our commitment is measured outcomes, ethics, and long-term trust.',
+          'At Raya Law Firm, we believe that the law is not merely a mechanism for resolving disputes, but a foundation for protecting rights, managing risks, and creating value for individuals and businesses. We are committed to delivering strategic, responsive, and results-oriented legal services, ensuring that every client receives strong legal protection and effective solutions to achieve their objectives.',
         strengths: [
           'Measured litigation and non-litigation strategies',
           'Experienced advocates across multiple legal fields',
@@ -750,17 +673,18 @@ Terakhir diperbarui: 10 Mei 2026`,
         viewAll: 'View All Services',
       },
       visionMission: {
-        quote:
-          'We believe justice is born from courage, integrity, and dedication to sound legal principles.',
+        quote: 'Legal Excellence. Strategic Advocacy. Trusted Results.',
         visionTitle: 'Vision',
         visionText:
-          'To become a leading law firm in Indonesia that delivers justice, honesty, and high-quality legal services for every layer of society.',
+          'To be a leading law firm recognized for delivering strategic legal solutions that safeguard clients\' interests, foster legal certainty, and support sustainable business growth in an increasingly interconnected global environment.',
         missionTitle: 'Mission',
         missions: [
-          'Provide professional legal services with high integrity and a results-oriented mindset.',
-          'Assist clients through a personal approach and strategic solutions.',
-          'Contribute to the enforcement of law and justice in Indonesia.',
-          'Build trust through transparency and effective communication.',
+          'To provide exceptional, professional, and results-driven legal services, guided by integrity, precision, and the highest ethical standards.',
+          'To safeguard clients\' legal interests effectively and strategically, through litigation, dispute resolution, and risk-based legal strategies.',
+          'To serve as a trusted legal partner for business owners, investors, professionals, and individuals, addressing complex legal challenges across domestic and international landscapes.',
+          'To deliver comprehensive and value-added legal services, covering corporate matters, employment and industrial relations, mining and energy, investments, and other areas of law.',
+          'To cultivate long-term client relationships built on trust, confidentiality, responsiveness, and consistent excellence.',
+          'To promote legal certainty and sound governance, by providing strategic, practical, and business-oriented legal counsel that contributes to clients\' success.',
         ],
       },
       team: {
@@ -796,33 +720,23 @@ Terakhir diperbarui: 10 Mei 2026`,
           'Protected confidentiality and professional ethics',
           'Experienced advocates across sectors',
         ],
-        emergency: 'Emergency WhatsApp Contact',
-        twentyFourHours: '+62 813-3566-3379 (24 hours)',
         fields: {
-          name: 'Full Name',
-          phone: 'Phone Number',
-          lawField: 'Legal Field',
-          description: 'Brief Description',
+          name: 'Name',
+          phone: 'Number',
+          email: 'Email',
+          story: 'Tell Us',
           namePlaceholder: 'Full name',
           phonePlaceholder: 'Example: 081234567890',
-          lawFieldPlaceholder: 'Select a legal field',
-          descriptionPlaceholder: 'Briefly describe your case chronology',
-          submit: 'Consult via WhatsApp',
+          emailPlaceholder: 'email@gmail.com',
+          storyPlaceholder: 'Tell us about your needs or concerns',
+          submit: 'Send',
         },
-        options: [
-          'Criminal',
-          'Civil',
-          'Business',
-          'Family',
-          'Property',
-          'Employment',
-          'Other',
-        ],
         errors: {
           name: 'Name is required.',
           phone: 'Phone number is required.',
-          lawField: 'Please select a legal field.',
-          description: 'Brief description is required.',
+          email: 'Email is required.',
+          emailFormat: 'Invalid email format.',
+          story: 'Tell us about your needs or concerns.',
         },
       },
       cta: {
@@ -847,16 +761,19 @@ Terakhir diperbarui: 10 Mei 2026`,
       profileTitle: 'Uniting Expertise, Integrity, and Dedication',
       backgroundTitle: 'History / Background',
       background:
-        'Founded on a commitment to accessible and high-quality justice, Raya Law Firm is a legal partner focused on precise solutions. We believe every legal issue requires a personal and strategic approach. Our journey began with a vision to build a law firm that does more than provide consultation, becoming a reliable companion for clients navigating Indonesia legal dynamics.',
+        'At Raya Law Firm, we believe that the law is not merely a mechanism for resolving disputes, but a foundation for protecting rights, managing risks, and creating value for individuals and businesses. We are committed to delivering strategic, responsive, and results-oriented legal services, ensuring that every client receives strong legal protection and effective solutions to achieve their objectives.',
       visionBadge: 'Vision and Mission',
       visionTitle: 'VISION AND MISSION',
       visionText:
-        'Vision: To become a leading law firm that prioritizes integrity, professionalism, and innovation in providing legal protection for the public and business entities.',
+        'To be a leading law firm recognized for delivering strategic legal solutions that safeguard clients\' interests, foster legal certainty, and support sustainable business growth in an increasingly interconnected global environment.',
       missionTitle: 'Mission',
       missions: [
-        'Provide comprehensive legal services with high professional ethical standards.',
-        'Deliver effective and solution-oriented legal strategies for every client matter.',
-        'Build long-term relationships based on trust and transparency.',
+        'To provide exceptional, professional, and results-driven legal services, guided by integrity, precision, and the highest ethical standards.',
+        'To safeguard clients\' legal interests effectively and strategically, through litigation, dispute resolution, and risk-based legal strategies.',
+        'To serve as a trusted legal partner for business owners, investors, professionals, and individuals, addressing complex legal challenges across domestic and international landscapes.',
+        'To deliver comprehensive and value-added legal services, covering corporate matters, employment and industrial relations, mining and energy, investments, and other areas of law.',
+        'To cultivate long-term client relationships built on trust, confidentiality, responsiveness, and consistent excellence.',
+        'To promote legal certainty and sound governance, by providing strategic, practical, and business-oriented legal counsel that contributes to clients\' success.',
       ],
       valuesBadge: 'Values',
       valuesTitle: 'Principles We Uphold',
@@ -881,35 +798,6 @@ Terakhir diperbarui: 10 Mei 2026`,
           title: 'Innovation',
           description:
             'We continue to innovate in service delivery, from digitalization to modern litigation strategy, so clients stay one step prepared.',
-        },
-      ],
-      awardsBadge: 'Recognition',
-      awardsTitle: 'Awards and Certifications',
-      awardsDescription: 'Recognition of our dedication to quality legal services.',
-      awards: [
-        {
-          title: 'Indonesia Legal Excellence Awards',
-          year: '2015',
-          description:
-            'Recognition for contributions to litigation practice and broader access to legal assistance.',
-        },
-        {
-          title: 'Top Corporate Legal Advisor',
-          year: '2018',
-          description:
-            'Recognition for strategic assistance to national and multinational companies.',
-        },
-        {
-          title: 'Best Client Service in Law Firm',
-          year: '2021',
-          description:
-            'Appreciation for client service quality, transparency, and fast response.',
-        },
-        {
-          title: 'National Law Firm Leadership',
-          year: '2024',
-          description:
-            'Recognition for national expansion and consistent professional standards.',
         },
       ],
       imageAlt: 'Raya Law Firm Team',
@@ -1061,60 +949,26 @@ Terakhir diperbarui: 10 Mei 2026`,
     },
     consultationForm: {
       personalData: 'Personal Data',
-      caseDetails: 'Case Details',
-      additionalInfo: 'Additional Information',
       fields: {
-        name: 'Full Name',
-        phone: 'WhatsApp or Phone Number',
+        name: 'Name',
+        phone: 'Number',
         email: 'Email',
-        city: 'City of Residence',
-        gender: 'Gender',
-        lawField: 'Legal Field',
-        caseStatus: 'Case Status',
-        consultationTime: 'Consultation Time',
-        caseDescription: 'Brief Case Description',
-        source: 'How did you find Raya Law Firm?',
+        story: 'Tell Us',
       },
       placeholders: {
         name: 'Full name',
         phone: '08xx',
         email: 'email@gmail.com',
-        city: 'City of residence',
-        lawField: 'Select a legal field',
-        caseDescription: 'Write a brief chronology of your case',
-        source: 'Select information source',
-      },
-      options: {
-        lawFields: [
-          'Criminal Law',
-          'Civil Law',
-          'Business Law',
-          'Family Law',
-          'Property Law',
-          'Employment Law',
-          'Administrative Law',
-          'Other',
-        ],
-        sources: ['Google', 'Social Media', 'Friend Referral', 'Other'],
-        genders: ['Male', 'Female'],
-        caseStatuses: ['New', 'Ongoing', 'Appeal'],
-        consultationTimes: ['As Soon As Possible', 'This Week', 'Flexible'],
+        story: 'Tell us about your needs or concerns',
       },
       errors: {
-        name: 'Full name is required.',
+        name: 'Name is required.',
         phone: 'Phone number is required.',
-        phoneNumber: 'Phone number must contain numbers only.',
         email: 'Email is required.',
         emailFormat: 'Invalid email format.',
-        gender: 'Please select gender.',
-        city: 'City of residence is required.',
-        lawField: 'Please select a legal field.',
-        caseStatus: 'Please select case status.',
-        consultationTime: 'Please select consultation time.',
-        caseDescription: 'Brief description is required.',
+        story: 'Tell us about your needs or concerns.',
       },
-      sourceFallback: 'Not specified',
-      submit: 'Consult via WhatsApp',
+      submit: 'Send',
       processing: 'Processing...',
     },
     contactPage: {
@@ -1145,7 +999,7 @@ Terakhir diperbarui: 10 Mei 2026`,
         },
         {
           title: 'Email',
-          detail: 'info@rayalawfirm.com',
+          detail: 'rayaraya.lfadm@gmail.com',
           description: 'Send documents or written questions.',
         },
       ],
@@ -1154,18 +1008,18 @@ Terakhir diperbarui: 10 Mei 2026`,
       formDescription:
         'Share your questions or legal assistance needs through this form. Our team will follow up as soon as possible.',
       fields: {
-        name: 'Full Name',
+        name: 'Name',
+        phone: 'Number',
         email: 'Email',
-        subject: 'Subject',
-        message: 'Message',
+        story: 'Tell Us',
       },
       placeholders: {
         name: 'Full name',
+        phone: '08xx',
         email: 'email@gmail.com',
-        subject: 'Topic to discuss',
-        message: 'Write your message',
+        story: 'Tell us about your needs or concerns',
       },
-      submit: 'Send Message',
+      submit: 'Send',
       mailNote: 'This form will open your email app to send the message.',
       waMessage: 'Hello Raya Law Firm, I would like to consult.',
     },
@@ -1199,7 +1053,6 @@ Terakhir diperbarui: 10 Mei 2026`,
           body: `a. Data you provide directly:
 - Full name and identity information
 - Phone/WhatsApp number and email address
-- Domicile and jurisdiction information
 - Case chronology and statements you provide
 - Documents or evidence submitted for consultation purposes
 
@@ -1261,7 +1114,7 @@ b. Data collected automatically:
         {
           title: '12. CONTACT US',
           body: `For questions about this privacy policy or to exercise your rights:
-Email: info@rayalawfirm.com
+Email: rayaraya.lfadm@gmail.com
 Phone: +62 813 3566 3379
 Address: Jl. Tebet Barat Dalam IV No. 10, Jakarta.
 
@@ -1276,18 +1129,11 @@ Last updated: May 10, 2026`,
       sentFromWebsite: 'This message was sent from the Raya Law Firm website',
       title: 'RAYA LAW FIRM CONSULTATION',
       applicantData: 'APPLICANT DATA:',
-      caseDetails: 'CASE DETAILS:',
-      caseDescription: 'CASE DESCRIPTION:',
+      tellUs: 'TELL US:',
       labels: {
         name: 'Name',
         phone: 'Phone',
         email: 'Email',
-        gender: 'Gender',
-        city: 'City',
-        lawField: 'Legal Field',
-        caseStatus: 'Case Status',
-        consultationTime: 'Consultation Time',
-        source: 'Information Source',
       },
     },
   },

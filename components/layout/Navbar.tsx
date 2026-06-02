@@ -55,8 +55,8 @@ export default function Navbar() {
   const navLinks = useMemo<NavLink[]>(
     () => [
       { label: t.common.home, href: '/' },
-      { label: t.common.about, href: '/tentang' },
       { label: t.common.services, href: '/layanan', dropdown: layananLinks },
+      { label: t.common.about, href: '/tentang' },
       { label: t.common.team, href: '/tim' },
       { label: t.common.articles, href: '/artikel' },
       { label: t.common.consultation, href: '/konsultasi' },

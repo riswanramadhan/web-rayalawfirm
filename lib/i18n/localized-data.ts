@@ -7,7 +7,7 @@ import { defaultLocale, type Locale } from './config';
 type ServiceTranslation = Omit<Service, 'slug' | 'icon'>;
 type LawyerTranslation = Pick<
   Lawyer,
-  'position' | 'specialization' | 'achievements' | 'handledCases'
+  'position' | 'specialization' | 'expertise' | 'achievements' | 'handledCases'
 >;
 type TestimonialTranslation = Pick<
   Testimonial,
@@ -480,29 +480,52 @@ With careful work and strong legal arguments, we ensure client rights as citizen
 };
 
 const lawyerTranslationsEn: Record<string, LawyerTranslation> = {
+  alif: {
+    position: 'Managing Partner',
+    specialization: 'Contract Analysis & Legal Drafting',
+    expertise: [],
+    achievements: [
+      'Advocate Professional Skills Education Training (PKPA) 2023',
+      'DPN Indonesia Advocate Member',
+      'Advocate Professional Qualification Certification',
+    ],
+    handledCases: [
+      'Contract & Employment Agreement Analysis',
+      'Legal Drafting',
+      'Legal Risk Management',
+      'Litigation and Civil Law',
+      'Criminal Law',
+    ],
+  },
   arham: {
-    position: 'Advocate',
+    position: 'Partner 1 / Advocate',
     specialization: 'Litigation and Civil Law',
+    expertise: ['Litigation and Civil Law'],
     achievements: ['PERADI Member'],
     handledCases: [],
   },
+  yuli: {
+    position: 'Partner 2 / Advocate',
+    specialization: 'Legal Risk Management & Legal Drafting',
+    expertise: [
+      'Legal Risk Identification and Mitigation',
+      'Contract & Agreement Analysis',
+      'Legal Drafting & Writing',
+      'Legal Risk Management',
+      'Legal Documentation & Administration Management',
+    ],
+    achievements: [
+      'Special Advocate Professional Education (PKPA)',
+      'Advocate Professional Qualification Certification',
+    ],
+    handledCases: ['Criminal cases', 'Civil cases', 'Employment law'],
+  },
   dimas: {
-    position: 'Advocate',
+    position: 'Partner 3 / Advocate',
     specialization: 'Litigation, Employment, Civil, Criminal',
+    expertise: ['Litigation', 'Employment', 'Civil', 'Criminal'],
     achievements: ['Mediation'],
     handledCases: ['Litigation', 'Employment', 'Civil', 'Land and Debt Dispute'],
-  },
-  yuli: {
-    position: 'Advocate',
-    specialization: 'Business & Corporate Law',
-    achievements: [],
-    handledCases: [],
-  },
-  alif: {
-    position: 'Advocate',
-    specialization: 'Civil & Family Law',
-    achievements: [],
-    handledCases: [],
   },
 };
 

@@ -6,45 +6,6 @@ import { generatePageMetadata } from '@/lib/metadata';
 import { getDictionary } from '@/lib/i18n/dictionaries';
 import { getCurrentLocale } from '@/lib/i18n/server';
 
-const timeline = [
-  {
-    year: '2009',
-    title: 'Raya Law Firm Didirikan',
-    description:
-      'Raya Putri, S.H. mendirikan Raya Law Firm dengan visi menghadirkan pendampingan hukum yang tegas, etis, dan berorientasi hasil untuk masyarakat Indonesia.',
-  },
-  {
-    year: '2012',
-    title: 'Ekspansi ke Hukum Bisnis',
-    description:
-      'Bergabungnya tim pertama membuka layanan hukum bisnis dan korporat, termasuk kontrak komersial dan pendampingan pendirian badan usaha.',
-  },
-  {
-    year: '2015',
-    title: '100 Kasus Pertama',
-    description:
-      'Raya Law Firm menuntaskan 100 perkara perdana dan meraih penghargaan pertama atas komitmen profesionalisme dan pelayanan klien.',
-  },
-  {
-    year: '2018',
-    title: 'Kantor Baru dan Tim 10 Advokat',
-    description:
-      'Pembukaan kantor baru di Jakarta Selatan memperkuat layanan litigasi dan menambah fokus spesialisasi ketenagakerjaan.',
-  },
-  {
-    year: '2021',
-    title: 'Digitalisasi Layanan',
-    description:
-      'Implementasi konsultasi online dan sistem pelaporan digital meningkatkan akses klien dan efisiensi pendampingan.',
-  },
-  {
-    year: '2024',
-    title: 'Ekspansi Nasional',
-    description:
-      'Lebih dari 500 kasus diselesaikan dengan keberhasilan tinggi dan perluasan layanan ke berbagai kota besar di Indonesia.',
-  },
-];
-
 const values = [
   {
     title: 'Integritas',
@@ -123,33 +84,6 @@ const values = [
         <path d="M9 22h6" />
       </svg>
     ),
-  },
-];
-
-const awards = [
-  {
-    title: 'Indonesia Legal Excellence Awards',
-    year: '2015',
-    description:
-      'Penghargaan atas kontribusi praktik litigasi dan penguatan akses bantuan hukum.',
-  },
-  {
-    title: 'Top Corporate Legal Advisor',
-    year: '2018',
-    description:
-      'Pengakuan atas pendampingan strategis untuk perusahaan nasional dan multinasional.',
-  },
-  {
-    title: 'Best Client Service in Law Firm',
-    year: '2021',
-    description:
-      'Apresiasi atas kualitas layanan klien, transparansi, dan respons cepat.',
-  },
-  {
-    title: 'National Law Firm Leadership',
-    year: '2024',
-    description:
-      'Penghargaan atas ekspansi nasional dan konsistensi menjaga standar profesional.',
   },
 ];
 
@@ -286,43 +220,6 @@ export default function TentangPage() {
                 </h3>
                 <p className="mt-3 font-body text-sm text-dark/70">
                   {value.description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="bg-white py-16 lg:py-20">
-        <div className="mx-auto w-full max-w-7xl px-6 lg:px-16">
-          <div className="text-center" data-aos="fade-up">
-            <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-primary">
-              {t.awardsBadge}
-            </span>
-            <h2 className="mt-4 font-sans text-3xl font-bold tracking-tight text-dark lg:text-5xl">
-              {t.awardsTitle}
-            </h2>
-            <p className="mt-4 font-body text-base text-dark/70 lg:text-lg">
-              {t.awardsDescription}
-            </p>
-          </div>
-
-          <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-            {t.awards.map((award, index) => (
-              <div
-                key={award.title}
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
-                className="rounded-2xl border border-primary/10 bg-offwhite p-6 shadow-sm"
-              >
-                <p className="text-xs uppercase tracking-[0.3em] text-primary">
-                  {award.year}
-                </p>
-                <h3 className="mt-3 font-sans text-lg font-semibold text-dark">
-                  {award.title}
-                </h3>
-                <p className="mt-3 font-body text-sm text-dark/70">
-                  {award.description}
                 </p>
               </div>
             ))}

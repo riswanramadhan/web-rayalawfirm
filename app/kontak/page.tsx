@@ -60,7 +60,7 @@ const contactItems = [
   },
   {
     label: 'Email',
-    value: 'info@rayalawfirm.com',
+    value: 'rayaraya.lfadm@gmail.com',
     icon: (
       <svg
         className="h-5 w-5"
@@ -120,9 +120,9 @@ const actionCards = [
   },
   {
     title: 'Email',
-    detail: 'info@rayalawfirm.com',
+    detail: 'rayaraya.lfadm@gmail.com',
     description: 'Kirim dokumen atau pertanyaan tertulis.',
-    href: 'mailto:info@rayalawfirm.com',
+    href: 'mailto:rayaraya.lfadm@gmail.com',
     style: 'bg-navy/10 text-navy border-navy/30 hover:bg-navy/20',
     buttonStyle: 'bg-navy text-white hover:bg-navy/90',
     icon: (
@@ -143,7 +143,7 @@ export default function KontakPage() {
     },
     { label: t.common.phone, value: '0813 3566 3379' },
     { label: 'WhatsApp', value: '0813 3566 3379' },
-    { label: t.common.email, value: 'info@rayalawfirm.com' },
+    { label: t.common.email, value: 'rayaraya.lfadm@gmail.com' },
     {
       label: t.common.operationalHours,
       value: t.contactPage.officeHoursValue,
@@ -302,7 +302,7 @@ export default function KontakPage() {
 
             <form
               className="rounded-2xl border border-primary/10 bg-white/90 p-8 shadow-xl shadow-primary/10"
-              action="mailto:info@rayalawfirm.com"
+              action="mailto:rayaraya.lfadm@gmail.com"
               method="post"
               encType="text/plain"
               data-aos="fade-up"
@@ -317,7 +317,22 @@ export default function KontakPage() {
                     id="nama"
                     name="nama"
                     type="text"
+                    required
                     placeholder={t.contactPage.placeholders.name}
+                    className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-dark outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <label htmlFor="nomor" className="text-sm font-medium text-dark">
+                    {t.contactPage.fields.phone}
+                  </label>
+                  <input
+                    id="nomor"
+                    name="nomor"
+                    type="tel"
+                    required
+                    placeholder={t.contactPage.placeholders.phone}
                     className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-dark outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
                   />
                 </div>
@@ -330,33 +345,22 @@ export default function KontakPage() {
                     id="email"
                     name="email"
                     type="email"
+                    required
                     placeholder={t.contactPage.placeholders.email}
                     className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-dark outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
                   />
                 </div>
 
                 <div className="space-y-2">
-                  <label htmlFor="subjek" className="text-sm font-medium text-dark">
-                    {t.contactPage.fields.subject}
-                  </label>
-                  <input
-                    id="subjek"
-                    name="subjek"
-                    type="text"
-                    placeholder={t.contactPage.placeholders.subject}
-                    className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-dark outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="pesan" className="text-sm font-medium text-dark">
-                    {t.contactPage.fields.message}
+                  <label htmlFor="ceritakan" className="text-sm font-medium text-dark">
+                    {t.contactPage.fields.story}
                   </label>
                   <textarea
-                    id="pesan"
-                    name="pesan"
+                    id="ceritakan"
+                    name="ceritakan"
                     rows={5}
-                    placeholder={t.contactPage.placeholders.message}
+                    required
+                    placeholder={t.contactPage.placeholders.story}
                     className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-dark outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/20"
                   />
                 </div>

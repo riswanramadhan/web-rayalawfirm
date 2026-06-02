@@ -16,7 +16,7 @@ export default function TeamSection({ locale }: TeamSectionProps) {
     <section className="bg-offwhite py-16 sm:py-20 lg:py-24">
       <div className="mx-auto flex w-full max-w-7xl flex-col space-y-12 px-6 sm:px-8 lg:px-16">
         <div className="text-center" data-aos="fade-up">
-          <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-primary">
+          <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-5 py-2.5 text-base font-bold uppercase tracking-wide text-primary lg:text-lg">
             {t.home.team.badge}
           </span>
           <h2 className="mt-4 font-sans text-3xl font-bold tracking-tight text-dark lg:text-5xl">

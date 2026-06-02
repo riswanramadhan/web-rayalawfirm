@@ -16,48 +16,6 @@ interface PageProps {
 
 export const dynamic = 'force-dynamic';
 
-const expertiseMap: Record<string, string[]> = {
-  'raya-putri-sh-mh': [
-    'Hukum Pidana Umum',
-    'Pidana Korporasi',
-    'Konstitusi',
-    'Strategi Pembelaan',
-    'Pendampingan Persidangan',
-  ],
-  'ahmad-fauzan-sh': [
-    'Hukum Bisnis',
-    'Due Diligence',
-    'Kontrak Komersial',
-    'Kepatuhan Korporasi',
-    'Investasi & Akuisisi',
-  ],
-  'siti-rahma-sh-mkn': [
-    'Pertanahan',
-    'Transaksi Properti',
-    'Sengketa Batas',
-    'Verifikasi Sertifikat',
-    'Mediasi Properti',
-  ],
-  'dimas-prasetyo-sh': [
-    'Hubungan Industrial',
-    'Perjanjian Kerja',
-    'PHK & Pesangon',
-    'Mediasi Ketenagakerjaan',
-    'Kepatuhan HR',
-  ],
-};
-
-const caseCounts: Record<string, string> = {
-  // 'raya-putri-sh-mh': '120+',
-  // 'ahmad-fauzan-sh': '80+',
-  // 'siti-rahma-sh-mkn': '60+',
-  // 'dimas-prasetyo-sh': '45+',
-  'arham': '-',
-  'dimas': '-',
-  'yuli': '-',
-  'alif': '-',
-};
-
 export function generateMetadata({ params }: PageProps): Metadata {
   const locale = getCurrentLocale();
   const t = getDictionary(locale).lawyerDetail;
@@ -89,7 +47,9 @@ export default function LawyerDetailPage({ params }: PageProps) {
     notFound();
   }
 
-  const expertise = expertiseMap[lawyer.slug] ?? [lawyer.specialization];
+  const expertise = lawyer.expertise.length > 0
+    ? lawyer.expertise
+    : [lawyer.specialization];
   const waLink = buildWhatsAppURL(
     `${t.lawyerDetail.waMessagePrefix} ${lawyer.name}.`,
     lawyer.phone || '6281335663379'

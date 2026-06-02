@@ -21,7 +21,7 @@ export const siteConfig = {
     'raya law firm',
   ],
   ogImage: '/images/logo-rayalawfirm.png',
-  email: 'info@rayalawfirm.com',
+  email: 'rayaraya.lfadm@gmail.com',
   address: {
     street: 'Jl. Tebet Barat Dalam IV No. 10',
     city: 'Jakarta',
