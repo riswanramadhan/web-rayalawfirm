@@ -36,7 +36,7 @@ const contactItems = [
   },
   {
     label: 'Telepon',
-    value: '0813 3566 3379 / 0853 4510 3379',
+    value: '0813 3566 3379 / 0853 4510 8869',
     icon: (
       <svg
         className="h-5 w-5"
@@ -107,7 +107,7 @@ const actionCards = [
   },
   {
     title: 'Telepon',
-    detail: '0813 3566 3379 / 0853 4510 3379',
+    detail: '0813 3566 3379 / 0853 4510 8869',
     description: 'Diskusi cepat untuk kebutuhan segera.',
     href: 'tel:+6281335663379',
     style: 'bg-primary/10 text-primary border-primary/30 hover:bg-primary/20',
@@ -141,7 +141,7 @@ export default function KontakPage() {
       label: t.common.address,
       value: 'Jl. Tebet Barat Dalam IV No. 10, Jakarta.',
     },
-    { label: t.common.phone, value: '0813 3566 3379 / 0853 4510 3379' },
+    { label: t.common.phone, value: '0813 3566 3379 / 0853 4510 8869' },
     { label: 'WhatsApp', value: '0813 3566 3379' },
     { label: t.common.email, value: 'info@rayalawfirm.com' },
     {

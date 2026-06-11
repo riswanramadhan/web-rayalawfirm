@@ -46,7 +46,7 @@ export const siteConfig = {
     country: 'Indonesia',
   },
   phone: '+6281335663379',
-  alternatePhone: '+6285345103379',
+  alternatePhone: '+6285345108869',
   openHours: {
     days: 'Senin - Jumat',
     opens: '08:00',

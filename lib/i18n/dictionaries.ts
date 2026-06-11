@@ -426,7 +426,7 @@ export const dictionaries = {
         },
         {
           title: 'Telepon',
-          detail: '0813 3566 3379 / 0853 4510 3379',
+          detail: '0813 3566 3379 / 0853 4510 8869',
           description: 'Diskusi cepat untuk kebutuhan segera.',
         },
         {
@@ -994,7 +994,7 @@ Terakhir diperbarui: 10 Mei 2026`,
         },
         {
           title: 'Phone',
-          detail: '0813 3566 3379 / 0853 4510 3379',
+          detail: '0813 3566 3379 / 0853 4510 8869',
           description: 'Quick discussion for urgent needs.',
         },
         {

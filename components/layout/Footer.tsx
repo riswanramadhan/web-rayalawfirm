@@ -97,7 +97,7 @@ export default function Footer({ locale }: FooterProps) {
     },
     {
       label: t.common.phone,
-      value: '0813 3566 3379 / 0853 4510 3379',
+      value: '0813 3566 3379 / 0853 4510 8869',
       icon: icons.phone,
     },
     { label: t.common.email, value: 'info@rayalawfirm.com', icon: icons.email },

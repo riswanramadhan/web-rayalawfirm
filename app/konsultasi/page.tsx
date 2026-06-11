@@ -121,7 +121,7 @@ export default function KonsultasiPage() {
                   </p>
                   <div className="mt-2 space-y-1 text-base text-white">
                     <p>{t.common.phone}: 0813 3566 3379</p>
-                    <p>{t.common.phone}: 0853 4510 3379</p>
+                    <p>{t.common.phone}: 0853 4510 8869</p>
                     <p>{t.common.email}: info@rayalawfirm.com</p>
                   </div>
                 </div>
