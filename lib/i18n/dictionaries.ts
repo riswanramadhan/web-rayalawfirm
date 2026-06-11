@@ -65,9 +65,9 @@ export const dictionaries = {
       operationalHours: 'Senin - Jumat, 08:00 - 17:00 WIB',
     },
     home: {
-      metaTitle: 'Raya Law Firm | Konsultan Hukum Makassar & Jakarta',
+      metaTitle: 'Raya Law Firm | Konsultan Hukum Profesional',
       metaDescription:
-        'Raya Law Firm adalah kantor hukum profesional Indonesia untuk konsultan hukum Makassar, konsultasi hukum Jakarta, advokat di Makassar, advokat di Jakarta, dan pendampingan bisnis.',
+        'Raya Law Firm hadir memberikan solusi hukum komprehensif dengan tim advokat berpengalaman. Kami mendampingi Anda di setiap langkah, dari konsultasi hingga penyelesaian perkara.',
       hero: {
         badge: 'Konsultasi Hukum Profesional',
         titleLine: 'Raya Law Firm',
@@ -277,9 +277,9 @@ export const dictionaries = {
         'Halo Raya Law Firm, saya ingin konsultasi terkait layanan',
     },
     teamPage: {
-      metaTitle: 'Tim Advokat Raya Law Firm | Makassar & Jakarta',
+      metaTitle: 'Tim Advokat Raya Law Firm',
       metaDescription:
-        'Kenali tim advokat Raya Law Firm untuk layanan konsultan hukum, advokat di Makassar, advokat di Jakarta, dan pendampingan hukum profesional Indonesia.',
+        'Kenali tim advokat Raya Law Firm dengan keahlian lintas bidang hukum dan komitmen layanan profesional untuk setiap klien.',
       breadcrumb: 'Tim Advokat',
       title: 'Tim Advokat Kami',
       description:
@@ -345,9 +345,9 @@ export const dictionaries = {
       copyError: 'Gagal menyalin tautan.',
     },
     consultationPage: {
-      metaTitle: 'Konsultasi Hukum Makassar & Jakarta | Raya Law Firm',
+      metaTitle: 'Konsultasi Hukum Profesional | Raya Law Firm',
       metaDescription:
-        'Ajukan konsultasi hukum bersama Raya Law Firm untuk kebutuhan konsultan hukum Makassar, konsultasi hukum Jakarta, advokasi, dan pendampingan perkara.',
+        'Ajukan konsultasi hukum bersama Raya Law Firm untuk mendapatkan arahan dari tim advokat berpengalaman dan pendampingan perkara yang profesional.',
       breadcrumb: 'Konsultasi',
       title: 'Ceritakan Masalah Hukum Anda',
       description:
@@ -406,7 +406,7 @@ export const dictionaries = {
     contactPage: {
       metaTitle: 'Kontak Konsultan Hukum | Raya Law Firm',
       metaDescription:
-        'Hubungi Raya Law Firm untuk konsultasi hukum Makassar, konsultasi hukum Jakarta, advokat profesional, dan kebutuhan pendampingan hukum Indonesia.',
+        'Hubungi Raya Law Firm untuk konsultasi hukum, jadwal pertemuan, dan kebutuhan pendampingan hukum profesional di Indonesia.',
       breadcrumb: 'Kontak',
       title: 'Kontak dan Lokasi',
       description:
@@ -633,9 +633,9 @@ Terakhir diperbarui: 10 Mei 2026`,
       operationalHours: 'Monday - Friday, 08:00 - 17:00 WIB',
     },
     home: {
-      metaTitle: 'Raya Law Firm | Legal Consultant in Makassar & Jakarta',
+      metaTitle: 'Raya Law Firm | Professional Legal Consultant',
       metaDescription:
-        'Raya Law Firm is a professional Indonesian law firm for legal consultants in Makassar, legal consultation in Jakarta, advocates in Makassar, and advocates in Jakarta.',
+        'Raya Law Firm delivers comprehensive legal solutions through an experienced team of advocates. We guide you at every step, from consultation to case resolution.',
       hero: {
         badge: 'Professional Legal Consultation',
         titleLine: 'Raya Law Firm',
@@ -845,9 +845,9 @@ Terakhir diperbarui: 10 Mei 2026`,
         'Hello Raya Law Firm, I would like to consult about your',
     },
     teamPage: {
-      metaTitle: 'Raya Law Firm Advocate Team | Makassar & Jakarta',
+      metaTitle: 'Raya Law Firm Advocate Team',
       metaDescription:
-        'Meet the Raya Law Firm advocate team for legal consultant services, advocates in Makassar, advocates in Jakarta, and professional legal assistance in Indonesia.',
+        'Meet Raya Law Firm advocates with cross-disciplinary expertise and a commitment to professional service for every client.',
       breadcrumb: 'Advocate Team',
       title: 'Our Advocate Team',
       description:
@@ -913,9 +913,9 @@ Terakhir diperbarui: 10 Mei 2026`,
       copyError: 'Failed to copy link.',
     },
     consultationPage: {
-      metaTitle: 'Legal Consultation in Makassar & Jakarta | Raya Law Firm',
+      metaTitle: 'Professional Legal Consultation | Raya Law Firm',
       metaDescription:
-        'Request legal consultation with Raya Law Firm for legal consultant needs in Makassar, legal consultation in Jakarta, advocacy, and legal representation.',
+        'Request legal consultation with Raya Law Firm and receive guidance from experienced advocates for professional case assistance.',
       breadcrumb: 'Consultation',
       title: 'Tell Us About Your Legal Issue',
       description:
@@ -974,7 +974,7 @@ Terakhir diperbarui: 10 Mei 2026`,
     contactPage: {
       metaTitle: 'Contact Legal Consultant | Raya Law Firm',
       metaDescription:
-        'Contact Raya Law Firm for legal consultation in Makassar, legal consultation in Jakarta, professional advocates, and Indonesian legal assistance.',
+        'Contact Raya Law Firm for legal consultation, appointment scheduling, and professional legal assistance needs in Indonesia.',
       breadcrumb: 'Contact',
       title: 'Contact and Location',
       description:

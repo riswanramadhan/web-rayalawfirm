@@ -29,7 +29,7 @@ const barlow = Barlow({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: 'Raya Law Firm | Konsultan Hukum Makassar & Jakarta',
+    default: 'Raya Law Firm | Konsultan Hukum Profesional',
     template: '%s | Raya Law Firm',
   },
   description: siteConfig.description,
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'id_ID',
     url: siteConfig.url,
-    title: 'Raya Law Firm | Konsultan Hukum Makassar & Jakarta',
+    title: 'Raya Law Firm | Konsultan Hukum Profesional',
     description: siteConfig.description,
     siteName: siteConfig.name,
     images: [
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     site: '@rayalawfirm',
-    title: 'Raya Law Firm | Konsultan Hukum Makassar & Jakarta',
+    title: 'Raya Law Firm | Konsultan Hukum Profesional',
     description: siteConfig.description,
     images: [siteConfig.ogImage],
   },

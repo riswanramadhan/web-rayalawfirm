@@ -9,7 +9,7 @@ export const siteConfig = {
   name: 'Raya Law Firm',
   url: 'https://rayalawfirm.com',
   description:
-    'Raya Law Firm adalah kantor hukum profesional Indonesia untuk konsultasi hukum, advokasi, dan pendampingan perkara di Makassar, Jakarta, dan seluruh Indonesia.',
+    'Raya Law Firm hadir memberikan solusi hukum komprehensif dengan tim advokat berpengalaman. Kami mendampingi Anda di setiap langkah, dari konsultasi hingga penyelesaian perkara.',
   keywords: [
     'konsultan hukum makassar',
     'konsultasi hukum jakarta',
@@ -21,6 +21,8 @@ export const siteConfig = {
     'raya law firm',
     'kantor hukum makassar',
     'advokasi makassar',
+    'pengacara makassar',
+    'pengacara jakarta',
     'kantor hukum indonesia',
     'kantor hukum jakarta',
     'pengacara profesional',
