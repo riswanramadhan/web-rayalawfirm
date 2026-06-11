@@ -60,9 +60,11 @@ export default function HeroSection({ locale }: HeroSectionProps) {
               className="mt-8 font-sans text-5xl font-extrabold leading-tight tracking-tight text-white lg:text-6xl xl:text-7xl"
             >
               {t.titleLine}
-              <span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-                {t.titleHighlight}
-              </span>
+              {t.titleHighlight ? (
+                <span className="block bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+                  {t.titleHighlight}
+                </span>
+              ) : null}
             </motion.h1>
 
             <motion.p

@@ -87,7 +87,7 @@ b. Data yang dikumpulkan otomatis:
   {
     title: '12. HUBUNGI KAMI',
     body: `Untuk pertanyaan mengenai kebijakan privasi ini atau untuk menggunakan hak-hak Anda:
-Email: rayaraya.lfadm@gmail.com
+Email: info@rayalawfirm.com
 Telepon: +62 813 3566 3379
 Alamat: Jl. Tebet Barat Dalam IV No. 10, Jakarta.
 

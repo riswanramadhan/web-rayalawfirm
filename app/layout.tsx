@@ -10,7 +10,7 @@ import Footer from '../components/layout/Footer';
 import WhatsAppFloat from '../components/layout/WhatsAppFloat';
 import { LanguageProvider } from '../components/i18n/LanguageProvider';
 import { getCurrentLocale } from '../lib/i18n/server';
-import { legalServiceSchema } from '../lib/metadata';
+import { legalServiceSchema, siteConfig } from '../lib/metadata';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -27,37 +27,43 @@ const barlow = Barlow({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://rayalawfirm.com'),
+  metadataBase: new URL(siteConfig.url),
   title: {
-    default: 'Raya Law Firm | Kantor Hukum Profesional Indonesia',
+    default: 'Raya Law Firm | Konsultan Hukum Makassar & Jakarta',
     template: '%s | Raya Law Firm',
   },
-  description:
-    'Raya Law Firm adalah kantor hukum profesional di Indonesia. Layanan hukum pidana, perdata, bisnis, keluarga, properti, dan ketenagakerjaan dengan konsultasi terpercaya.',
-  keywords: [
-    'kantor hukum indonesia',
-    'pengacara profesional',
-    'advokat terpercaya',
-    'konsultasi hukum',
-    'pengacara pidana',
-    'pengacara perdata',
-    'hukum bisnis indonesia',
-    'raya law firm',
-  ],
+  description: siteConfig.description,
+  keywords: [...siteConfig.keywords],
+  alternates: {
+    canonical: siteConfig.url,
+  },
+  manifest: '/manifest.webmanifest',
   openGraph: {
     type: 'website',
     locale: 'id_ID',
-    url: 'https://rayalawfirm.com',
-    siteName: 'Raya Law Firm',
-    images: [{ url: '/images/logo-rayalawfirm.png', width: 1200, height: 630 }],
+    url: siteConfig.url,
+    title: 'Raya Law Firm | Konsultan Hukum Makassar & Jakarta',
+    description: siteConfig.description,
+    siteName: siteConfig.name,
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: 'Raya Law Firm - Kantor Hukum Profesional Indonesia',
+      },
+    ],
   },
   icons: {
-    icon: '/images/logo-rayalawfirm.png',
-    apple: '/images/logo-rayalawfirm.png',
+    icon: siteConfig.logo,
+    apple: siteConfig.logo,
   },
   twitter: {
     card: 'summary_large_image',
     site: '@rayalawfirm',
+    title: 'Raya Law Firm | Konsultan Hukum Makassar & Jakarta',
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
   },
   robots: {
     index: true,
@@ -69,7 +75,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'YOUR_GOOGLE_VERIFICATION_CODE',
+    google: 'VwwRvh7mheVuqXwfroIm8Z_O2j0Xcv7smxqzFYLDpgU',
   },
 };
 

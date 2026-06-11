@@ -95,8 +95,12 @@ export default function Footer({ locale }: FooterProps) {
       value: 'Jl. Tebet Barat Dalam IV No. 10, Jakarta.',
       icon: icons.address,
     },
-    { label: t.common.phone, value: '0813 3566 3379', icon: icons.phone },
-    { label: t.common.email, value: 'rayaraya.lfadm@gmail.com', icon: icons.email },
+    {
+      label: t.common.phone,
+      value: '0813 3566 3379 / 0853 4510 3379',
+      icon: icons.phone,
+    },
+    { label: t.common.email, value: 'info@rayalawfirm.com', icon: icons.email },
     {
       label: t.common.operationalHours,
       value: t.footer.operationalHours,

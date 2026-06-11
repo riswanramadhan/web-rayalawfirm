@@ -36,7 +36,7 @@ const contactItems = [
   },
   {
     label: 'Telepon',
-    value: '0813 3566 3379',
+    value: '0813 3566 3379 / 0853 4510 3379',
     icon: (
       <svg
         className="h-5 w-5"
@@ -60,7 +60,7 @@ const contactItems = [
   },
   {
     label: 'Email',
-    value: 'rayaraya.lfadm@gmail.com',
+    value: 'info@rayalawfirm.com',
     icon: (
       <svg
         className="h-5 w-5"
@@ -107,7 +107,7 @@ const actionCards = [
   },
   {
     title: 'Telepon',
-    detail: '0813 3566 3379',
+    detail: '0813 3566 3379 / 0853 4510 3379',
     description: 'Diskusi cepat untuk kebutuhan segera.',
     href: 'tel:+6281335663379',
     style: 'bg-primary/10 text-primary border-primary/30 hover:bg-primary/20',
@@ -120,9 +120,9 @@ const actionCards = [
   },
   {
     title: 'Email',
-    detail: 'rayaraya.lfadm@gmail.com',
+    detail: 'info@rayalawfirm.com',
     description: 'Kirim dokumen atau pertanyaan tertulis.',
-    href: 'mailto:rayaraya.lfadm@gmail.com',
+    href: 'mailto:info@rayalawfirm.com',
     style: 'bg-navy/10 text-navy border-navy/30 hover:bg-navy/20',
     buttonStyle: 'bg-navy text-white hover:bg-navy/90',
     icon: (
@@ -141,9 +141,9 @@ export default function KontakPage() {
       label: t.common.address,
       value: 'Jl. Tebet Barat Dalam IV No. 10, Jakarta.',
     },
-    { label: t.common.phone, value: '0813 3566 3379' },
+    { label: t.common.phone, value: '0813 3566 3379 / 0853 4510 3379' },
     { label: 'WhatsApp', value: '0813 3566 3379' },
-    { label: t.common.email, value: 'rayaraya.lfadm@gmail.com' },
+    { label: t.common.email, value: 'info@rayalawfirm.com' },
     {
       label: t.common.operationalHours,
       value: t.contactPage.officeHoursValue,
@@ -302,7 +302,7 @@ export default function KontakPage() {
 
             <form
               className="rounded-2xl border border-primary/10 bg-white/90 p-8 shadow-xl shadow-primary/10"
-              action="mailto:rayaraya.lfadm@gmail.com"
+              action="mailto:info@rayalawfirm.com"
               method="post"
               encType="text/plain"
               data-aos="fade-up"

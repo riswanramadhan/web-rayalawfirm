@@ -482,7 +482,7 @@ With careful work and strong legal arguments, we ensure client rights as citizen
 const lawyerTranslationsEn: Record<string, LawyerTranslation> = {
   alif: {
     position: 'Managing Partner',
-    specialization: 'Contract Analysis & Legal Drafting',
+    specialization: 'Civil Law, Criminal Law & Corporate Lawyer',
     expertise: [],
     achievements: [
       'Advocate Professional Skills Education Training (PKPA) 2023',
@@ -490,22 +490,21 @@ const lawyerTranslationsEn: Record<string, LawyerTranslation> = {
       'Advocate Professional Qualification Certification',
     ],
     handledCases: [
-      'Contract & Employment Agreement Analysis',
-      'Legal Drafting',
-      'Legal Risk Management',
       'Litigation and Civil Law',
       'Criminal Law',
+      'Corporate Lawyer',
+      'Legal Risk Management',
     ],
   },
   arham: {
-    position: 'Partner 1 / Advocate',
+    position: 'Partner / Advocate',
     specialization: 'Litigation and Civil Law',
     expertise: ['Litigation and Civil Law'],
     achievements: ['PERADI Member'],
     handledCases: [],
   },
   yuli: {
-    position: 'Partner 2 / Advocate',
+    position: 'Partner / Advocate',
     specialization: 'Legal Risk Management & Legal Drafting',
     expertise: [
       'Legal Risk Identification and Mitigation',
@@ -521,50 +520,56 @@ const lawyerTranslationsEn: Record<string, LawyerTranslation> = {
     handledCases: ['Criminal cases', 'Civil cases', 'Employment law'],
   },
   dimas: {
-    position: 'Partner 3 / Advocate',
+    position: 'Partner / Advocate',
     specialization: 'Litigation, Employment, Civil, Criminal',
     expertise: ['Litigation', 'Employment', 'Civil', 'Criminal'],
     achievements: ['Mediation'],
-    handledCases: ['Litigation', 'Employment', 'Civil', 'Land and Debt Dispute'],
+    handledCases: ['Litigation', 'Employment', 'Civil', 'Land Dispute', 'Debt Collection'],
   },
 };
 
 const testimonialTranslationsEn: Record<number, TestimonialTranslation> = {
   1: {
-    position: 'President Director',
-    kasusType: 'Business Dispute',
+    position: 'Corporate Client',
+    kasusType: 'Business Case Mediation',
     text:
-      'Raya Law Firm handled our business contract dispute in a very structured and transparent way. The team explained every legal option clearly, so our business decisions remained secure. The final result was satisfying and helped preserve our relationship with our partner.',
+      'Thank you to Raya Law Firm for helping resolve a matter through mediation between me and my client. Raya Law Firm provided very precise legal direction and steps for the case I faced. Thank you, Team Raya Law Firm, continued success.',
   },
   2: {
-    position: 'Homemaker',
-    kasusType: 'Family Law',
+    position: 'Business Owner',
+    kasusType: 'Industrial Relations Dispute',
     text:
-      'The assistance I received was empathetic yet professional. The divorce process and custody arrangement became clearer, and I was always given complete understanding before taking each step. I felt supported with respect.',
+      'As a business owner, industrial relations disputes are highly sensitive for company stability. RAYA Law Firm helped us resolve this employment dynamic with a very professional and objective approach while maintaining good relations between the parties. Their strategic solution aligned legal regulations with our business continuity. Highly reliable!',
   },
   3: {
-    position: 'Operations Manager',
-    kasusType: 'Employment Law',
+    position: 'Homemaker',
+    kasusType: 'Child Custody',
     text:
-      'Raya Law Firm helped our company resolve an industrial relations dispute with the right procedure. They kept communication constructive and the mediation result was acceptable to all parties. The process was fast and administratively neat.',
+      'Facing a child custody trial was one of the hardest moments of my life. However, the RAYA Law Firm legal team did not only work as legal counsel, but also became an extraordinary emotional support. They fought with empathy and persistence for my child best interests. Thank you for the dedication and outstanding final result.',
   },
   4: {
-    position: 'Business Owner',
-    kasusType: 'Civil Law',
+    position: 'Entrepreneur',
+    kasusType: 'Land Dispute',
     text:
-      'The breach of contract dispute we faced was handled with a clear strategy from the beginning. The team provided realistic risk analysis and prepared evidence very carefully. The decision strengthened our position.',
+      'Property assets are crucial capital for an entrepreneur, and when my land was involved in a unilateral claim dispute, I was worried. Fortunately, RAYA Law Firm moved quickly. Their legal evidence analysis was sharp, their courtroom tactics were mature, and my ownership rights were ultimately fully defended. Truly high-class assistance!',
   },
   5: {
-    position: 'Property Entrepreneur',
-    kasusType: 'Property & Land Law',
+    position: 'Trading Business Owner',
+    kasusType: 'Industrial Relations Dispute',
     text:
-      'The duplicate certificate issue we faced was resolved through careful verification and negotiation. I appreciate the team diligence in tracing documents and coordinating with relevant institutions. Our asset is finally secure.',
+      'As a trading business owner, we were confused when facing an industrial relations dispute with a former worker. RAYA Law Firm accompanied us from the bipartite stage through mediation with great patience. They helped us understand rights and obligations transparently, so the matter could be resolved fairly without disrupting daily business operations.',
   },
   6: {
-    position: 'Private Employee',
-    kasusType: 'Criminal Law',
+    position: 'State Apparatus',
+    kasusType: 'Breach of Contract',
     text:
-      'Assistance from the first examination helped protect my rights. Raya Law Firm explained every stage of the criminal process clearly and prepared a convincing strategy. I felt calm because I was always accompanied.',
+      'Integrity is my top priority. When a business partner breached an agreed contract, RAYA Law Firm provided a very measured legal audit and demand letter strategy. Their firm approach within the proper legal corridor successfully pushed the opposing party to fulfill its obligations without prolonged delay. Very professional.',
+  },
+  7: {
+    position: 'Labor Worker',
+    kasusType: 'Breach of Contract',
+    text:
+      'I felt completely stuck when my financial rights under a cooperation agreement were not fulfilled by the other party. RAYA Law Firm proved that they care about justice for all communities. They defended my rights persistently regardless of social status. Thank you for restoring what should have been mine.',
   },
 };
 

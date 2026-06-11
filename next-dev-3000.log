@@ -1,0 +1,12 @@
+
+> raya-law-firm@1.0.0 dev
+> next dev -p 3000
+
+  ▲ Next.js 14.2.35
+  - Local:        http://localhost:3000
+
+ ✓ Starting...
+ ✓ Ready in 19s
+ ○ Compiling / ...
+ ✓ Compiled / in 7.6s (71 modules)
+ ✓ Compiled in 93.8s (691 modules)

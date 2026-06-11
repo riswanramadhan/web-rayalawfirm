@@ -27,15 +27,6 @@ export default function ProfileSection({ locale }: ProfileSectionProps) {
                 sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 520px" // Diperbaiki agar lebih adaptif di tablet/desktop
               />
             </div>
-          <div className="absolute -bottom-6 -right-4 rounded-2xl border border-primary/20 bg-white/90 p-5 shadow-xl shadow-primary/10 backdrop-blur-sm">
-            {/* <p className="text-xs uppercase tracking-[0.3em] text-dark/50">
-              Sejak 2009
-            </p> */}
-            <p className="mt-2 font-sans text-xl font-bold text-primary">
-              {t.corporatePartners}
-            </p>
-            <p className="text-sm text-dark/60">{t.longTermTrust}</p>
-          </div>
         </div>
 
         <div data-aos="fade-left" data-aos-delay="200" className="space-y-6">

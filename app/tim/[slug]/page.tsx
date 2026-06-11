@@ -34,6 +34,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
     title: lawyer.name,
     description: `${t.metadataDescriptionPrefix} ${lawyer.name}, ${lawyer.position} ${t.metadataDescriptionMiddle} ${lawyer.specialization}.`,
     path: `/tim/${lawyer.slug}`,
+    ogImage: lawyer.image,
     locale,
   });
 }
