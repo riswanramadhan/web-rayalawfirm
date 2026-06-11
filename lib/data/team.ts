@@ -86,7 +86,7 @@ export const lawyers: Lawyer[] = [
   },
   {
     slug: 'dimas',
-    name: 'Ryan Aryan Dimas, S.H.',
+    name: 'Ryan Arya Dimas, S.H.',
     position: 'Partner / Advokat',
     specialization: 'Litigasi, Ketenagakerjaan, Perdata, Pidana',
     expertise: ['Litigasi', 'Ketenagakerjaan', 'Perdata', 'Pidana'],
