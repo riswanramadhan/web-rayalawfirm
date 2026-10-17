@@ -479,7 +479,7 @@ With careful work and strong legal arguments, we ensure client rights as citizen
   },
 };
 
-const lawyerTranslationsEn: Record<string, LawyerTranslation> = {
+export const lawyerTranslationsEn: Record<string, LawyerTranslation> = {
   alif: {
     position: 'Managing Partner',
     specialization: 'Civil Law, Criminal Law & Corporate Lawyer',
@@ -573,7 +573,7 @@ const testimonialTranslationsEn: Record<number, TestimonialTranslation> = {
   },
 };
 
-const articleTranslationsEn: Record<string, ArticleTranslation> = {
+export const articleTranslationsEn: Record<string, ArticleTranslation> = {
   'cara-membuat-perjanjian-yang-kuat-secara-hukum': {
     title: 'How to Draft a Legally Strong Agreement',
     excerpt:

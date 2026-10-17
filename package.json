@@ -6,17 +6,22 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "admin:create": "node --env-file=.env.local scripts/create-admin.mjs",
+    "db:seed:generate": "node scripts/generate-seed.mjs"
   },
   "dependencies": {
-    "@next/font": "latest",
+    "@supabase/ssr": "^0.12.7",
+    "@supabase/supabase-js": "^2.118.0",
     "aos": "^2.3.4",
     "clsx": "^2.1.1",
     "framer-motion": "^11.18.2",
     "next": "^14.2.33",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-    "tailwind-merge": "^2.5.5"
+    "sharp": "^0.34.4",
+    "tailwind-merge": "^2.5.5",
+    "zod": "^3.25.76"
   },
   "devDependencies": {
     "@types/aos": "*",

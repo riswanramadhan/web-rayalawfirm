@@ -1,49 +1,76 @@
 import type { MetadataRoute } from 'next';
-import { articles } from '@/lib/data/articles';
+import { getArticles } from '@/lib/content/articles';
+import { getLawyers } from '@/lib/content/lawyers';
+import type { ArticleEntry, LawyerProfile } from '@/lib/content/types';
 import { services } from '@/lib/data/services';
-import { lawyers } from '@/lib/data/team';
 import { siteConfig } from '@/lib/metadata';
 
-export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = siteConfig.url;
-  const now = new Date();
+export const revalidate = 3600;
 
-  const staticRoutes = [
-    '',
-    '/tentang',
-    '/layanan',
-    '/tim',
-    '/testimoni',
-    '/artikel',
-    '/konsultasi',
-    '/kontak',
-    '/kebijakan-privasi',
+/** Tanggal pembaruan terakhir konten statis (halaman non-dinamis). Perbarui saat kontennya diubah. */
+const STATIC_CONTENT_UPDATED_AT = '2026-10-17T00:00:00.000Z';
+
+type ChangeFrequency = NonNullable<MetadataRoute.Sitemap[number]['changeFrequency']>;
+
+const toDate = (iso: string | undefined, fallback: string): Date => {
+  const date = new Date(iso ?? fallback);
+  return Number.isNaN(date.getTime()) ? new Date(fallback) : date;
+};
+
+const latest = (dates: Date[], fallback: Date): Date =>
+  dates.reduce((max, date) => (date > max ? date : max), fallback);
+
+const url = (path: string) => (path === '/' ? siteConfig.url : `${siteConfig.url}${path}`);
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const [lawyers, articles] = await Promise.all([
+    getLawyers('id').catch((): LawyerProfile[] => []),
+    getArticles('id').catch((): ArticleEntry[] => []),
+  ]);
+
+  const staticDate = new Date(STATIC_CONTENT_UPDATED_AT);
+  const articleDates = articles.map((article) => toDate(article.updatedAt, STATIC_CONTENT_UPDATED_AT));
+  const lawyerDates = lawyers.map((lawyer) => toDate(lawyer.updatedAt, STATIC_CONTENT_UPDATED_AT));
+  const newestArticle = latest(articleDates, staticDate);
+  const newestLawyer = latest(lawyerDates, staticDate);
+  const newestContent = latest([newestArticle, newestLawyer], staticDate);
+
+  const staticRoutes: Array<{ path: string; priority: number; changeFrequency: ChangeFrequency; lastModified: Date }> = [
+    { path: '/', priority: 1, changeFrequency: 'weekly', lastModified: newestContent },
+    { path: '/layanan', priority: 0.9, changeFrequency: 'monthly', lastModified: staticDate },
+    { path: '/konsultasi', priority: 0.9, changeFrequency: 'monthly', lastModified: staticDate },
+    { path: '/tim', priority: 0.8, changeFrequency: 'monthly', lastModified: newestLawyer },
+    { path: '/artikel', priority: 0.8, changeFrequency: 'daily', lastModified: newestArticle },
+    { path: '/kontak', priority: 0.8, changeFrequency: 'yearly', lastModified: staticDate },
+    { path: '/tentang', priority: 0.7, changeFrequency: 'yearly', lastModified: staticDate },
+    { path: '/testimoni', priority: 0.6, changeFrequency: 'monthly', lastModified: staticDate },
+    { path: '/kebijakan-privasi', priority: 0.2, changeFrequency: 'yearly', lastModified: staticDate },
   ];
 
   return [
     ...staticRoutes.map((route) => ({
-      url: `${baseUrl}${route}`,
-      lastModified: now,
-      changeFrequency: route === '/kebijakan-privasi' ? ('yearly' as const) : ('weekly' as const),
-      priority: route === '' ? 1 : route === '/kebijakan-privasi' ? 0.3 : 0.8,
+      url: url(route.path),
+      lastModified: route.lastModified,
+      changeFrequency: route.changeFrequency,
+      priority: route.priority,
     })),
     ...services.map((service) => ({
-      url: `${baseUrl}/layanan/${service.slug}`,
-      lastModified: now,
+      url: url(`/layanan/${service.slug}`),
+      lastModified: staticDate,
       changeFrequency: 'monthly' as const,
-      priority: 0.85,
+      priority: 0.9,
     })),
     ...lawyers.map((lawyer) => ({
-      url: `${baseUrl}/tim/${lawyer.slug}`,
-      lastModified: now,
+      url: url(`/tim/${lawyer.slug}`),
+      lastModified: toDate(lawyer.updatedAt, STATIC_CONTENT_UPDATED_AT),
       changeFrequency: 'monthly' as const,
-      priority: 0.75,
+      priority: 0.7,
     })),
     ...articles.map((article) => ({
-      url: `${baseUrl}/artikel/${article.slug}`,
-      lastModified: new Date(article.date),
+      url: url(`/artikel/${article.slug}`),
+      lastModified: toDate(article.updatedAt, STATIC_CONTENT_UPDATED_AT),
       changeFrequency: 'monthly' as const,
-      priority: article.featured ? 0.75 : 0.65,
+      priority: article.featured ? 0.8 : 0.7,
     })),
   ];
 }

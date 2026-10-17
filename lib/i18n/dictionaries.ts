@@ -43,6 +43,17 @@ export const dictionaries = {
       fastResponse: 'Respons cepat dalam 24 jam',
       noHiddenFees: 'Tanpa biaya tersembunyi',
       noConditions: 'Gratis tanpa syarat',
+      mainNavigation: 'Navigasi utama',
+      mobileNavigation: 'Menu navigasi',
+      openMenu: 'Buka menu',
+      servicesMenu: 'Tampilkan submenu layanan',
+      skipToContent: 'Lewati ke konten utama',
+      logoHomeLabel: 'Raya Law Firm, kembali ke beranda',
+      logoAlt: 'Logo Raya Law Firm',
+      whatsappFab: 'Chat WhatsApp dengan Raya Law Firm (membuka tab baru)',
+      opensInNewTab: '(membuka tab baru)',
+      required: 'wajib diisi',
+      directions: 'Petunjuk arah di Google Maps',
     },
     nav: {
       serviceLinks: {
@@ -63,23 +74,29 @@ export const dictionaries = {
       contact: 'Kontak',
       team: 'Tim Kami',
       operationalHours: 'Senin - Jumat, 08:00 - 17:00 WIB',
+      areasServed: 'Melayani klien di Jakarta, Makassar, dan seluruh Indonesia.',
+      followUs: 'Ikuti kami',
+      whatsapp: 'WhatsApp',
+      legal: 'Legal',
     },
     home: {
-      metaTitle: 'Raya Law Firm | Konsultan Hukum Profesional',
+      metaTitle: 'Raya Law Firm | Kantor Hukum & Konsultan Hukum di Jakarta',
       metaDescription:
-        'Raya Law Firm hadir memberikan solusi hukum komprehensif dengan tim advokat berpengalaman. Kami mendampingi Anda di setiap langkah, dari konsultasi hingga penyelesaian perkara.',
+        'Raya Law Firm, kantor hukum di Tebet, Jakarta Selatan. Konsultasi & pendampingan perkara pidana, perdata, bisnis, keluarga, pertanahan, dan ketenagakerjaan.',
       hero: {
-        badge: 'Konsultasi Hukum Profesional',
-        titleLine: 'Raya Law Firm',
-        titleHighlight: '',
+        badge: 'Raya Law Firm · Jakarta Selatan',
+        titleLine: 'Kantor Hukum & Konsultan Hukum',
+        titleHighlight: 'Profesional di Jakarta',
         description:
-          'Raya Law Firm hadir memberikan solusi hukum komprehensif dengan tim advokat berpengalaman. Kami mendampingi Anda di setiap langkah, dari konsultasi hingga penyelesaian perkara.',
+          'Raya Law Firm mendampingi individu dan korporasi dalam perkara pidana, perdata, bisnis, keluarga, pertanahan, hingga ketenagakerjaan, dari konsultasi awal sampai penyelesaian perkara di Jakarta, Makassar, dan seluruh Indonesia.',
         primaryCta: 'Konsultasi Gratis',
         secondaryCta: 'Lihat Layanan Kami',
         stats: [
           { num: '5+', label: 'Tahun Pengalaman' },
           { num: '30+', label: 'Kasus Diselesaikan' },
+          { num: '7', label: 'Bidang Praktik' },
         ],
+        imageAlt: 'Patung Dewi Keadilan memegang timbangan, simbol layanan hukum Raya Law Firm',
       },
       profile: {
         badge: 'Tentang Kami',
@@ -106,6 +123,7 @@ export const dictionaries = {
       },
       visionMission: {
         quote: 'Legal Excellence. Strategic Advocacy. Trusted Results.',
+        heading: 'Visi dan Misi Raya Law Firm',
         visionTitle: 'Visi',
         visionText:
           'Menjadi firma hukum terkemuka dengan menghadirkan solusi hukum strategis yang melindungi kepentingan klien, menciptakan kepastian hukum, dan mendukung keberlanjutan bisnis di era global.',
@@ -133,6 +151,12 @@ export const dictionaries = {
         previousAria: 'Sebelumnya',
         nextAria: 'Berikutnya',
         goToAria: 'Pergi ke testimoni',
+        pauseAria: 'Jeda putar otomatis testimoni',
+        playAria: 'Putar otomatis testimoni',
+        carouselLabel: 'Testimoni klien Raya Law Firm',
+        slideLabel: 'Testimoni {current} dari {total}',
+        ratingLabel: 'Penilaian {rating} dari 5',
+        swipeHint: 'Geser untuk melihat testimoni lainnya',
       },
       articles: {
         badge: 'Insight Hukum',
@@ -180,22 +204,86 @@ export const dictionaries = {
         contact: 'Hubungi Kami',
         badges: ['Respons 24 jam', 'Konsultasi rahasia', 'Tanpa biaya tersembunyi'],
       },
+      faq: {
+        badge: 'Pertanyaan Umum',
+        title: 'Pertanyaan Sebelum Menggunakan Jasa Pengacara',
+        description:
+          'Jawaban singkat atas hal-hal yang paling sering ditanyakan calon klien sebelum berkonsultasi dengan Raya Law Firm.',
+        moreQuestions: 'Masih punya pertanyaan lain?',
+        items: [
+          {
+            question: 'Layanan hukum apa saja yang ditangani Raya Law Firm?',
+            answer:
+              'Raya Law Firm menangani hukum pidana, hukum perdata, hukum bisnis & korporat, hukum keluarga, hukum properti & pertanahan, hukum ketenagakerjaan, serta sengketa tata usaha negara (PTUN). Kami mendampingi individu maupun korporasi melalui jalur litigasi dan non-litigasi, termasuk negosiasi dan mediasi.',
+          },
+          {
+            question: 'Bagaimana cara mengajukan konsultasi hukum di Raya Law Firm?',
+            answer:
+              'Isi formulir di halaman Konsultasi atau kirim pesan langsung melalui WhatsApp ke 0813 3566 3379. Formulir akan mengarahkan Anda ke WhatsApp dengan ringkasan kasus yang sudah tersusun, lalu tim kami meninjau kasus dan menjadwalkan konsultasi lanjutan. Konsultasi awal tidak dipungut biaya.',
+          },
+          {
+            question: 'Di mana alamat kantor Raya Law Firm?',
+            answer:
+              'Kantor Raya Law Firm berada di Jl. Tebet Barat Dalam IV No. 10, Tebet Barat, Jakarta Selatan 12810. Agar pertemuan berjalan efektif, jadwalkan kunjungan terlebih dahulu melalui WhatsApp atau telepon.',
+          },
+          {
+            question: 'Kapan jam operasional Raya Law Firm?',
+            answer:
+              'Kantor kami buka Senin sampai Jumat pukul 08:00 - 17:00 WIB dan Sabtu pukul 09:00 - 13:00 WIB. Di luar jam tersebut, Anda tetap dapat mengirim ringkasan kasus melalui WhatsApp atau formulir konsultasi untuk ditindaklanjuti tim kami.',
+          },
+          {
+            question: 'Apakah Raya Law Firm melayani klien di luar Jakarta?',
+            answer:
+              'Ya. Selain Jakarta, kami melayani klien di Makassar dan seluruh Indonesia. Konsultasi awal dapat dilakukan secara online melalui WhatsApp, dan layanan tersedia dalam Bahasa Indonesia maupun Bahasa Inggris.',
+          },
+          {
+            question: 'Apakah informasi yang saya sampaikan dijaga kerahasiaannya?',
+            answer:
+              'Ya. Informasi yang Anda sampaikan dalam konsultasi dan pendampingan hukum dijaga kerahasiaannya sesuai prinsip kerahasiaan advokat-klien dalam Undang-Undang Nomor 18 Tahun 2003 tentang Advokat dan Kode Etik Advokat Indonesia, sebagaimana dijelaskan dalam Kebijakan Privasi kami.',
+          },
+        ],
+      },
     },
     aboutPage: {
       metaTitle: 'Tentang Raya Law Firm',
       metaDescription:
-        'Profil Raya Law Firm, sejarah perjalanan, nilai-nilai perusahaan, serta komitmen kami dalam memberikan layanan hukum profesional di Indonesia.',
+        'Profil Raya Law Firm, kantor hukum di Tebet, Jakarta Selatan: bidang praktik, tim advokat, visi & misi, dan nilai yang kami pegang dalam layanan hukum profesional.',
       breadcrumb: 'Tentang Kami',
-      heroTitle: 'RAYA LAW FIRM',
+      heroEyebrow: 'Kantor Hukum di Jakarta Selatan',
+      heroTitle: 'Tentang Raya Law Firm',
       heroDescription:
         'Berawal dari komitmen untuk menghadirkan keadilan yang aksesibel dan berkualitas, Raya Law Firm hadir sebagai mitra hukum yang berfokus pada ketepatan solusi.',
       profileBadge: 'Profil Singkat',
       profileTitle: 'Menyatukan Keahlian, Integritas, dan Dedikasi',
-      backgroundTitle: 'Sejarah / Background',
+      backgroundTitle: 'Siapa Kami',
+      commitmentsTitle: 'Komitmen kami kepada setiap klien',
+      factsLabel: 'Raya Law Firm dalam angka',
+      bilingualStat: { num: 'ID & EN', label: 'Layanan Dua Bahasa' },
+      practiceBadge: 'Bidang Praktik',
+      practiceTitle: 'Bidang Hukum yang Kami Tangani',
+      practiceDescription:
+        'Kami mendampingi individu dan korporasi melalui jalur litigasi maupun non-litigasi di tujuh bidang hukum berikut.',
+      approachBadge: 'Cara Kami Bekerja',
+      approachTitle: 'Alur Pendampingan yang Jelas Sejak Awal',
+      approachDescription:
+        'Setiap perkara dimulai dari pemahaman kebutuhan Anda, dilanjutkan strategi yang terukur, dan komunikasi yang transparan di setiap tahap.',
+      teamBadge: 'Tim Advokat',
+      teamTitle: 'Advokat yang Mendampingi Perkara Anda',
+      teamDescription:
+        'Kenali advokat Raya Law Firm beserta posisi dan bidang keahlian masing-masing sebelum Anda berkonsultasi.',
+      teamCta: 'Lihat Semua Profil Tim',
+      officeBadge: 'Kantor & Jangkauan',
+      officeTitle: 'Berkantor di Jakarta Selatan, Melayani Seluruh Indonesia',
+      officeDescription:
+        'Kantor kami berada di Tebet, Jakarta Selatan. Selain Jakarta, kami melayani klien di Makassar dan seluruh Indonesia. Konsultasi awal dapat dilakukan secara online melalui WhatsApp, dan layanan tersedia dalam Bahasa Indonesia maupun Bahasa Inggris.',
+      areasLabel: 'Wilayah layanan',
+      areas: ['Jakarta', 'Makassar', 'Seluruh Indonesia'],
+      languagesLabel: 'Bahasa layanan',
+      languages: 'Bahasa Indonesia & Bahasa Inggris',
       background:
         'Di Raya Law Firm, kami meyakini bahwa hukum bukan sekadar instrumen penyelesaian sengketa, melainkan fondasi perlindungan hak, pengelolaan risiko, dan penciptaan nilai bagi individu maupun dunia usaha. Kami berkomitmen menghadirkan layanan hukum yang strategis, responsif, dan berorientasi pada hasil, sehingga setiap klien memperoleh perlindungan hukum yang kuat dan solusi yang efektif untuk mencapai tujuan mereka.',
       visionBadge: 'Visi dan Misi',
-      visionTitle: 'VISI DAN MISI',
+      visionTitle: 'Visi dan Misi',
       visionText:
         'Menjadi firma hukum terkemuka dengan menghadirkan solusi hukum strategis yang melindungi kepentingan klien, menciptakan kepastian hukum, dan mendukung keberlanjutan bisnis di era global.',
       missionTitle: 'Misi',
@@ -381,27 +469,39 @@ export const dictionaries = {
     },
     consultationForm: {
       personalData: 'Data Diri',
+      caseDetails: 'Ringkasan Kasus',
       fields: {
-        name: 'Nama',
-        phone: 'Nomor',
+        name: 'Nama lengkap',
+        phone: 'Nomor WhatsApp / telepon',
         email: 'Email',
-        story: 'Ceritakan',
+        story: 'Ceritakan kasus Anda',
       },
       placeholders: {
-        name: 'Nama lengkap',
-        phone: '08xx',
-        email: 'email@gmail.com',
-        story: 'Ceritakan kebutuhan atau masalah Anda',
+        name: 'Nama sesuai identitas',
+        phone: 'Contoh: 081234567890',
+        email: 'nama@email.com',
+        story: 'Ceritakan kronologi singkat, pihak yang terlibat, dan bantuan yang Anda butuhkan',
+      },
+      hints: {
+        phone: 'Tim kami akan menghubungi Anda melalui nomor ini.',
+        story: 'Cukup ringkas, maksimal 500 karakter.',
       },
       errors: {
         name: 'Nama wajib diisi.',
         phone: 'Nomor telepon wajib diisi.',
+        phoneFormat: 'Nomor telepon minimal 9 digit dan hanya berisi angka.',
         email: 'Email wajib diisi.',
         emailFormat: 'Format email tidak valid.',
         story: 'Ceritakan kebutuhan atau masalah Anda.',
       },
-      submit: 'Kirim',
+      errorSummary: 'Mohon lengkapi data yang ditandai.',
+      submit: 'Kirim via WhatsApp',
       processing: 'Memproses...',
+      successTitle: 'Ringkasan kasus siap dikirim',
+      successDescription:
+        'WhatsApp dibuka di tab baru dengan ringkasan kasus Anda. Jika tidak terbuka, gunakan tombol berikut.',
+      openWhatsApp: 'Buka WhatsApp',
+      privacyPrefix: 'Data Anda dijaga kerahasiaannya sesuai',
     },
     contactPage: {
       metaTitle: 'Kontak Konsultan Hukum | Raya Law Firm',
@@ -440,20 +540,25 @@ export const dictionaries = {
       formDescription:
         'Sampaikan pertanyaan atau kebutuhan pendampingan hukum melalui formulir ini. Tim kami akan menindaklanjuti secepatnya.',
       fields: {
-        name: 'Nama',
-        phone: 'Nomor',
+        name: 'Nama lengkap',
+        phone: 'Nomor telepon',
         email: 'Email',
-        story: 'Ceritakan',
+        story: 'Pesan Anda',
       },
       placeholders: {
-        name: 'Nama lengkap',
-        phone: '08xx',
-        email: 'email@gmail.com',
-        story: 'Ceritakan kebutuhan atau masalah Anda',
+        name: 'Nama sesuai identitas',
+        phone: 'Contoh: 081234567890',
+        email: 'nama@email.com',
+        story: 'Tuliskan pertanyaan atau kebutuhan pendampingan hukum Anda',
       },
-      submit: 'Kirim',
+      submit: 'Kirim lewat Email',
       mailNote: 'Form ini akan membuka aplikasi email Anda untuk mengirim pesan.',
       waMessage: 'Halo Raya Law Firm, saya ingin konsultasi.',
+      mailSubject: 'Pesan dari website Raya Law Firm',
+      whatsappLabel: 'WhatsApp',
+      mapTitle: 'Peta Lokasi',
+      openMap: 'Buka di Google Maps',
+      appointmentNote: 'Kunjungan kantor sebaiknya dijadwalkan terlebih dahulu melalui WhatsApp atau telepon.',
     },
     testimonialsPage: {
       metaTitle: 'Testimoni Klien | Raya Law Firm',
@@ -466,6 +571,25 @@ export const dictionaries = {
       ratingText: '4.9/5.0 dari 150+ klien',
       allFilter: 'Semua',
       cta: 'Jadilah Klien Berikutnya',
+      filterLabel: 'Filter testimoni berdasarkan jenis perkara',
+      listTitle: 'Testimoni berdasarkan jenis perkara',
+      ctaTitle: 'Butuh pendampingan untuk perkara Anda?',
+      ctaDescription:
+        'Ceritakan kebutuhan hukum Anda dan tim advokat kami akan memberikan arahan awal secara rahasia.',
+    },
+    notFoundPage: {
+      eyebrow: 'Error 404',
+      title: 'Halaman tidak ditemukan',
+      description:
+        'Maaf, halaman yang Anda cari mungkin sudah dipindahkan, diganti namanya, atau tidak tersedia. Gunakan tautan berikut untuk melanjutkan.',
+      backHome: 'Kembali ke Beranda',
+      linksTitle: 'Halaman yang mungkin Anda cari',
+      links: {
+        services: 'Tujuh bidang layanan hukum kami',
+        articles: 'Wawasan dan analisis hukum terbaru',
+        consultation: 'Ceritakan masalah hukum Anda secara gratis',
+        contact: 'Alamat kantor, telepon, dan WhatsApp',
+      },
     },
     privacyPage: {
       metaTitle: 'Kebijakan Privasi | Raya Law Firm',
@@ -475,13 +599,14 @@ export const dictionaries = {
       title: 'Kebijakan Privasi',
       description:
         'Komitmen kami dalam menjaga kerahasiaan dan perlindungan data pribadi klien serta pengunjung website.',
+      tocTitle: 'Daftar Isi',
       sections: [
         {
-          title: '1. PENDAHULUAN',
+          title: '1. Pendahuluan',
           body: `Raya Law Firm berkomitmen menjaga kerahasiaan dan keamanan data pribadi Anda. Kebijakan ini menjelaskan bagaimana kami mengumpulkan, menggunakan, dan melindungi informasi yang Anda berikan melalui website dan layanan konsultasi kami. Dengan menggunakan layanan kami, Anda menyetujui kebijakan ini.`,
         },
         {
-          title: '2. INFORMASI YANG KAMI KUMPULKAN',
+          title: '2. Informasi yang Kami Kumpulkan',
           body: `a. Data yang Anda berikan secara langsung:
 - Nama lengkap dan informasi identitas
 - Nomor telepon/WhatsApp dan alamat email
@@ -495,11 +620,11 @@ b. Data yang dikumpulkan otomatis:
 - Data cookies untuk pengalaman pengguna yang lebih baik`,
         },
         {
-          title: '3. KERAHASIAAN INFORMASI KLIEN (ATTORNEY-CLIENT PRIVILEGE)',
+          title: '3. Kerahasiaan Informasi Klien (Attorney-Client Privilege)',
           body: `Seluruh informasi yang Anda sampaikan dalam konteks konsultasi dan perwakilan hukum dilindungi oleh prinsip kerahasiaan advokat-klien (attorney-client privilege) sesuai dengan Undang-Undang Nomor 18 Tahun 2003 tentang Advokat dan Kode Etik Advokat Indonesia. Kami tidak akan mengungkapkan informasi Anda kepada pihak ketiga tanpa izin tertulis Anda, kecuali diwajibkan oleh hukum.`,
         },
         {
-          title: '4. PENGGUNAAN INFORMASI',
+          title: '4. Penggunaan Informasi',
           body: `Kami menggunakan informasi Anda untuk:
 - Memberikan layanan konsultasi dan pendampingan hukum
 - Menghubungi Anda terkait perkembangan kasus
@@ -508,22 +633,22 @@ b. Data yang dikumpulkan otomatis:
 - Memenuhi kewajiban hukum yang berlaku`,
         },
         {
-          title: '5. BERBAGI INFORMASI DENGAN PIHAK KETIGA',
+          title: '5. Berbagi Informasi dengan Pihak Ketiga',
           body: `Kami TIDAK menjual, menyewakan, atau memperdagangkan data pribadi Anda. Kami hanya dapat berbagi informasi dalam kondisi berikut:
 - Rekan hukum atau ahli yang ditunjuk dalam penanganan kasus Anda (dengan persetujuan Anda)
 - Penyedia layanan teknologi yang membantu operasional website (dengan perjanjian kerahasiaan)
 - Kewajiban hukum berdasarkan putusan pengadilan atau peraturan perundang-undangan`,
         },
         {
-          title: '6. KEAMANAN DATA',
+          title: '6. Keamanan Data',
           body: `Kami menerapkan langkah-langkah keamanan teknis dan organisasional yang wajar untuk melindungi data Anda, termasuk enkripsi data, akses terbatas hanya bagi personel berwenang, dan pemantauan keamanan secara berkala. Namun, tidak ada sistem keamanan yang sepenuhnya bebas risiko di internet.`,
         },
         {
-          title: '7. PENYIMPANAN DATA',
+          title: '7. Penyimpanan Data',
           body: `Data konsultasi dan kasus disimpan selama hubungan hukum berlangsung dan minimal 5 (lima) tahun setelah penyelesaian kasus, sesuai ketentuan hukum yang berlaku dan keperluan dokumentasi profesional. Data website (analytics) disimpan maksimal 2 tahun.`,
         },
         {
-          title: '8. HAK-HAK ANDA',
+          title: '8. Hak-Hak Anda',
           body: `Sesuai peraturan perlindungan data yang berlaku di Indonesia, Anda berhak untuk:
 - Mengakses data pribadi yang kami simpan tentang Anda
 - Meminta koreksi data yang tidak akurat
@@ -532,23 +657,23 @@ b. Data yang dikumpulkan otomatis:
 - Mengajukan pengaduan kepada otoritas yang berwenang`,
         },
         {
-          title: '9. COOKIES',
+          title: '9. Cookies',
           body: `Website kami menggunakan cookies fungsional untuk meningkatkan pengalaman pengguna. Anda dapat mengatur pengaturan cookies melalui browser Anda. Menonaktifkan cookies tertentu dapat mempengaruhi fungsi website.`,
         },
         {
-          title: '10. KOMUNIKASI MELALUI WHATSAPP',
+          title: '10. Komunikasi melalui WhatsApp',
           body: `Ketika Anda menghubungi kami melalui WhatsApp, komunikasi tunduk pada kebijakan privasi WhatsApp (Meta). Kami menyarankan Anda untuk tidak berbagi informasi sangat sensitif melalui aplikasi pihak ketiga sebelum ada kesepakatan kerahasiaan formal.`,
         },
         {
-          title: '11. PERUBAHAN KEBIJAKAN INI',
+          title: '11. Perubahan Kebijakan Ini',
           body: `Kami dapat memperbarui kebijakan privasi ini sewaktu-waktu. Perubahan material akan diberitahukan melalui website atau email. Tanggal pembaruan terakhir tercantum di bawah dokumen ini.`,
         },
         {
-          title: '12. HUBUNGI KAMI',
+          title: '12. Hubungi Kami',
           body: `Untuk pertanyaan mengenai kebijakan privasi ini atau untuk menggunakan hak-hak Anda:
 Email: info@rayalawfirm.com
 Telepon: +62 813 3566 3379
-Alamat: Jl. Tebet Barat Dalam IV No. 10, Jakarta.
+Alamat: Jl. Tebet Barat Dalam IV No. 10, Tebet Barat, Jakarta Selatan 12810
 
 Terakhir diperbarui: 10 Mei 2026`,
         },
@@ -611,6 +736,17 @@ Terakhir diperbarui: 10 Mei 2026`,
       fastResponse: 'Fast response within 24 hours',
       noHiddenFees: 'No hidden fees',
       noConditions: 'Free with no conditions',
+      mainNavigation: 'Main navigation',
+      mobileNavigation: 'Navigation menu',
+      openMenu: 'Open menu',
+      servicesMenu: 'Show services submenu',
+      skipToContent: 'Skip to main content',
+      logoHomeLabel: 'Raya Law Firm, back to home',
+      logoAlt: 'Raya Law Firm logo',
+      whatsappFab: 'Chat with Raya Law Firm on WhatsApp (opens in a new tab)',
+      opensInNewTab: '(opens in a new tab)',
+      required: 'required',
+      directions: 'Get directions on Google Maps',
     },
     nav: {
       serviceLinks: {
@@ -631,23 +767,29 @@ Terakhir diperbarui: 10 Mei 2026`,
       contact: 'Contact',
       team: 'Our Team',
       operationalHours: 'Monday - Friday, 08:00 - 17:00 WIB',
+      areasServed: 'Serving clients in Jakarta, Makassar, and throughout Indonesia.',
+      followUs: 'Follow us',
+      whatsapp: 'WhatsApp',
+      legal: 'Legal',
     },
     home: {
-      metaTitle: 'Raya Law Firm | Professional Legal Consultant',
+      metaTitle: 'Raya Law Firm | Law Firm & Legal Consultants in Jakarta',
       metaDescription:
-        'Raya Law Firm delivers comprehensive legal solutions through an experienced team of advocates. We guide you at every step, from consultation to case resolution.',
+        'Raya Law Firm, a law office in Tebet, South Jakarta. Legal consultation and representation for criminal, civil, business, family, land, and employment matters.',
       hero: {
-        badge: 'Professional Legal Consultation',
-        titleLine: 'Raya Law Firm',
-        titleHighlight: '',
+        badge: 'Raya Law Firm · South Jakarta',
+        titleLine: 'Professional Law Firm &',
+        titleHighlight: 'Legal Consultants in Jakarta',
         description:
-          'Raya Law Firm delivers comprehensive legal solutions through an experienced team of advocates. We guide you at every step, from consultation to case resolution.',
+          'Raya Law Firm represents individuals and corporations in criminal, civil, business, family, land, and employment matters, from the first consultation to case resolution in Jakarta, Makassar, and throughout Indonesia.',
         primaryCta: 'Free Consultation',
         secondaryCta: 'View Our Services',
         stats: [
           { num: '5+', label: 'Years of Experience' },
           { num: '30+', label: 'Cases Resolved' },
+          { num: '7', label: 'Practice Areas' },
         ],
+        imageAlt: 'Lady Justice statue holding scales, a symbol of Raya Law Firm legal services',
       },
       profile: {
         badge: 'About Us',
@@ -674,6 +816,7 @@ Terakhir diperbarui: 10 Mei 2026`,
       },
       visionMission: {
         quote: 'Legal Excellence. Strategic Advocacy. Trusted Results.',
+        heading: 'Raya Law Firm Vision and Mission',
         visionTitle: 'Vision',
         visionText:
           'To be a leading law firm recognized for delivering strategic legal solutions that safeguard clients\' interests, foster legal certainty, and support sustainable business growth in an increasingly interconnected global environment.',
@@ -701,6 +844,12 @@ Terakhir diperbarui: 10 Mei 2026`,
         previousAria: 'Previous',
         nextAria: 'Next',
         goToAria: 'Go to testimonial',
+        pauseAria: 'Pause testimonial autoplay',
+        playAria: 'Play testimonial autoplay',
+        carouselLabel: 'Raya Law Firm client testimonials',
+        slideLabel: 'Testimonial {current} of {total}',
+        ratingLabel: 'Rated {rating} out of 5',
+        swipeHint: 'Swipe to see more testimonials',
       },
       articles: {
         badge: 'Legal Insights',
@@ -748,22 +897,86 @@ Terakhir diperbarui: 10 Mei 2026`,
         contact: 'Contact Us',
         badges: ['24-hour response', 'Confidential consultation', 'No hidden fees'],
       },
+      faq: {
+        badge: 'FAQ',
+        title: 'Questions to Ask Before Hiring a Lawyer',
+        description:
+          'Short answers to the questions prospective clients ask most often before consulting with Raya Law Firm.',
+        moreQuestions: 'Still have other questions?',
+        items: [
+          {
+            question: 'What legal services does Raya Law Firm handle?',
+            answer:
+              'Raya Law Firm handles criminal law, civil law, business & corporate law, family law, property & land law, employment law, and state administrative disputes (PTUN). We represent individuals and corporations through litigation and non-litigation channels, including negotiation and mediation.',
+          },
+          {
+            question: 'How do I request a legal consultation with Raya Law Firm?',
+            answer:
+              'Fill in the form on the Consultation page or message us directly on WhatsApp at +62 813 3566 3379. The form takes you to WhatsApp with a structured case summary, then our team reviews your case and schedules a follow-up consultation. The initial consultation is free of charge.',
+          },
+          {
+            question: 'Where is the Raya Law Firm office?',
+            answer:
+              'The Raya Law Firm office is located at Jl. Tebet Barat Dalam IV No. 10, Tebet Barat, Jakarta Selatan 12810, Indonesia. To make the meeting effective, please schedule your visit in advance via WhatsApp or phone.',
+          },
+          {
+            question: 'What are Raya Law Firm office hours?',
+            answer:
+              'Our office is open Monday to Friday from 08:00 to 17:00 WIB and Saturday from 09:00 to 13:00 WIB. Outside these hours, you can still send your case summary via WhatsApp or the consultation form for our team to follow up.',
+          },
+          {
+            question: 'Does Raya Law Firm serve clients outside Jakarta?',
+            answer:
+              'Yes. Besides Jakarta, we serve clients in Makassar and throughout Indonesia. The initial consultation can be done online via WhatsApp, and our services are available in both Indonesian and English.',
+          },
+          {
+            question: 'Is the information I share kept confidential?',
+            answer:
+              'Yes. Information you share during consultation and legal representation is kept confidential under the attorney-client privilege set out in Law Number 18 of 2003 concerning Advocates and the Indonesian Advocates Code of Ethics, as explained in our Privacy Policy.',
+          },
+        ],
+      },
     },
     aboutPage: {
       metaTitle: 'About Raya Law Firm',
       metaDescription:
-        'Raya Law Firm profile, history, values, and our commitment to delivering professional legal services in Indonesia.',
+        'Raya Law Firm profile, a law office in Tebet, South Jakarta: practice areas, advocate team, vision & mission, and the values behind our professional legal services.',
       breadcrumb: 'About Us',
-      heroTitle: 'RAYA LAW FIRM',
+      heroEyebrow: 'Law Firm in South Jakarta',
+      heroTitle: 'About Raya Law Firm',
       heroDescription:
         'Founded on a commitment to accessible and high-quality justice, Raya Law Firm is a legal partner focused on precise solutions.',
       profileBadge: 'Brief Profile',
       profileTitle: 'Uniting Expertise, Integrity, and Dedication',
-      backgroundTitle: 'History / Background',
+      backgroundTitle: 'Who We Are',
+      commitmentsTitle: 'Our commitment to every client',
+      factsLabel: 'Raya Law Firm in numbers',
+      bilingualStat: { num: 'ID & EN', label: 'Bilingual Service' },
+      practiceBadge: 'Practice Areas',
+      practiceTitle: 'Areas of Law We Handle',
+      practiceDescription:
+        'We represent individuals and corporations through litigation and non-litigation channels across the following seven areas of law.',
+      approachBadge: 'How We Work',
+      approachTitle: 'A Clear Engagement Process from Day One',
+      approachDescription:
+        'Every matter starts with understanding your needs, followed by a measured strategy and transparent communication at every stage.',
+      teamBadge: 'Advocate Team',
+      teamTitle: 'The Advocates Behind Your Case',
+      teamDescription:
+        'Get to know Raya Law Firm advocates, their positions, and their areas of expertise before you consult.',
+      teamCta: 'View All Team Profiles',
+      officeBadge: 'Office & Reach',
+      officeTitle: 'Based in South Jakarta, Serving All of Indonesia',
+      officeDescription:
+        'Our office is located in Tebet, South Jakarta. Besides Jakarta, we serve clients in Makassar and throughout Indonesia. The initial consultation can be done online via WhatsApp, and our services are available in both Indonesian and English.',
+      areasLabel: 'Areas served',
+      areas: ['Jakarta', 'Makassar', 'Throughout Indonesia'],
+      languagesLabel: 'Service languages',
+      languages: 'Indonesian & English',
       background:
         'At Raya Law Firm, we believe that the law is not merely a mechanism for resolving disputes, but a foundation for protecting rights, managing risks, and creating value for individuals and businesses. We are committed to delivering strategic, responsive, and results-oriented legal services, ensuring that every client receives strong legal protection and effective solutions to achieve their objectives.',
       visionBadge: 'Vision and Mission',
-      visionTitle: 'VISION AND MISSION',
+      visionTitle: 'Vision and Mission',
       visionText:
         'To be a leading law firm recognized for delivering strategic legal solutions that safeguard clients\' interests, foster legal certainty, and support sustainable business growth in an increasingly interconnected global environment.',
       missionTitle: 'Mission',
@@ -949,27 +1162,39 @@ Terakhir diperbarui: 10 Mei 2026`,
     },
     consultationForm: {
       personalData: 'Personal Data',
+      caseDetails: 'Case Summary',
       fields: {
-        name: 'Name',
-        phone: 'Number',
+        name: 'Full name',
+        phone: 'WhatsApp / phone number',
         email: 'Email',
-        story: 'Tell Us',
+        story: 'Tell us about your case',
       },
       placeholders: {
-        name: 'Full name',
-        phone: '08xx',
-        email: 'email@gmail.com',
-        story: 'Tell us about your needs or concerns',
+        name: 'Name as on your ID',
+        phone: 'Example: 081234567890',
+        email: 'name@email.com',
+        story: 'Briefly describe the timeline, parties involved, and the help you need',
+      },
+      hints: {
+        phone: 'Our team will contact you on this number.',
+        story: 'Keep it short, up to 500 characters.',
       },
       errors: {
         name: 'Name is required.',
         phone: 'Phone number is required.',
+        phoneFormat: 'Phone number must have at least 9 digits and contain numbers only.',
         email: 'Email is required.',
         emailFormat: 'Invalid email format.',
         story: 'Tell us about your needs or concerns.',
       },
-      submit: 'Send',
+      errorSummary: 'Please complete the highlighted fields.',
+      submit: 'Send via WhatsApp',
       processing: 'Processing...',
+      successTitle: 'Your case summary is ready to send',
+      successDescription:
+        'WhatsApp opened in a new tab with your case summary. If it did not open, use the button below.',
+      openWhatsApp: 'Open WhatsApp',
+      privacyPrefix: 'Your data is kept confidential in line with our',
     },
     contactPage: {
       metaTitle: 'Contact Legal Consultant | Raya Law Firm',
@@ -1008,20 +1233,25 @@ Terakhir diperbarui: 10 Mei 2026`,
       formDescription:
         'Share your questions or legal assistance needs through this form. Our team will follow up as soon as possible.',
       fields: {
-        name: 'Name',
-        phone: 'Number',
+        name: 'Full name',
+        phone: 'Phone number',
         email: 'Email',
-        story: 'Tell Us',
+        story: 'Your message',
       },
       placeholders: {
-        name: 'Full name',
-        phone: '08xx',
-        email: 'email@gmail.com',
-        story: 'Tell us about your needs or concerns',
+        name: 'Name as on your ID',
+        phone: 'Example: 081234567890',
+        email: 'name@email.com',
+        story: 'Write your question or legal assistance needs',
       },
-      submit: 'Send',
+      submit: 'Send by Email',
       mailNote: 'This form will open your email app to send the message.',
       waMessage: 'Hello Raya Law Firm, I would like to consult.',
+      mailSubject: 'Message from the Raya Law Firm website',
+      whatsappLabel: 'WhatsApp',
+      mapTitle: 'Location Map',
+      openMap: 'Open in Google Maps',
+      appointmentNote: 'Please schedule office visits in advance via WhatsApp or phone.',
     },
     testimonialsPage: {
       metaTitle: 'Client Testimonials | Raya Law Firm',
@@ -1034,6 +1264,25 @@ Terakhir diperbarui: 10 Mei 2026`,
       ratingText: '4.9/5.0 from 150+ clients',
       allFilter: 'All',
       cta: 'Become Our Next Client',
+      filterLabel: 'Filter testimonials by case type',
+      listTitle: 'Testimonials by case type',
+      ctaTitle: 'Need representation for your case?',
+      ctaDescription:
+        'Tell us about your legal needs and our advocates will give you confidential initial guidance.',
+    },
+    notFoundPage: {
+      eyebrow: 'Error 404',
+      title: 'Page not found',
+      description:
+        'Sorry, the page you are looking for may have been moved, renamed, or is no longer available. Use the links below to continue.',
+      backHome: 'Back to Home',
+      linksTitle: 'Pages you may be looking for',
+      links: {
+        services: 'Our seven legal practice areas',
+        articles: 'The latest legal insights and analysis',
+        consultation: 'Tell us about your legal issue for free',
+        contact: 'Office address, phone, and WhatsApp',
+      },
     },
     privacyPage: {
       metaTitle: 'Privacy Policy | Raya Law Firm',
@@ -1043,13 +1292,14 @@ Terakhir diperbarui: 10 Mei 2026`,
       title: 'Privacy Policy',
       description:
         'Our commitment to maintaining confidentiality and protecting personal data of clients and website visitors.',
+      tocTitle: 'Contents',
       sections: [
         {
-          title: '1. INTRODUCTION',
+          title: '1. Introduction',
           body: `Raya Law Firm is committed to protecting the confidentiality and security of your personal data. This policy explains how we collect, use, and protect information you provide through our website and consultation services. By using our services, you agree to this policy.`,
         },
         {
-          title: '2. INFORMATION WE COLLECT',
+          title: '2. Information We Collect',
           body: `a. Data you provide directly:
 - Full name and identity information
 - Phone/WhatsApp number and email address
@@ -1063,11 +1313,11 @@ b. Data collected automatically:
 - Cookie data for a better user experience`,
         },
         {
-          title: '3. CLIENT CONFIDENTIALITY (ATTORNEY-CLIENT PRIVILEGE)',
+          title: '3. Client Confidentiality (Attorney-Client Privilege)',
           body: `All information you provide in the context of consultation and legal representation is protected by attorney-client confidentiality in accordance with Law Number 18 of 2003 concerning Advocates and the Indonesian Advocates Code of Ethics. We will not disclose your information to third parties without your written permission, except when required by law.`,
         },
         {
-          title: '4. USE OF INFORMATION',
+          title: '4. Use of Information',
           body: `We use your information to:
 - Provide consultation and legal assistance services
 - Contact you regarding case developments
@@ -1076,22 +1326,22 @@ b. Data collected automatically:
 - Fulfill applicable legal obligations`,
         },
         {
-          title: '5. SHARING INFORMATION WITH THIRD PARTIES',
+          title: '5. Sharing Information with Third Parties',
           body: `We DO NOT sell, rent, or trade your personal data. We may only share information in the following circumstances:
 - Legal colleagues or experts appointed for your case handling (with your consent)
 - Technology service providers supporting website operations (under confidentiality agreements)
 - Legal obligations based on court orders or statutory regulations`,
         },
         {
-          title: '6. DATA SECURITY',
+          title: '6. Data Security',
           body: `We implement reasonable technical and organizational security measures to protect your data, including data encryption, restricted access for authorized personnel only, and regular security monitoring. However, no internet security system is entirely risk-free.`,
         },
         {
-          title: '7. DATA RETENTION',
+          title: '7. Data Retention',
           body: `Consultation and case data are retained during the legal relationship and for at least 5 (five) years after case completion, in line with applicable legal requirements and professional documentation needs. Website data (analytics) is retained for a maximum of 2 years.`,
         },
         {
-          title: '8. YOUR RIGHTS',
+          title: '8. Your Rights',
           body: `Under applicable data protection regulations in Indonesia, you have the right to:
 - Access the personal data we store about you
 - Request correction of inaccurate data
@@ -1100,23 +1350,23 @@ b. Data collected automatically:
 - File a complaint with the authorized authority`,
         },
         {
-          title: '9. COOKIES',
+          title: '9. Cookies',
           body: `Our website uses functional cookies to improve user experience. You can adjust cookie settings through your browser. Disabling certain cookies may affect website functionality.`,
         },
         {
-          title: '10. COMMUNICATION THROUGH WHATSAPP',
+          title: '10. Communication through WhatsApp',
           body: `When you contact us through WhatsApp, the communication is subject to WhatsApp (Meta) privacy policy. We recommend that you avoid sharing highly sensitive information through third-party applications before a formal confidentiality agreement is in place.`,
         },
         {
-          title: '11. CHANGES TO THIS POLICY',
+          title: '11. Changes to This Policy',
           body: `We may update this privacy policy from time to time. Material changes will be announced through the website or email. The last updated date is listed below this document.`,
         },
         {
-          title: '12. CONTACT US',
+          title: '12. Contact Us',
           body: `For questions about this privacy policy or to exercise your rights:
 Email: info@rayalawfirm.com
 Phone: +62 813 3566 3379
-Address: Jl. Tebet Barat Dalam IV No. 10, Jakarta.
+Address: Jl. Tebet Barat Dalam IV No. 10, Tebet Barat, Jakarta Selatan 12810, Indonesia
 
 Last updated: May 10, 2026`,
         },
