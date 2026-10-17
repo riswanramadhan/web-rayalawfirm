@@ -1,16 +1,10 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Barlow, Poppins } from 'next/font/google';
 import type { ReactNode } from 'react';
 import '../styles/globals.css';
-import AOSWrapper from '../components/ui/AOSWrapper';
-import ScrollProgress from '../components/ui/ScrollProgress';
-import CustomCursor from '../components/layout/CustomCursor';
-import Navbar from '../components/layout/Navbar';
-import Footer from '../components/layout/Footer';
-import WhatsAppFloat from '../components/layout/WhatsAppFloat';
 import { LanguageProvider } from '../components/i18n/LanguageProvider';
 import { getCurrentLocale } from '../lib/i18n/server';
-import { legalServiceSchema, siteConfig } from '../lib/metadata';
+import { feedAlternateTypes, siteConfig } from '../lib/metadata';
 
 const poppins = Poppins({
   subsets: ['latin'],
@@ -26,44 +20,66 @@ const barlow = Barlow({
   display: 'swap',
 });
 
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  viewportFit: 'cover',
+  themeColor: '#1a2e40',
+};
+
+const defaultTitle = `${siteConfig.name} | ${siteConfig.tagline}`;
+const defaultOgImage = new URL(siteConfig.ogImage, siteConfig.url).toString();
+
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: 'Raya Law Firm | Konsultan Hukum Profesional',
-    template: '%s | Raya Law Firm',
+    default: defaultTitle,
+    template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
-  keywords: [...siteConfig.keywords],
+  keywords: [...siteConfig.coreKeywords],
+  applicationName: siteConfig.name,
+  authors: [{ name: siteConfig.name, url: siteConfig.url }],
+  creator: siteConfig.name,
+  publisher: siteConfig.name,
+  category: 'legal',
   alternates: {
-    canonical: siteConfig.url,
+    types: feedAlternateTypes,
   },
   manifest: '/manifest.webmanifest',
+  formatDetection: {
+    telephone: false,
+    email: false,
+    address: false,
+  },
   openGraph: {
     type: 'website',
     locale: 'id_ID',
-    url: siteConfig.url,
-    title: 'Raya Law Firm | Konsultan Hukum Profesional',
+    title: defaultTitle,
     description: siteConfig.description,
     siteName: siteConfig.name,
     images: [
       {
-        url: siteConfig.ogImage,
-        width: 1200,
-        height: 630,
-        alt: 'Raya Law Firm - Kantor Hukum Profesional Indonesia',
+        url: defaultOgImage,
+        width: siteConfig.ogImageSize.width,
+        height: siteConfig.ogImageSize.height,
+        alt: siteConfig.ogImageAlt,
       },
     ],
   },
   icons: {
-    icon: siteConfig.logo,
-    apple: siteConfig.logo,
+    icon: [
+      { url: '/icons/favicon-48.png', sizes: '48x48', type: 'image/png' },
+      { url: '/icons/icon-192.png', sizes: '192x192', type: 'image/png' },
+    ],
+    apple: [{ url: '/icons/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@rayalawfirm',
-    title: 'Raya Law Firm | Konsultan Hukum Profesional',
+    title: defaultTitle,
     description: siteConfig.description,
-    images: [siteConfig.ogImage],
+    images: [{ url: defaultOgImage, alt: siteConfig.ogImageAlt }],
   },
   robots: {
     index: true,
@@ -72,6 +88,8 @@ export const metadata: Metadata = {
       index: true,
       follow: true,
       'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
     },
   },
   verification: {
@@ -85,22 +103,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang={locale} className={`${poppins.variable} ${barlow.variable}`}>
       <body className="font-sans bg-offwhite text-dark antialiased">
-        <LanguageProvider initialLocale={locale}>
-          <AOSWrapper>
-            <ScrollProgress />
-            <CustomCursor />
-            <Navbar />
-            {children}
-            <Footer locale={locale} />
-            <WhatsAppFloat />
-            <script
-              type="application/ld+json"
-              dangerouslySetInnerHTML={{
-                __html: JSON.stringify(legalServiceSchema),
-              }}
-            />
-          </AOSWrapper>
-        </LanguageProvider>
+        <LanguageProvider initialLocale={locale}>{children}</LanguageProvider>
       </body>
     </html>
   );

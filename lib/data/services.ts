@@ -84,9 +84,9 @@ Selain pembelaan, kami memberikan advis kepatuhan dan mitigasi risiko bagi indiv
           'Ya. Kami menangani perkara pidana yang melibatkan entitas bisnis, termasuk koordinasi internal, kepatuhan, dan komunikasi strategis.',
       },
     ],
-    metaTitle: 'Hukum Pidana | Raya Law Firm',
+    metaTitle: 'Pengacara Pidana Jakarta & Pembelaan Perkara | Raya Law Firm',
     metaDesc:
-      'Pendampingan hukum pidana profesional dari penyelidikan hingga persidangan dengan strategi pembelaan terukur oleh Raya Law Firm.',
+      'Pengacara pidana di Jakarta untuk pendampingan sejak penyelidikan, penyidikan, hingga persidangan dan upaya hukum. Konsultasi cepat via WhatsApp.',
   },
   {
     slug: 'hukum-perdata',
@@ -150,9 +150,9 @@ Kami juga membantu penyusunan dan review kontrak agar risiko sengketa dapat dimi
           'Bisa, selama ada dasar hukum dan bukti kerugian yang dapat dipertanggungjawabkan di persidangan.',
       },
     ],
-    metaTitle: 'Hukum Perdata | Raya Law Firm',
+    metaTitle: 'Pengacara Perdata Jakarta & Sengketa Kontrak | Raya Law Firm',
     metaDesc:
-      'Solusi sengketa perdata, kontrak, dan ganti rugi dengan strategi negosiasi serta litigasi yang efektif dari Raya Law Firm.',
+      'Pengacara perdata di Jakarta untuk gugatan wanprestasi, perbuatan melawan hukum, hutang piutang, dan sengketa kontrak melalui negosiasi, mediasi, atau litigasi.',
   },
   {
     slug: 'hukum-bisnis',
@@ -216,9 +216,9 @@ Dengan pemahaman industri yang kuat, kami membantu klien mengelola risiko, menja
           'Bisa. Kami menilai risiko, menyusun posisi tawar, dan memastikan klausul utama melindungi klien.',
       },
     ],
-    metaTitle: 'Hukum Bisnis & Korporat | Raya Law Firm',
+    metaTitle: 'Konsultan Hukum Bisnis & Korporat Jakarta | Raya Law Firm',
     metaDesc:
-      'Pendampingan hukum korporasi, due diligence, dan transaksi bisnis strategis dengan fokus kepatuhan dan perlindungan risiko.',
+      'Konsultan hukum bisnis di Jakarta: pendirian PT, due diligence, kontrak komersial, kepatuhan korporasi, serta pendampingan investasi dan akuisisi.',
   },
   {
     slug: 'hukum-keluarga',
@@ -282,9 +282,9 @@ Pendekatan kami menempatkan komunikasi yang jelas sebagai prioritas, sehingga kl
           'Ya. Kami menyediakan pendampingan mediasi untuk mencapai kesepakatan yang adil dan berkelanjutan.',
       },
     ],
-    metaTitle: 'Hukum Keluarga | Raya Law Firm',
+    metaTitle: 'Pengacara Perceraian & Hukum Keluarga Jakarta | Raya Law Firm',
     metaDesc:
-      'Pendampingan perkara keluarga yang sensitif dan profesional untuk perceraian, hak asuh, waris, dan hibah.',
+      'Pengacara keluarga di Jakarta untuk perceraian, harta bersama, hak asuh anak, waris, hibah, dan perjanjian pranikah dengan pendekatan empatik dan rahasia.',
   },
   {
     slug: 'hukum-properti',
@@ -348,9 +348,9 @@ Pendekatan kami mengutamakan kejelasan status hukum aset serta penyelesaian yang
           'Bisa, dengan dasar yang kuat dan prosedur sesuai aturan pertanahan dan peradilan tata usaha.',
       },
     ],
-    metaTitle: 'Hukum Properti & Pertanahan | Raya Law Firm',
+    metaTitle: 'Pengacara Sengketa Tanah & Properti Jakarta | Raya Law Firm',
     metaDesc:
-      'Solusi hukum properti dan pertanahan untuk transaksi aman, verifikasi sertifikat, serta penyelesaian sengketa.',
+      'Pengacara sengketa tanah dan properti di Jakarta: verifikasi sertifikat, sertifikat ganda, sengketa batas, pembatalan sertifikat, serta pendampingan AJB.',
   },
   {
     slug: 'hukum-ketenagakerjaan',
@@ -414,9 +414,9 @@ Kami juga menangani aspek kepatuhan, audit ketenagakerjaan, dan mitigasi risiko 
           'Bisa. Pekerja dapat mengajukan gugatan ke Pengadilan Hubungan Industrial jika prosedur tidak dipenuhi.',
       },
     ],
-    metaTitle: 'Hukum Ketenagakerjaan | Raya Law Firm',
+    metaTitle: 'Pengacara Ketenagakerjaan & PHK Jakarta | Raya Law Firm',
     metaDesc:
-      'Pendampingan hukum ketenagakerjaan untuk perusahaan dan pekerja, dari kepatuhan hingga penyelesaian sengketa.',
+      'Pengacara ketenagakerjaan di Jakarta untuk perusahaan dan pekerja: PHK, pesangon, perjanjian kerja, PP/PKB, bipartit, hingga Pengadilan Hubungan Industrial.',
   },
   {
     slug: 'hukum-ptun',
@@ -480,8 +480,201 @@ Dengan pendekatan yang teliti dan argumentasi hukum yang kuat, kami memastikan h
           'Tidak selalu. Jika sengketanya murni keperdataan (wanprestasi kontrak), hal tersebut masuk yurisdiksi Pengadilan Negeri. PTUN hanya mengadili keputusan yang bersifat administratif sebelah pihak (sepihak).',
       },
     ],
-    metaTitle: 'Hukum Peradilan Tata Usaha Negara (PTUN) | Raya Law Firm',
+    metaTitle: 'Pengacara PTUN Jakarta & Gugatan KTUN | Raya Law Firm',
     metaDesc:
-      'Layanan pendampingan sengketa PTUN untuk pembatalan KTUN, sengketa perizinan, dan kepegawaian oleh Raya Law Firm.',
+      'Pengacara PTUN di Jakarta untuk gugatan pembatalan KTUN, sengketa perizinan, sengketa kepegawaian ASN, serta upaya administratif sebelum ke pengadilan.',
   },
 ];
+
+/**
+ * Data SEO per layanan (tidak ikut diterjemahkan, sehingga Service tetap kompatibel).
+ * - keywords     : kata kunci meta (Bahasa Indonesia, sesuai pola pencarian Google).
+ * - practitioner : sebutan praktisi untuk label halaman.
+ * - serviceType  : nilai schema.org Service.serviceType.
+ * - matchTerms   : kata pencocok (huruf kecil, tanpa diakritik) untuk artikel & advokat terkait.
+ */
+export interface ServiceSeo {
+  keywords: string[];
+  practitioner: { id: string; en: string };
+  serviceType: string;
+  matchTerms: string[];
+}
+
+export const serviceSeo: Record<string, ServiceSeo> = {
+  'hukum-pidana': {
+    keywords: [
+      'pengacara pidana jakarta',
+      'pengacara pidana',
+      'advokat pidana jakarta',
+      'konsultan hukum pidana',
+      'pendampingan kasus pidana',
+      'konsultasi hukum pidana online',
+    ],
+    practitioner: { id: 'Pengacara Pidana', en: 'Criminal Defense Lawyer' },
+    serviceType: 'Pendampingan hukum pidana',
+    matchTerms: ['pidana', 'criminal', 'kriminal', 'penyidikan', 'penyelidikan'],
+  },
+  'hukum-perdata': {
+    keywords: [
+      'pengacara perdata jakarta',
+      'pengacara perdata',
+      'konsultan hukum perdata',
+      'pengacara wanprestasi',
+      'pengacara hutang piutang',
+      'gugatan perdata',
+    ],
+    practitioner: { id: 'Pengacara Perdata', en: 'Civil Litigation Lawyer' },
+    serviceType: 'Penyelesaian sengketa perdata',
+    matchTerms: [
+      'perdata',
+      'civil',
+      'litigasi',
+      'litigation',
+      'wanprestasi',
+      'kontrak',
+      'contract',
+      'perjanjian',
+      'agreement',
+      'hutang',
+      'utang',
+      'piutang',
+      'debt',
+      'ganti rugi',
+    ],
+  },
+  'hukum-bisnis': {
+    keywords: [
+      'konsultan hukum bisnis jakarta',
+      'pengacara bisnis jakarta',
+      'corporate lawyer jakarta',
+      'konsultan hukum perusahaan',
+      'legal due diligence',
+      'jasa pendirian pt',
+    ],
+    practitioner: { id: 'Konsultan Hukum Bisnis', en: 'Corporate Lawyer' },
+    serviceType: 'Konsultasi hukum bisnis dan korporasi',
+    matchTerms: [
+      'bisnis',
+      'business',
+      'korporat',
+      'korporasi',
+      'corporate',
+      'perusahaan',
+      'company',
+      'due diligence',
+      'akuisisi',
+      'acquisition',
+      'legal drafting',
+      'legal risk',
+      'kontrak',
+      'contract',
+      'kepatuhan',
+      'compliance',
+    ],
+  },
+  'hukum-keluarga': {
+    keywords: [
+      'pengacara perceraian jakarta',
+      'pengacara keluarga jakarta',
+      'pengacara hak asuh anak',
+      'pengacara waris',
+      'konsultan hukum keluarga',
+      'gugatan cerai',
+    ],
+    practitioner: { id: 'Pengacara Keluarga & Perceraian', en: 'Family & Divorce Lawyer' },
+    serviceType: 'Pendampingan hukum keluarga',
+    matchTerms: [
+      'keluarga',
+      'family',
+      'perceraian',
+      'cerai',
+      'divorce',
+      'hak asuh',
+      'custody',
+      'waris',
+      'inheritance',
+      'hibah',
+      'pranikah',
+      'prenuptial',
+      'nafkah',
+    ],
+  },
+  'hukum-properti': {
+    keywords: [
+      'pengacara sengketa tanah jakarta',
+      'pengacara sengketa tanah',
+      'pengacara properti jakarta',
+      'pengacara pertanahan',
+      'konsultan hukum properti',
+      'sengketa sertifikat ganda',
+    ],
+    practitioner: { id: 'Pengacara Sengketa Tanah & Properti', en: 'Land & Property Lawyer' },
+    serviceType: 'Pendampingan hukum properti dan pertanahan',
+    matchTerms: [
+      'properti',
+      'property',
+      'pertanahan',
+      'tanah',
+      'land',
+      'sertifikat',
+      'certificate',
+      'bpn',
+      'agraria',
+      'real estate',
+    ],
+  },
+  'hukum-ketenagakerjaan': {
+    keywords: [
+      'pengacara ketenagakerjaan jakarta',
+      'pengacara ketenagakerjaan',
+      'pengacara phk',
+      'konsultan hukum ketenagakerjaan',
+      'pengacara hubungan industrial',
+      'konsultasi pesangon',
+    ],
+    practitioner: { id: 'Pengacara Ketenagakerjaan', en: 'Employment Lawyer' },
+    serviceType: 'Pendampingan hukum ketenagakerjaan',
+    matchTerms: [
+      'ketenagakerjaan',
+      'tenaga kerja',
+      'employment',
+      'labor',
+      'labour',
+      'phk',
+      'pekerja',
+      'employee',
+      'hubungan industrial',
+      'industrial relations',
+      'pesangon',
+      'severance',
+      'termination',
+    ],
+  },
+  'hukum-ptun': {
+    keywords: [
+      'pengacara ptun jakarta',
+      'pengacara ptun',
+      'gugatan ptun',
+      'pembatalan ktun',
+      'sengketa tata usaha negara',
+      'pengacara sengketa asn',
+    ],
+    practitioner: { id: 'Pengacara PTUN', en: 'Administrative Court Lawyer' },
+    serviceType: 'Pendampingan sengketa tata usaha negara',
+    matchTerms: [
+      'ptun',
+      'tata usaha negara',
+      'ktun',
+      'administrative',
+      'administrasi negara',
+      'asn',
+      'kepegawaian',
+      'perizinan',
+      'licensing',
+    ],
+  },
+};
+
+export function getServiceSeo(slug: string): ServiceSeo | undefined {
+  return serviceSeo[slug];
+}

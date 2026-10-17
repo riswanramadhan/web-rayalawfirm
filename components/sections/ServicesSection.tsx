@@ -1,9 +1,10 @@
 import Link from 'next/link';
+import type { ReactNode } from 'react';
 import type { Locale } from '@/lib/i18n/config';
 import { getDictionary } from '@/lib/i18n/dictionaries';
 import { getServices } from '@/lib/i18n/localized-data';
 
-const serviceIcons: Record<string, React.ReactNode> = {
+const serviceIcons: Record<string, ReactNode> = {
   pidana: (
     <svg className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
       <path
@@ -78,42 +79,49 @@ export default function ServicesSection({ locale }: ServicesSectionProps) {
   const services = getServices(locale);
 
   return (
-    <section className="bg-white py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto flex w-full max-w-7xl flex-col space-y-12 px-6 sm:px-8 lg:px-16">
-        <div className="text-center" data-aos="fade-up">
-          <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-primary">
+    <section aria-labelledby="home-services-title" className="bg-white py-16 sm:py-20 lg:py-24">
+      <div className="mx-auto flex w-full max-w-7xl flex-col gap-10 px-4 sm:gap-12 sm:px-6 lg:px-16">
+        <div className="mx-auto max-w-3xl text-center" data-aos="fade-up">
+          <span className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-primary-700">
             {t.home.services.badge}
           </span>
-          <h2 className="mt-4 font-sans text-3xl font-bold tracking-tight text-dark lg:text-5xl">
+          <h2
+            id="home-services-title"
+            className="mt-4 text-balance font-sans text-2xl font-bold leading-tight tracking-tight text-dark sm:text-3xl lg:text-5xl"
+          >
             {t.home.services.title}
           </h2>
-          <p className="mt-4 font-body text-base text-dark/70 lg:text-lg">
+          <p className="mt-4 text-pretty font-body text-base leading-relaxed text-dark/70 lg:text-lg">
             {t.home.services.description}
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <ul className="grid grid-cols-1 gap-4 sm:gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
           {services.map((service, index) => (
-            <div
+            <li
               key={service.slug}
               data-aos="fade-up"
-              data-aos-delay={index * 100}
-              className="group flex flex-col rounded-2xl border border-gray-100 bg-white p-7 transition-all duration-300 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10"
+              data-aos-delay={(index % 3) * 100}
+              className="group relative flex min-w-0 flex-col rounded-2xl border border-gray-100 bg-white p-5 transition-all duration-300 focus-within:border-primary/30 focus-within:shadow-lg focus-within:shadow-primary/10 hover:border-primary/30 hover:shadow-lg hover:shadow-primary/10 sm:p-7"
             >
-              <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/8 text-primary transition-colors duration-300 group-hover:bg-primary/15">
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-primary transition-colors duration-300 group-hover:bg-primary/15 sm:mb-5" aria-hidden="true">
                 {serviceIcons[service.icon]}
               </div>
-              <h3 className="mb-3 font-sans text-xl font-semibold text-dark">
-                {service.title}
+              <h3 className="mb-2 break-words font-sans text-lg font-semibold leading-snug text-dark sm:mb-3 sm:text-xl">
+                {/* Seluruh kartu dapat diklik; teks tautan = nama layanan (baik untuk SEO). */}
+                <Link
+                  href={`/layanan/${service.slug}`}
+                  className="rounded-lg transition-colors after:absolute after:inset-0 after:rounded-2xl after:content-[''] group-hover:text-primary focus-visible:shadow-none focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-primary/60"
+                >
+                  {service.title}
+                </Link>
               </h3>
-              <p className="mb-5 font-body text-sm leading-relaxed text-dark/60">
-                {service.shortDesc}
-              </p>
-              <ul className="mb-6 flex-grow space-y-2">
+              <p className="mb-4 font-body text-[15px] leading-relaxed text-dark/65 sm:mb-5">{service.shortDesc}</p>
+              <ul className="mb-5 flex-grow space-y-2 sm:mb-6">
                 {service.highlights.slice(0, 3).map((item) => (
-                  <li key={item} className="flex items-center gap-2 text-sm text-dark/70">
+                  <li key={item} className="flex items-start gap-2 text-sm leading-snug text-dark/70">
                     <svg
-                      className="h-4 w-4 flex-shrink-0 text-primary"
+                      className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -126,42 +134,25 @@ export default function ServicesSection({ locale }: ServicesSectionProps) {
                   </li>
                 ))}
               </ul>
-              <div className="mt-auto border-t border-gray-100 pt-5">
-                <Link
-                  href={`/layanan/${service.slug}`}
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-all duration-200 hover:gap-3"
-                >
+              <div className="mt-auto border-t border-gray-100 pt-4 sm:pt-5" aria-hidden="true">
+                <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary transition-all duration-200 group-hover:gap-3">
                   {t.common.learnMore}
-                  <svg
-                    className="h-4 w-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    aria-hidden="true"
-                  >
+                  <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                   </svg>
-                </Link>
+                </span>
               </div>
-            </div>
+            </li>
           ))}
-        </div>
+        </ul>
 
         <div className="flex justify-center" data-aos="fade-up">
           <Link
             href="/layanan"
-            className="inline-flex items-center gap-2 rounded-xl border border-primary/30 px-6 py-3 text-sm font-semibold text-primary transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/10"
+            className="inline-flex min-h-[48px] w-full items-center justify-center gap-2 rounded-xl border border-primary/30 px-6 py-3 text-sm font-semibold text-primary-700 transition-all duration-300 hover:-translate-y-0.5 hover:bg-primary/10 xs:w-auto"
           >
             {t.home.services.viewAll}
-            <svg
-              className="h-4 w-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-              aria-hidden="true"
-            >
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
             </svg>
           </Link>
