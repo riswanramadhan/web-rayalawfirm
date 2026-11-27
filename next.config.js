@@ -23,6 +23,11 @@ const nextConfig = {
   poweredByHeader: false,
   images: {
     minimumCacheTTL: 31536000,
+    // Hemat kuota Vercel Image Optimization: 7 ukuran saja di srcset
+    // (default 16 ukuran per gambar). Semuanya subset dari ukuran default,
+    // jadi cache yang sudah ada tetap terpakai.
+    deviceSizes: [640, 828, 1200, 1920],
+    imageSizes: [128, 256, 384],
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com' },
       // Hanya project Supabase milik situs ini (bukan *.supabase.co) agar optimizer tidak jadi proxy publik.
